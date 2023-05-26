@@ -1,25 +1,28 @@
 // Este es el punto de entrada de tu aplicacion
-import { inicio } from './components/inicio.js';
+
 import './app/firebase.js';
 import './components/inicio.js';
+import { inicio } from './components/inicio.js';
 
-import { myFunction } from './lib/index.js';
+//import { myFunction } from './lib/index.js';
 
-inicio();
-myFunction();
+//myFunction();
 
 const rutaDiv = document.getElementById('rutaDiv');
 
 const rutas = {
-   '/': inicio,
-}
+    '/': inicio,
+ }
 
 export const onNavigate = (pathname) => {
     window.history.pushState(
       {},
       pathname,
-      window.location.origin + pathname,
-    );}
+      window.location.inicio + pathname,
+    );
+    rutaDiv.appendChild(rutas[pathname]());
+}
+const component = rutas[window.location.pathname];
 
+rutaDiv.appendChild(component());
 
-rootDiv.appendChild(component());    
