@@ -4,7 +4,7 @@ import './app/firebase.js';
 const rutaDiv = document.getElementById('rutaDiv');
 
 const rutas = {
-   '/': inicio
+   '/': inicio,
 };
 
 export const onNavigate = (pathname) => {
