@@ -1,25 +1,33 @@
-// Este es el punto de entrada de tu aplicacion
 import { inicio } from './components/inicio.js';
 import './app/firebase.js';
-import './components/inicio.js';
-
-import { myFunction } from './lib/index.js';
-
-inicio();
-myFunction();
 
 const rutaDiv = document.getElementById('rutaDiv');
 
 const rutas = {
-   '/': inicio,
-}
+   '/': inicio
+};
 
 export const onNavigate = (pathname) => {
-    window.history.pushState(
-      {},
-      pathname,
-      window.location.origin + pathname,
-    );}
+  window.history.pushState(
+    {},
+    pathname,
+    window.location.origin + pathname,
+  );
 
+  while (rutaDiv.firstChild) {
+    rutaDiv.removeChild(rutaDiv.firstChild);
+  }
 
-rootDiv.appendChild(component());    
+  rutaDiv.appendChild(rutas[pathname]());
+};
+
+const component = rutas[window.location.pathname];
+
+window.onpopstate = () => {
+  while (rutaDiv.firstChild) {
+    rutaDiv.removeChild(rutaDiv.firstChild);
+  }
+  rutaDiv.appendChild(rutas[window.location.pathname]());
+};
+
+rutaDiv.appendChild(component());    
