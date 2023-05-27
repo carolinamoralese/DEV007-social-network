@@ -1,14 +1,11 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+//web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBJIVQJUZhd6qepXTzTYDouzHUYqp32qXY",
   authDomain: "mountainme-a55a7.firebaseapp.com",
@@ -21,39 +18,23 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// se define el proverdor de autenticacion de cta
 const provider = new GoogleAuthProvider();
+//obtiene los servicios de autenticacion
+const auth = getAuth();
 
-export function autenticaGoogle() {
-  const auth = getAuth();
-result = signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    console.log(user)
 
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
-  }).catch((error) => {
-    console.log(error)
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
+export function loginGoogle() {
+  //es una funcion de la libreria que permite hacer login con google en popup
+  signInWithPopup(auth, provider)
+  .catch((error) => {
+    console.log(error.message);
   });
-
-  console.log(result)
-
-  return result;
-
 }
+
+export function logoutGoogle(){
+  signOut(auth);
+} 
 
 
 

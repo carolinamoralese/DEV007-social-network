@@ -1,13 +1,9 @@
 import { inicio } from './components/inicio.js';
-import {registroGoogle } from './components/registroGoogle.js';
-
 
 const rutaDiv = document.getElementById('rutaDiv');
 
 const rutas = {
    '/': inicio,
-   '/Google':registroGoogle,
-   
 };
 
 export const onNavigate = (pathname) => {
