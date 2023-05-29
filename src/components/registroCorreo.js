@@ -4,7 +4,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 export const registroCorreo = () => {
     const registroCorreoDiv = document.createElement('div');
     const botonRegistrate = document.createElement('button');
-    const formularioRegistro = document.createElement('form');
+    const formularioRegistro = document.createElement('div');
     const nameNewUser = document.createElement('input');
     const mailNewUser = document.createElement('input');
     const passNewUser = document.createElement('input');
@@ -52,14 +52,14 @@ const registro = () => {
    const mailNewUser = document.getElementById('mailNewUser').value;
    const passNewUser = document.getElementById('passNewUser').value;
    const confirPass = document.getElementById('confirPass').value;  
-   registroMail(mailNewUser, passNewUser)
+   registroMail( mailNewUser, passNewUser)
 }
 
 const registroMail = (email, password) =>{
 const auth = getAuth(); 
 createUserWithEmailAndPassword(auth, email, password)
   .then((result) => {
-    console.log(result)
+    //console.log(result)
     // Signed in
     onNavigate('/Home')
   })
