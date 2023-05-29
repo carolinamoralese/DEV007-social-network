@@ -1,4 +1,5 @@
 import { onNavigate } from '../main.js';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 export const registroCorreo = () => {
     const registroCorreoDiv = document.createElement('div');
@@ -12,18 +13,22 @@ export const registroCorreo = () => {
     nameNewUser.setAttribute("type", "text");
     nameNewUser.setAttribute("name", "username");
     nameNewUser.setAttribute("placeholder", "Selecciona tu nombre de usuario");
+    nameNewUser.setAttribute('id', 'nameNewUser')
 
     mailNewUser.setAttribute("type", "text");
     mailNewUser.setAttribute("name", "email");
     mailNewUser.setAttribute("placeholder", "Ingresa tu correo");
+    mailNewUser.setAttribute('id', 'mailNewUser')
 
     passNewUser.setAttribute("type", "password");
     passNewUser.setAttribute("name", "password");
     passNewUser.setAttribute("placeholder", "Selecciona tu contraseña");
+    passNewUser.setAttribute('id', 'passNewUser')
 
     confirPass.setAttribute("type", "password");
     confirPass.setAttribute("name", "password2");
     confirPass.setAttribute("placeholder", "Confirma tu contraseña");
+    confirPass.setAttribute('id', 'confirPass')
 
     botonRegistrate.textContent = 'Holaaaaa';
     
@@ -37,5 +42,29 @@ export const registroCorreo = () => {
     formularioRegistro.appendChild(confirPass);
     formularioRegistro.appendChild(botonRegistrate);
 
+    botonRegistrate.addEventListener('click', registro);
+
     return registroCorreoDiv;
 };
+
+const registro = () => {
+   const nameNewUser = document.getElementById('nameNewUser').value;
+   const mailNewUser = document.getElementById('mailNewUser').value;
+   const passNewUser = document.getElementById('passNewUser').value;
+   const confirPass = document.getElementById('confirPass').value;  
+   registroMail(mailNewUser, passNewUser)
+}
+
+const registroMail = (email, password) =>{
+const auth = getAuth(); 
+createUserWithEmailAndPassword(auth, email, password)
+  .then((result) => {
+    console.log(result)
+    // Signed in
+    onNavigate('/Home')
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+};
+
