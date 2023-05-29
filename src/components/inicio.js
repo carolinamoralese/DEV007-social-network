@@ -3,11 +3,17 @@ import {registroGoogle} from './registroGoogle.js'
 
 
 export const inicio = () => {
+
     const inicioDiv = document.createElement('div');
     const botonInicio = document.createElement('button');
     const botonRegistro = document.createElement('button');
     const botonGoogle = document.createElement ('button');
     
+    inicioDiv.classList.add("inicioDiv")
+    botonInicio.classList.add("botonInicio")
+    botonRegistro.classList.add("botonRegistro")
+    botonGoogle.classList.add("botonGoogle")
+
     botonInicio.textContent = 'Inicia Sesion';
     botonRegistro.textContent = 'Registrate';
     botonGoogle.textContent = 'Ingresa con Google';
