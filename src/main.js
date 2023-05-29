@@ -1,5 +1,4 @@
 import { inicio } from './components/inicio.js';
-import './app/firebase.js';
 
 const rutaDiv = document.getElementById('rutaDiv');
 
