@@ -18,4 +18,6 @@ onAuthStateChanged(auth, (usuario) =>{
 export const registroGoogle = () => {
     //ejecuta la funcion para realizar el registro con google
     loginGoogle()
+ 
 }
+

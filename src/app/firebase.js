@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
-
+import { onNavigate } from "../main";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -27,6 +27,9 @@ const auth = getAuth();
 export function loginGoogle() {
   //es una funcion de la libreria que permite hacer login con google en popup
   signInWithPopup(auth, provider)
+  .then((result) => {
+    onNavigate('/Home')
+  })
   .catch((error) => {
     console.log(error.message);
   });
