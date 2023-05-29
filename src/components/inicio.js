@@ -19,7 +19,7 @@ export const inicio = () => {
     botonRegistro.textContent = 'Registrate';
     botonGoogle.textContent = 'Ingresa con Google';
     
-    botonInicio.addEventListener('click', () => onNavigate('/Inicio'));
+    botonInicio.addEventListener('click', () => onNavigate('/InicioSesion'));
     botonRegistro.addEventListener('click', () => onNavigate('/Registro'));
     botonGoogle.addEventListener('click', () => registroGoogle());
 

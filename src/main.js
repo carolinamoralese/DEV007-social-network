@@ -1,5 +1,6 @@
 import { inicio } from './components/inicio.js';
 import { Home } from './components/Home.js';
+import { inicioSesion } from './components/inicioSesion.js';
 import { registroCorreo } from './components/registroCorreo.js';
 
 const rutaDiv = document.getElementById('rutaDiv');
@@ -7,6 +8,7 @@ const rutaDiv = document.getElementById('rutaDiv');
 const rutas = {
    '/': inicio,
    '/Home': Home,
+   '/InicioSesion': inicioSesion,
    '/Registro': registroCorreo,
 };
 

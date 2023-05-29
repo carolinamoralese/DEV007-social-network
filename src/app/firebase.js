@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { onNavigate } from "../main";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -43,3 +43,20 @@ export function logoutGoogle(){
 
 ///https://firebase.google.com/docs/auth/web/google-signin?hl=es
 // se hizo el paso 1 y paso 5
+
+
+export function loginEmail(email,password){
+  signInWithEmailAndPassword(auth, email, password)
+    .then((result) => {
+      // Signed in
+      onNavigate('/Home')
+      
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+}
+
+
+//https://firebase.google.com/docs/auth/web/start?hl=es
+//se hizo el paso de acceso de usuaios existentes

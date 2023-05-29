@@ -110,6 +110,21 @@ body {
 background-color: black;
 }
 
+.inicioSesionDiv .botonIngresar {
+    grid-area: botonInicio;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 16px 30px;
+    text-decoration: none;
+    background: linear-gradient(#f2f2f2, #d8d8d8);
+    border-left: 1px solid #f6f6f6;
+    border-right: 1px solid #e4e4e4;
+    text-align: center;
+  }
+
+
+
 footer{
     height: 2rem;
     background-color: rgba(0, 0, 0, 0.678);
