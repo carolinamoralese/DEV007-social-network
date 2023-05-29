@@ -1,11 +1,13 @@
 import { inicio } from './components/inicio.js';
 import { Home } from './components/Home.js';
+import { inicioSesion } from './components/inicioSesion.js';
 
 const rutaDiv = document.getElementById('rutaDiv');
 
 const rutas = {
    '/': inicio,
-   '/Home': Home
+   '/Home': Home,
+   '/InicioSesion': inicioSesion,
 };
 
 export const onNavigate = (pathname) => {
