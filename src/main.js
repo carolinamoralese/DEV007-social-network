@@ -1,11 +1,13 @@
 import { inicio } from './components/inicio.js';
 import { Home } from './components/Home.js';
+import { registroCorreo } from './components/registroCorreo.js';
 
 const rutaDiv = document.getElementById('rutaDiv');
 
 const rutas = {
    '/': inicio,
-   '/Home': Home
+   '/Home': Home,
+   '/Registro': registroCorreo,
 };
 
 export const onNavigate = (pathname) => {
