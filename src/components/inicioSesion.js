@@ -1,6 +1,5 @@
 import { onNavigate } from '../main.js';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import {loginEmail} from '../app/firebase.js';
 
 const auth = getAuth();
 
@@ -51,3 +50,15 @@ export const validarDatos = () => {
     loginEmail(correo, password)
  
 }
+
+function loginEmail(email,password){
+    signInWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        // Signed in
+        onNavigate('/Home')
+        
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  }
