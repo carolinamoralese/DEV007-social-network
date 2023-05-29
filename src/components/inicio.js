@@ -1,5 +1,6 @@
 import { onNavigate } from '../main.js';
 import {registroGoogle} from './registroGoogle.js'
+import { registroCorreo } from './registroCorreo.js';
 
 
 export const inicio = () => {

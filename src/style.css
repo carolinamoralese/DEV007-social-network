@@ -106,6 +106,9 @@ body {
   background-repeat: no-repeat;
 }
 
+.registroCorreoDiv{
+background-color: black;
+}
 
 .inicioSesionDiv .botonIngresar {
     grid-area: botonInicio;
