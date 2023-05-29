@@ -1,23 +1,42 @@
+import { initializeApp } from "firebase/app";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyBJIVQJUZhd6qepXTzTYDouzHUYqp32qXY",
-    authDomain: "mountainme-a55a7.firebaseapp.com",
-    projectId: "mountainme-a55a7",
-    storageBucket: "mountainme-a55a7.appspot.com",
-    messagingSenderId: "854126143691",
-    appId: "1:854126143691:web:cccb26de4c85d8151b934e",
-    measurementId: "G-QEFDFP4RZ8"
-  };
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Initialize Firebase
-   export const app = initializeApp(firebaseConfig);
-   console.log(app);
-  const analytics = getAnalytics(app);
+//web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBJIVQJUZhd6qepXTzTYDouzHUYqp32qXY",
+  authDomain: "mountainme-a55a7.firebaseapp.com",
+  projectId: "mountainme-a55a7",
+  storageBucket: "mountainme-a55a7.appspot.com",
+  messagingSenderId: "854126143691",
+  appId: "1:854126143691:web:cccb26de4c85d8151b934e",
+  measurementId: "G-QEFDFP4RZ8"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+// se define el proverdor de autenticacion de cta
+const provider = new GoogleAuthProvider();
+//obtiene los servicios de autenticacion
+const auth = getAuth();
+
+
+export function loginGoogle() {
+  //es una funcion de la libreria que permite hacer login con google en popup
+  signInWithPopup(auth, provider)
+  .catch((error) => {
+    console.log(error.message);
+  });
+}
+
+export function logoutGoogle(){
+  signOut(auth);
+} 
+
+
+
+///https://firebase.google.com/docs/auth/web/google-signin?hl=es
+// se hizo el paso 1 y paso 5

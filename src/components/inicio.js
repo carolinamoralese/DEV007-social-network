@@ -1,4 +1,6 @@
 import { onNavigate } from '../main.js';
+import {registroGoogle} from './registroGoogle.js'
+
 
 export const inicio = () => {
     const inicioDiv = document.createElement('div');
@@ -12,7 +14,7 @@ export const inicio = () => {
     
     botonInicio.addEventListener('click', () => onNavigate('/Inicio'));
     botonRegistro.addEventListener('click', () => onNavigate('/Registro'));
-    botonGoogle.addEventListener('click', () => onNavigate('/Google'));
+    botonGoogle.addEventListener('click', () => registroGoogle());
 
     inicioDiv.appendChild(botonInicio);
     inicioDiv.appendChild(botonRegistro);
