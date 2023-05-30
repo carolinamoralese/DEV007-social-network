@@ -8,7 +8,7 @@ export function loginGoogle(onNavigate) {
     //es una funcion de la libreria que permite hacer login con google en popup
     signInWithPopup(auth, provider)
     .then((result) => {
-      onNavigate('/Home')
+      onNavigate('/FotoPerfil')
     })
     .catch((error) => {
       console.log(error.message);

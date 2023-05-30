@@ -2,6 +2,7 @@ import { inicio } from './components/inicio.js';
 import { Home } from './components/Home.js';
 import { inicioSesion } from './components/inicioSesion.js';
 import { registroCorreo } from './components/registroCorreo.js';
+import { FotoPerfil } from './components/FotoPerfil.js';
 
 const rutaDiv = document.getElementById('rutaDiv');
 
@@ -24,6 +25,7 @@ const rutas = {
    '/Home': Home(onNavigate),
    '/InicioSesion': inicioSesion(onNavigate),
    '/Registro': registroCorreo(onNavigate),
+   '/FotoPerfil':FotoPerfil(onNavigate)
 };
 
 
