@@ -5,14 +5,7 @@ import { registroCorreo } from './components/registroCorreo.js';
 
 const rutaDiv = document.getElementById('rutaDiv');
 
-const rutas = {
-   '/': inicio,
-   '/Home': Home,
-   '/InicioSesion': inicioSesion,
-   '/Registro': registroCorreo,
-};
-
-export const onNavigate = (pathname) => {
+const onNavigate = (pathname) => {
   window.history.pushState(
     {},
     pathname,
@@ -23,16 +16,25 @@ export const onNavigate = (pathname) => {
     rutaDiv.removeChild(rutaDiv.firstChild);
   }
 
-  rutaDiv.appendChild(rutas[pathname]());
+  rutaDiv.appendChild(rutas[pathname]);
 };
 
-const component = rutas[window.location.pathname];
+const rutas = {
+   '/': inicio(onNavigate),
+   '/Home': Home(onNavigate),
+   '/InicioSesion': inicioSesion(onNavigate),
+   '/Registro': registroCorreo(onNavigate),
+};
+
+
+
+const component = () => rutas[window.location.pathname];
 
 window.onpopstate = () => {
   while (rutaDiv.firstChild) {
     rutaDiv.removeChild(rutaDiv.firstChild);
   }
-  rutaDiv.appendChild(rutas[window.location.pathname]());
+  rutaDiv.appendChild(rutas[window.location.pathname]);
 };
 
 rutaDiv.appendChild(component());    

@@ -1,11 +1,14 @@
-import { onNavigate } from '../main.js';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
-const auth = getAuth();
+//import { onNavigate } from '../main.js';
+import { validarDatos } from "./utils.js"
 
 
-export const inicioSesion = () => {
-    
+
+export const inicioSesion = (onNavigate) => {
+    document.body.style.backgroundColor = "#E6F2F4"
+    document.body.style.backgroundImage = 'url("imagenes/Fondo2.jpg")';
+    document.body.style.backgroundRepeat = "no-repeat"; 
+    document.body.style.backgroundSize = "contain";
+    document.body.style.backgroundPosition = "bottom center";
 
     const inicioSesionDiv = document.createElement('div');
     const inputCorreo = document.createElement('input');
@@ -21,11 +24,15 @@ export const inicioSesion = () => {
 
     inputPassword.type = "password"
     inputPassword.id = "password"
-    inputPassword.placeholder = "Clave"
+    inputPassword.placeholder = "Ingresa tu contraseña"
     inputPassword.required
 
+    inicioSesionDiv.classList.add("inicioSesionDiv")
+    textoBienvenida.classList.add("textoBienvenida")
+    inputCorreo.classList.add("inputCorreo")
+    inputPassword.classList.add("inputPassword")
     botonIngresar.classList.add("botonIngresar")
-
+    
     textoBienvenida.textContent = "¡BIENVENIDO DE VUELTA!"
     botonIngresar.textContent = "INGRESA"
    
@@ -41,24 +48,3 @@ export const inicioSesion = () => {
     
 }
 
-export const validarDatos = () => {
-    
-    const correo = document.getElementById("email").value
-    const password = document.getElementById("password").value
-    
-    //ejecuta la funcion para realizar el registro con correo
-    loginEmail(correo, password)
- 
-}
-
-function loginEmail(email,password){
-    signInWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        // Signed in
-        onNavigate('/Home')
-        
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-  }

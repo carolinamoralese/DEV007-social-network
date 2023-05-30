@@ -1,8 +1,23 @@
-import {loginGoogle} from '../app/firebase.js';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { provider } from '../app/firebase.js';
+import { getAuth, onAuthStateChanged, signInWithPopup } from "firebase/auth";
 
 let usuarioActual ;
 const auth = getAuth();
+
+export function loginGoogle(onNavigate) {
+    //es una funcion de la libreria que permite hacer login con google en popup
+    signInWithPopup(auth, provider)
+    .then((result) => {
+      onNavigate('/Home')
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+  }
+  
+  export function logoutGoogle(){
+    signOut(auth);
+  } 
 
 onAuthStateChanged(auth, (usuario) =>{
     //si hay un usuario que aparezca usuario logueado
@@ -15,9 +30,9 @@ onAuthStateChanged(auth, (usuario) =>{
     }
 })
 
-export const registroGoogle = () => {
+export const registroGoogle = (onNavigate) => {
     //ejecuta la funcion para realizar el registro con google
-    loginGoogle()
+    loginGoogle(onNavigate)
  
 }
 

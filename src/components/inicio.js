@@ -1,10 +1,17 @@
-import { onNavigate } from '../main.js';
 import {registroGoogle} from './registroGoogle.js'
-import { registroCorreo } from './registroCorreo.js';
 
 
-export const inicio = () => {
+export const inicio = (onNavigate) => {
+    const eslogan = document.getElementById('eslogan');
+    eslogan.style.display = 'block';
+    document.body.style.backgroundImage = 'url("imagenes/Fondo1.png")';
+    document.body.style.backgroundRepeat = "no-repeat"; 
+    document.body.style.backgroundSize = "contain";
+    document.body.style.backgroundPosition = "center center";
+    document.body.style.backgroundColor = "#E6F2F4"
 
+
+    //const inicioTotal = document.getElementById('inicioTotal');
     const inicioDiv = document.createElement('div');
     const botonInicio = document.createElement('button');
     const botonRegistro = document.createElement('button');
@@ -19,14 +26,30 @@ export const inicio = () => {
     botonRegistro.textContent = 'Registrate';
     botonGoogle.textContent = 'Ingresa con Google';
     
-    botonInicio.addEventListener('click', () => onNavigate('/InicioSesion'));
-    botonRegistro.addEventListener('click', () => onNavigate('/Registro'));
-    botonGoogle.addEventListener('click', () => registroGoogle());
+    //botonInicio.addEventListener('click', () => onNavigate('/InicioSesion'));
+    botonInicio.addEventListener('click', () => {
+        eslogan.style.display = 'none';
+        onNavigate('/InicioSesion');
+      });
+    
+    //botonRegistro.addEventListener('click', () => onNavigate('/Registro'));
+    botonRegistro.addEventListener('click', () => {
+        eslogan.style.display = 'none';
+        onNavigate('/Registro');
+      });
+    
+    //botonGoogle.addEventListener('click', () => registroGoogle());
+    botonGoogle.addEventListener('click', () => {
+        registroGoogle(onNavigate);
+      });
+
 
     inicioDiv.appendChild(botonInicio);
     inicioDiv.appendChild(botonRegistro);
     inicioDiv.appendChild(botonGoogle);
 
+    //inicioTotal.style.display = 'none';
+    
     return inicioDiv;
 }
 
