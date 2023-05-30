@@ -27,24 +27,42 @@ export function loginEmail(email,password){
   /*------------------------------------FUNCIONES REGISTRO CORREO -------------------------------------------*/
 
   import { createUserWithEmailAndPassword } from "@firebase/auth";
+  import { registroCorreo } from "./registroCorreo";
 
-  export const registro = () => {
+  export const registro = (onNavigate) => {
     const nameNewUser = document.getElementById('nameNewUser').value;
     const mailNewUser = document.getElementById('mailNewUser').value;
     const passNewUser = document.getElementById('passNewUser').value;
     const confirPass = document.getElementById('confirPass').value;  
-    registroMail( mailNewUser, passNewUser)
+
+    const expresionRegular = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+    if(nameNewUser !== "" && mailNewUser !== "" && passNewUser !=="" && confirPass !== ""){
+      
+     // return 
+     alert("Debes de llenar todos los campos")
+    }else{
+      console.log("campos llenos")
+    }
+    if(expresionRegular.test(passNewUser) ){
+      registroMail( mailNewUser, passNewUser, onNavigate)
+    }else{
+      alert("Tu contraseña debe incluir los siguientes caracteres:\n Aa1@")
+    }
+
+   
+
  }
  
- const registroMail = (email, password) =>{
+ const registroMail = (email, password, onNavigate) =>{
  const auth = getAuth(); 
  createUserWithEmailAndPassword(auth, email, password)
    .then((result) => {
      //console.log(result)
      // Signed in
-     onNavigate('/Home')
+     onNavigate('/FotoPerfil')
    })
    .catch((error) => {
      console.log(error);
    });
  };
+

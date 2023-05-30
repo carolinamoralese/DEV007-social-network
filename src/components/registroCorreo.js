@@ -1,6 +1,6 @@
 import { registro } from './utils.js';
 
-export const registroCorreo = () => {
+export const registroCorreo = (onNavigate) => {
     document.body.style.backgroundColor = "#E6F2F4"
     document.body.style.backgroundImage = 'url("imagenes/Fondo2.jpg")';
     document.body.style.backgroundRepeat = "no-repeat"; 
@@ -31,13 +31,13 @@ export const registroCorreo = () => {
     mailNewUser.setAttribute('id', 'mailNewUser')
     mailNewUser.required
 
-    passNewUser.setAttribute("type", "password");
+    passNewUser.setAttribute("type", "text");
     passNewUser.setAttribute("name", "password");
     passNewUser.setAttribute("placeholder", "Selecciona tu contraseña");
     passNewUser.setAttribute('id', 'passNewUser')
     passNewUser.required
 
-    confirPass.setAttribute("type", "password");
+    confirPass.setAttribute("type", "text");
     confirPass.setAttribute("name", "password2");
     confirPass.setAttribute("placeholder", "Confirma tu contraseña");
     confirPass.setAttribute('id', 'confirPass')
@@ -69,7 +69,9 @@ export const registroCorreo = () => {
     registroCorreoDiv.appendChild(botonRegistrate);
     registroCorreoDiv.appendChild(textoPrivacidad);
 
-    botonRegistrate.addEventListener('click', registro);
+    botonRegistrate.addEventListener('click',() => {
+      registro(onNavigate)}
+    );
 
     return registroCorreoDiv;
 };
