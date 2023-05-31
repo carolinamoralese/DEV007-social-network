@@ -25,9 +25,9 @@ export const provider = new GoogleAuthProvider();
 const auth = getAuth();
 
 
-const firebase = require('firebase');
-require("firebase/firestore");
-const db = getFirestore(app);
+//const firebase = require('firebase');
+//require("firebase/firestore");
+//const db = getFirestore(app);
 
 
 
