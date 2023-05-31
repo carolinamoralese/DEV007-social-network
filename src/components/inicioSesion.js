@@ -1,14 +1,20 @@
-//import { onNavigate } from '../main.js';
 import { validarDatos } from "./utils.js"
 
-
+export const fondo2 = () => {
+  eslogan.style.display = 'none';
+  document.body.style.backgroundColor = "#E6F2F4"
+  document.body.style.backgroundImage = 'url("imagenes/Fondo2.jpg")';
+  document.body.style.backgroundRepeat = "no-repeat"; 
+  document.body.style.backgroundSize = "contain";
+  document.body.style.backgroundPosition = "bottom center";
+}
 
 export const inicioSesion = (onNavigate) => {
-    document.body.style.backgroundColor = "#E6F2F4"
+    /*document.body.style.backgroundColor = "#E6F2F4"
     document.body.style.backgroundImage = 'url("imagenes/Fondo2.jpg")';
     document.body.style.backgroundRepeat = "no-repeat"; 
     document.body.style.backgroundSize = "contain";
-    document.body.style.backgroundPosition = "bottom center";
+    document.body.style.backgroundPosition = "bottom center";*/
 
     const inicioSesionDiv = document.createElement('div');
     const inputCorreo = document.createElement('input');

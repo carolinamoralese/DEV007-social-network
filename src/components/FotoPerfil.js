@@ -1,13 +1,15 @@
 import { Home } from "./Home";
+import { fondo2 } from './inicioSesion.js';
 
 export const FotoPerfil = (onNavigate) => {
-    const eslogan = document.getElementById('eslogan');
+  /*fondo2()*/
+    /*const eslogan = document.getElementById('eslogan');
     eslogan.style.display = 'none';
     document.body.style.backgroundColor = "#E6F2F4"
     document.body.style.backgroundImage = 'url("imagenes/Fondo2.jpg")';
     document.body.style.backgroundRepeat = "no-repeat"; 
     document.body.style.backgroundSize = "contain";
-    document.body.style.backgroundPosition = "bottom center";
+    document.body.style.backgroundPosition = "bottom center";*/
 
 
     const contendorDiv = document.createElement('div');

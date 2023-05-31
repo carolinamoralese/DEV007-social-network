@@ -1,11 +1,11 @@
 import { registro } from './utils.js';
 
 export const registroCorreo = (onNavigate) => {
-    document.body.style.backgroundColor = "#E6F2F4"
+    /*document.body.style.backgroundColor = "#E6F2F4"
     document.body.style.backgroundImage = 'url("imagenes/Fondo2.jpg")';
     document.body.style.backgroundRepeat = "no-repeat"; 
     document.body.style.backgroundSize = "contain";
-    document.body.style.backgroundPosition = "bottom center";
+    document.body.style.backgroundPosition = "bottom center";*/
 
 
     const registroCorreoDiv = document.createElement('div');
@@ -31,13 +31,13 @@ export const registroCorreo = (onNavigate) => {
     mailNewUser.setAttribute('id', 'mailNewUser')
     mailNewUser.required
 
-    passNewUser.setAttribute("type", "text");
+    passNewUser.setAttribute("type", "password");
     passNewUser.setAttribute("name", "password");
     passNewUser.setAttribute("placeholder", "Selecciona tu contraseña");
     passNewUser.setAttribute('id', 'passNewUser')
     passNewUser.required
 
-    confirPass.setAttribute("type", "text");
+    confirPass.setAttribute("type", "password");
     confirPass.setAttribute("name", "password2");
     confirPass.setAttribute("placeholder", "Confirma tu contraseña");
     confirPass.setAttribute('id', 'confirPass')

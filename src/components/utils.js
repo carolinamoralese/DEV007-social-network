@@ -36,28 +36,24 @@ export function loginEmail(email,password, onNavigate){
     const confirPass = document.getElementById('confirPass').value;  
 
     const expresionRegular = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-    if(nameNewUser == "" || mailNewUser == "" || passNewUser =="" || confirPass == ""){
-     alert("Debes de llenar todos los campos")
-     return false
-    }else{
-      console.log("campos llenos")
+    if (nameNewUser === "" || mailNewUser === "" || passNewUser === "" || confirPass === ""){ 
+     return alert("Debes de llenar todos los campos")
     }
-    if(passNewUser !== confirPass){
-      return alert("las contraseñas deben de coincidir")
-      return false
-     }
-
+    
+    if (passNewUser !== confirPass) {
+        return alert("Las contraseñas deben coincidir")
+        
+    } 
+    
     if(expresionRegular.test(passNewUser) ){
       registroMail( mailNewUser, passNewUser, onNavigate)
-    }else{
-      alert("Tu contraseña debe incluir los siguientes caracteres:\n Aa1@")
-      return false
+
+    } else {
+        alert("Tu contraseña debe incluir los siguientes caracteres:\n Aa1@")
     }
-
-   
-
  }
  
+
  const registroMail = (email, password, onNavigate) =>{
  const auth = getAuth(); 
  createUserWithEmailAndPassword(auth, email, password)

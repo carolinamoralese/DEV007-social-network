@@ -1,4 +1,5 @@
 import {registroGoogle} from './registroGoogle.js'
+import { fondo2 } from './inicioSesion.js';
 
 
 export const inicio = (onNavigate) => {
@@ -30,12 +31,14 @@ export const inicio = (onNavigate) => {
     botonInicio.addEventListener('click', () => {
         eslogan.style.display = 'none';
         onNavigate('/InicioSesion');
+        fondo2()
       });
     
     //botonRegistro.addEventListener('click', () => onNavigate('/Registro'));
     botonRegistro.addEventListener('click', () => {
         eslogan.style.display = 'none';
         onNavigate('/Registro');
+        fondo2()
       });
     
     //botonGoogle.addEventListener('click', () => registroGoogle());
