@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { required } from "yargs";
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -27,7 +27,9 @@ const auth = getAuth();
 
 //const firebase = require('firebase');
 //require("firebase/firestore");
-//const db = getFirestore(app);
+export const db = getFirestore(app);
+
+
 
 
 
