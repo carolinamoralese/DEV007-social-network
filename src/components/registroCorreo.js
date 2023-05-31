@@ -1,3 +1,4 @@
+import { async } from 'regenerator-runtime';
 import { registro } from './utils.js';
 
 export const registroCorreo = (onNavigate) => {
@@ -69,12 +70,19 @@ export const registroCorreo = (onNavigate) => {
     registroCorreoDiv.appendChild(botonRegistrate);
     registroCorreoDiv.appendChild(textoPrivacidad);
 
+    /*registroCorreoDiv.querySelector('.botonRegistrate').addEventListener('click', async () => { 
+      const nameUser = registroCorreoDiv.querySelector('.nameNewUser')
+
+    })*/
+
     botonRegistrate.addEventListener('click',() => {
-      registro(onNavigate)}
+      registro(onNavigate)} //aqui es donde va los del adddoc
     );
 
     return registroCorreoDiv;
 };
+
+
 
 
 
