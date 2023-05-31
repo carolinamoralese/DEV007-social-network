@@ -2,17 +2,17 @@
 
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-export const validarDatos = () => {
+export const validarDatos = (onNavigate) => {
     
     const correo = document.getElementById("email").value
     const password = document.getElementById("password").value
     
     //ejecuta la funcion para realizar el registro con correo
-    loginEmail(correo, password)
+    loginEmail(correo, password, onNavigate)
 }
 
 const auth = getAuth();
-export function loginEmail(email,password){
+export function loginEmail(email,password, onNavigate){
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         // Signed in
@@ -36,17 +36,22 @@ export function loginEmail(email,password){
     const confirPass = document.getElementById('confirPass').value;  
 
     const expresionRegular = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-    if(nameNewUser !== "" && mailNewUser !== "" && passNewUser !=="" && confirPass !== ""){
-      
-     // return 
+    if(nameNewUser == "" || mailNewUser == "" || passNewUser =="" || confirPass == ""){
      alert("Debes de llenar todos los campos")
+     return false
     }else{
       console.log("campos llenos")
     }
+    if(passNewUser !== confirPass){
+      return alert("las contraseñas deben de coincidir")
+      return false
+     }
+
     if(expresionRegular.test(passNewUser) ){
       registroMail( mailNewUser, passNewUser, onNavigate)
     }else{
       alert("Tu contraseña debe incluir los siguientes caracteres:\n Aa1@")
+      return false
     }
 
    

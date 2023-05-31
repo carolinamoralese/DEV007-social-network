@@ -43,7 +43,9 @@ export const inicioSesion = (onNavigate) => {
     inicioSesionDiv.appendChild(inputPassword);
     inicioSesionDiv.appendChild(botonIngresar);
 
-    botonIngresar.addEventListener('click', validarDatos)
+    botonIngresar.addEventListener('click', () =>{
+        validarDatos(onNavigate)
+    })
     return inicioSesionDiv
     
 }
