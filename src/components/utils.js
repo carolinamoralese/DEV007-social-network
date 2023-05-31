@@ -2,17 +2,17 @@
 
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-export const validarDatos = () => {
+export const validarDatos = (onNavigate) => {
     
     const correo = document.getElementById("email").value
     const password = document.getElementById("password").value
     
     //ejecuta la funcion para realizar el registro con correo
-    loginEmail(correo, password)
+    loginEmail(correo, password, onNavigate)
 }
 
 const auth = getAuth();
-export function loginEmail(email,password){
+export function loginEmail(email,password, onNavigate){
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         // Signed in
