@@ -36,7 +36,8 @@ import { db } from "../app/firebase";
     const nameNewUser = document.getElementById('nameNewUser');
     const mailNewUser = document.getElementById('mailNewUser');
     const passNewUser = document.getElementById('passNewUser');
-    const confirPass = document.getElementById('confirPass');  
+    const confirPass = document.getElementById('confirPass'); 
+  
 
     const expresionRegular = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
     if (nameNewUser.value === "" || mailNewUser.value === "" || passNewUser.value === "" || confirPass.value === ""){ 
@@ -49,7 +50,7 @@ import { db } from "../app/firebase";
     } 
     
     if(expresionRegular.test(passNewUser.value) ){
-      registroMail( mailNewUser.value, passNewUser.value, onNavigate)
+      registroMail( mailNewUser.value, passNewUser.value, onNavigate, nameNewUser.value)
 
     } else {
         alert("Tu contraseña debe incluir los siguientes caracteres:\n Aa1@")
@@ -57,13 +58,15 @@ import { db } from "../app/firebase";
  }
  
 
- const registroMail = (email, password, onNavigate) =>{
-  console.log(  addDoc(collection(db, "posts"), {
-    name: 'Hola',
-  }))
+ const registroMail = (email, password, onNavigate, nameNewUser) =>{
  const auth = getAuth(); 
  createUserWithEmailAndPassword(auth, email, password)
-   .then((result) => {
+   .then((result) => { console.log(email, password)
+    addDoc(collection(db, "user"), {
+      name: nameNewUser,
+      mail: email,
+      password: password,
+    })
      //console.log(result) adddoc aqui va la logica para traer datos
      // Signed in
      onNavigate('/FotoPerfil')
