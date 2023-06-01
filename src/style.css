@@ -414,10 +414,17 @@ body {
 
 /*-------------------------------------------------------------- HOME INICIO ----------------------------------------------------------*/
 
-.bontonBuscarHome{
+.botonBuscarHome{
   background-color: red;
+  width: 100px;
+  height: 100px;
 }
 
+.botonPopUp{
+  background-color: rgb(4, 0, 255);
+  width: 100px;
+  height: 100px;
+}
 
 
 

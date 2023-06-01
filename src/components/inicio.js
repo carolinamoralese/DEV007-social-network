@@ -1,6 +1,7 @@
 import {registroGoogle} from './registroGoogle.js'
 import { fondo2 } from './inicioSesion.js';
 
+  
 
 export const inicio = (onNavigate) => {
     const eslogan = document.getElementById('eslogan');

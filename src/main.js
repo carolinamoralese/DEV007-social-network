@@ -28,8 +28,6 @@ const rutas = {
    '/FotoPerfil':FotoPerfil(onNavigate)
 };
 
-
-
 const component = () => rutas[window.location.pathname];
 
 window.onpopstate = () => {

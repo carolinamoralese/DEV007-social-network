@@ -48,6 +48,7 @@ export const Home = (onNavigate) => {
 
   botonBuscador.classList.add("botonBuscarHome")
   imagenLupa.classList.add("imagenLupa")
+  botonPopUp.classList.add("botonPopUp")
 
 
 
