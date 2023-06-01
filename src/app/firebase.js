@@ -23,10 +23,7 @@ const app = initializeApp(firebaseConfig);
 export const provider = new GoogleAuthProvider();
 //obtiene los servicios de autenticacion
 const auth = getAuth();
-
-
-//const firebase = require('firebase');
-//require("firebase/firestore");
+// Initialize Firestore
 export const db = getFirestore(app);
 
 
