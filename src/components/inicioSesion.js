@@ -50,9 +50,8 @@ export const inicioSesion = (onNavigate) => {
     inicioSesionDiv.appendChild(botonIngresar);
 
     botonIngresar.addEventListener('click', () =>{
-      validarDatos(onNavigate)
-    });
-     
+        validarDatos(onNavigate)
+    })
     return inicioSesionDiv
     
 }
