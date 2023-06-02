@@ -1,88 +1,85 @@
-import { async } from 'regenerator-runtime';
-import { registro } from './utils.js';
+import { registro } from "./utils.js";
 
 export const registroCorreo = (onNavigate) => {
-    /*document.body.style.backgroundColor = "#E6F2F4"
-    document.body.style.backgroundImage = 'url("imagenes/Fondo2.jpg")';
-    document.body.style.backgroundRepeat = "no-repeat"; 
-    document.body.style.backgroundSize = "contain";
-    document.body.style.backgroundPosition = "bottom center";*/
+ /*HEADER PRINCIPAL*/
+  const header1 = document.createElement("header");
+  const logoGrande = document.createElement("img");
+  logoGrande.src = "../Imagenes/Logo MountainMe.png";
+  header1.classList.add("header1");
+  logoGrande.classList.add("logo1");
 
+  const registroCorreoDiv = document.createElement("div");
+  const formulario = document.createElement("div");
+  const bienvenido = document.createElement("p");
+  const textoRegistro = document.createElement("p");
+  const nameNewUser = document.createElement("input");
+  const mailNewUser = document.createElement("input");
+  const passNewUser = document.createElement("input");
+  const confirPass = document.createElement("input");
+  const botonRegistrate = document.createElement("button");
+  const textoPrivacidad = document.createElement("p");
 
-    const registroCorreoDiv = document.createElement('div');
-    const bienvenido = document.createElement('p');
-    const textoRegistro = document.createElement('p');
-    //const formularioRegistro = document.createElement('div');
-    const nameNewUser = document.createElement('input');
-    const mailNewUser = document.createElement('input');
-    const passNewUser = document.createElement('input');
-    const confirPass = document.createElement('input');
-    const botonRegistrate = document.createElement('button');
-    const textoPrivacidad = document.createElement('p');
+  nameNewUser.setAttribute("type", "text");
+  nameNewUser.setAttribute("name", "username");
+  nameNewUser.setAttribute("placeholder", "Selecciona tu nombre de usuario");
+  nameNewUser.setAttribute("id", "nameNewUser");
+  nameNewUser.required;
 
-    nameNewUser.setAttribute("type", "text");
-    nameNewUser.setAttribute("name", "username");
-    nameNewUser.setAttribute("placeholder", "Selecciona tu nombre de usuario");
-    nameNewUser.setAttribute('id', 'nameNewUser')
-    nameNewUser.required
+  mailNewUser.setAttribute("type", "text");
+  mailNewUser.setAttribute("name", "email");
+  mailNewUser.setAttribute("placeholder", "Ingresa tu correo");
+  mailNewUser.setAttribute("id", "mailNewUser");
+  mailNewUser.required;
 
-    mailNewUser.setAttribute("type", "text");
-    mailNewUser.setAttribute("name", "email");
-    mailNewUser.setAttribute("placeholder", "Ingresa tu correo");
-    mailNewUser.setAttribute('id', 'mailNewUser')
-    mailNewUser.required
+  passNewUser.setAttribute("type", "password");
+  passNewUser.setAttribute("name", "password");
+  passNewUser.setAttribute("placeholder", "Selecciona tu contraseña");
+  passNewUser.setAttribute("id", "passNewUser");
+  passNewUser.required;
 
-    passNewUser.setAttribute("type", "password");
-    passNewUser.setAttribute("name", "password");
-    passNewUser.setAttribute("placeholder", "Selecciona tu contraseña");
-    passNewUser.setAttribute('id', 'passNewUser')
-    passNewUser.required
+  confirPass.setAttribute("type", "password");
+  confirPass.setAttribute("name", "password2");
+  confirPass.setAttribute("placeholder", "Confirma tu contraseña");
+  confirPass.setAttribute("id", "confirPass");
+  confirPass.required;
 
-    confirPass.setAttribute("type", "password");
-    confirPass.setAttribute("name", "password2");
-    confirPass.setAttribute("placeholder", "Confirma tu contraseña");
-    confirPass.setAttribute('id', 'confirPass')
-    confirPass.required
+  botonRegistrate.textContent = "REGISTRATE";
 
-    botonRegistrate.textContent = 'REGISTRATE';
-    
-    registroCorreoDiv.classList.add("registroCorreoDiv");
-    bienvenido.classList.add("bienvenido");
-    textoRegistro.classList.add("textoRegistro");
-    nameNewUser.classList.add("nameNewUser");
-    mailNewUser.classList.add("mailNewUser");
-    passNewUser.classList.add("passNewUser");
-    confirPass.classList.add("confirPass");
-    botonRegistrate.classList.add("botonRegistrate");
-    textoPrivacidad.classList.add("textoPrivacidad");
+  registroCorreoDiv.classList.add("registroCorreoDiv");
+  formulario.classList.add("formulario2");
+  bienvenido.classList.add("bienvenido");
+  textoRegistro.classList.add("textoRegistro");
+  nameNewUser.classList.add("nameNewUser");
+  mailNewUser.classList.add("mailNewUser");
+  passNewUser.classList.add("passNewUser");
+  confirPass.classList.add("confirPass");
+  botonRegistrate.classList.add("botonRegistrate");
+  textoPrivacidad.classList.add("textoPrivacidad");
 
-    bienvenido.textContent = "¡BIENVENIDO!"
-    textoRegistro.textContent = "Para crear una nueva cuenta, por favor llena los siguientes campos"
-    textoPrivacidad.textContent = "Al registrarte aceptas nuestras Condiciones de Uso y Política de Privacidad"
+  bienvenido.textContent = "¡BIENVENIDO!";
+  textoRegistro.textContent =
+    "Para crear una nueva cuenta, por favor llena los siguientes campos";
+  textoPrivacidad.textContent =
+    "Al registrarte aceptas nuestras Condiciones de Uso y Política de Privacidad";
 
-    //registroCorreoDiv.appendChild(formularioRegistro);
-    registroCorreoDiv.appendChild(bienvenido);
-    registroCorreoDiv.appendChild(textoRegistro);
-    registroCorreoDiv.appendChild(nameNewUser);
-    registroCorreoDiv.appendChild(mailNewUser);
-    registroCorreoDiv.appendChild(passNewUser);
-    registroCorreoDiv.appendChild(confirPass);
-    registroCorreoDiv.appendChild(botonRegistrate);
-    registroCorreoDiv.appendChild(textoPrivacidad);
+  registroCorreoDiv.appendChild(header1);
+  header1.appendChild(logoGrande);
+  registroCorreoDiv.appendChild(formulario);
+  formulario.appendChild(bienvenido);
+  formulario.appendChild(textoRegistro);
+  formulario.appendChild(nameNewUser);
+  formulario.appendChild(mailNewUser);
+  formulario.appendChild(passNewUser);
+  formulario.appendChild(confirPass);
+  formulario.appendChild(botonRegistrate);
+  formulario.appendChild(textoPrivacidad);
 
-    /*registroCorreoDiv.querySelector('.botonRegistrate').addEventListener('click', async () => { 
-      const nameUser = registroCorreoDiv.querySelector('.nameNewUser')
+  botonRegistrate.addEventListener(
+    "click",
+    () => {
+      registro(onNavigate);
+    } //aqui es donde va los del adddoc
+  );
 
-    })*/
-
-    botonRegistrate.addEventListener('click',() => {
-      registro(onNavigate)} //aqui es donde va los del adddoc
-    );
-
-    return registroCorreoDiv;
+  return registroCorreoDiv;
 };
-
-
-
-
-

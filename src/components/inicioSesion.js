@@ -1,58 +1,51 @@
-import { validarDatos } from "./utils.js"
-
-export const fondo2 = () => {
-  eslogan.style.display = 'none';
-  document.body.style.backgroundColor = "#E6F2F4"
-  document.body.style.backgroundImage = 'url("imagenes/Fondo2.jpg")';
-  document.body.style.backgroundRepeat = "no-repeat"; 
-  document.body.style.backgroundSize = "contain";
-  document.body.style.backgroundPosition = "bottom center";
-}
+import { validarDatos } from "./utils.js";
 
 export const inicioSesion = (onNavigate) => {
-    /*document.body.style.backgroundColor = "#E6F2F4"
-    document.body.style.backgroundImage = 'url("imagenes/Fondo2.jpg")';
-    document.body.style.backgroundRepeat = "no-repeat"; 
-    document.body.style.backgroundSize = "contain";
-    document.body.style.backgroundPosition = "bottom center";*/
+/*HEADER PRINCIPAL*/
+  const header1 = document.createElement("header");
+  const logoGrande = document.createElement("img");
+  logoGrande.src = "../Imagenes/Logo MountainMe.png";
+  header1.classList.add("header1");
+  logoGrande.classList.add("logo1");
 
-    const inicioSesionDiv = document.createElement('div');
-    const inputCorreo = document.createElement('input');
-    const inputPassword = document.createElement('input');
-    const botonIngresar = document.createElement('button')
-    const textoBienvenida = document.createElement('p')
+  const inicioSesionDiv = document.createElement("div");
+  const formulario =  document.createElement("formulario");
+  const inputCorreo = document.createElement("input");
+  const inputPassword = document.createElement("input");
+  const botonIngresar = document.createElement("button");
+  const textoBienvenida = document.createElement("p");
 
+  inputCorreo.type = "email";
+  inputCorreo.id = "email";
+  inputCorreo.placeholder = "Ingresa tu correo";
+  inputCorreo.required;
 
-    inputCorreo.type = "email"
-    inputCorreo.id = "email"
-    inputCorreo.placeholder = "Ingresa tu correo"
-    inputCorreo.required
+  inputPassword.type = "password";
+  inputPassword.id = "password";
+  inputPassword.placeholder = "Ingresa tu contraseña";
+  inputPassword.required;
 
-    inputPassword.type = "password"
-    inputPassword.id = "password"
-    inputPassword.placeholder = "Ingresa tu contraseña"
-    inputPassword.required
+  inicioSesionDiv.classList.add("inicioSesionDiv");
+  formulario.classList.add("formulario");
+  textoBienvenida.classList.add("textoBienvenida");
+  inputCorreo.classList.add("inputCorreo");
+  inputPassword.classList.add("inputPassword");
+  botonIngresar.classList.add("botonIngresar");
 
-    inicioSesionDiv.classList.add("inicioSesionDiv")
-    textoBienvenida.classList.add("textoBienvenida")
-    inputCorreo.classList.add("inputCorreo")
-    inputPassword.classList.add("inputPassword")
-    botonIngresar.classList.add("botonIngresar")
-    
-    textoBienvenida.textContent = "¡BIENVENIDO DE VUELTA!"
-    botonIngresar.textContent = "INGRESA"
-   
-   
+  textoBienvenida.textContent = "¡BIENVENIDO DE VUELTA!";
+  botonIngresar.textContent = "INGRESA";
 
-    inicioSesionDiv.appendChild(textoBienvenida)
-    inicioSesionDiv.appendChild(inputCorreo);
-    inicioSesionDiv.appendChild(inputPassword);
-    inicioSesionDiv.appendChild(botonIngresar);
+  inicioSesionDiv.appendChild(header1);
+  header1.appendChild(logoGrande);
 
-    botonIngresar.addEventListener('click', () =>{
-        validarDatos(onNavigate)
-    })
-    return inicioSesionDiv
-    
-}
+  inicioSesionDiv.appendChild(formulario);
+  formulario.appendChild(textoBienvenida);
+  formulario.appendChild(inputCorreo);
+  formulario.appendChild(inputPassword);
+  formulario.appendChild(botonIngresar);
 
+  botonIngresar.addEventListener("click", () => {
+    validarDatos(onNavigate);
+  });
+  return inicioSesionDiv;
+};
