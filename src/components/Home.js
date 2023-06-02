@@ -35,6 +35,14 @@ export const Home = (onNavigate) => {
   const modalDiv = document.createElement('div')
   const publicacionPopUp = document.createElement('div')
   const close = document.createElement('span');
+  const nombreUsuario = document.createElement('input')
+  const ubicacion = document.createElement('input')
+  const dificultad = document.createElement('select')
+  const unselect = document.createElement('option')
+  const bajo = document.createElement('option')
+  const medio = document.createElement('option')
+  const alto = document.createElement('option')
+  const equipo = document.createElement('input')
   const textoPublicacion = document.createElement('input')
   const fotoPublicacion = document.createElement('input')
   const botonPublicar = document.createElement('button')
@@ -55,6 +63,10 @@ export const Home = (onNavigate) => {
   fotoPublicacion.classList.add('fotoPublicacion')
   close.classList.add('close')
   botonPublicar.classList.add('botonPublicar')
+  nombreUsuario.classList.add('nombreUsuario')
+  ubicacion.classList.add('ubicacion')
+  dificultad.classList.add('dificultad')
+  equipo.classList.add('equipo')
   
   buscadorHome.setAttribute("type", "text");
   buscadorHome.setAttribute("placeholder", "Busca por pais")
@@ -63,6 +75,9 @@ export const Home = (onNavigate) => {
   fotoPublicacion.setAttribute("placeholder", "Copia la URL de la imagen")
   botonBuscador.setAttribute("type", "button")
   botonPopUp.setAttribute("type", "button")
+  unselect.value = "";
+  unselect.disabled = true;
+  unselect.selected = true;
 
 
 
@@ -78,6 +93,12 @@ export const Home = (onNavigate) => {
   mensajePost.textContent = 'Crear publicacion'
   botonPopUpText.textContent = "Cuentanos tu nueva aventura...";
   botonPublicar.textContent = "PUBLICAR";
+  ubicacion.textContent = "UBICACIÓN";
+  unselect.textContent = "DIFICULTAD";
+  bajo.textContent = "Dificultad-Baja";
+  medio.textContent = "Dificultad-Media";
+  alto.textContent = "Dificultad-Alta";
+  
 
 
   HomeDiv.appendChild(header2);
@@ -99,6 +120,14 @@ export const Home = (onNavigate) => {
   botonPopUp.appendChild(botonPopUpText);
   HomeDiv.appendChild(modalDiv)
   modalDiv.appendChild(publicacionPopUp)
+  publicacionPopUp.appendChild(nombreUsuario)
+  publicacionPopUp.appendChild(ubicacion)
+  publicacionPopUp.appendChild(dificultad)
+  dificultad.appendChild(unselect)
+  dificultad.appendChild(bajo)
+  dificultad.appendChild(medio)
+  dificultad.appendChild(alto)
+  publicacionPopUp.appendChild(equipo)
   publicacionPopUp.appendChild(textoPublicacion)
   publicacionPopUp.appendChild(fotoPublicacion)
   publicacionPopUp.appendChild(botonPublicar)
