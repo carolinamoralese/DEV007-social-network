@@ -85,17 +85,21 @@ import { db } from "../app/firebase";
 
   /*------------------------------------FUNCIONES REGISTRO CORREO -------------------------------------------*/
 import { usuarioActual } from "./registroGoogle";
+import { eq } from "semver";
 
 export const crearPost = () =>{
-  console.log("oklu")
   const mensaje = document.getElementById("textoPublicacion").value
   const imagen = document.getElementById("fotoPublicacion").value
-  console.log(mensaje)
-  console.log(imagen)
+  const ubicacion = document.getElementById("ubicacion").value
+  const dificultad = document.getElementById("dificultad").value
+  const equipo = document.getElementById("equipo").value
   if(usuarioActual){
     console.log(usuarioActual)
     addDoc(collection(db, "posts"), {
       email_user: usuarioActual.email,
+      ubicacion: ubicacion,
+      dificultad: dificultad,
+      equipo: equipo,
       imagen: imagen,
       mensaje: mensaje,
     })

@@ -83,17 +83,20 @@ export const Home = (onNavigate) => {
 
   textoPublicacion.setAttribute("id", "textoPublicacion")
   fotoPublicacion.setAttribute("id", "fotoPublicacion")
-
+  ubicacion.setAttribute("placeholder", "UBICACIÓN")
+  equipo.setAttribute("placeholder", "EQUIPO NECESARIO")
+  ubicacion.setAttribute("id", "ubicacion")
+  dificultad.setAttribute("id", "dificultad")
+  equipo.setAttribute("id", "equipo")
 
 
   
   navHome.textContent = 'HOME';
   navPerfil.textContent = 'PERFIL';
-  navCerrarSesion.textContent = 'CERRAR SESION';
+  navCerrarSesion.textContent = 'SALIR';
   mensajePost.textContent = 'Crear publicacion'
   botonPopUpText.textContent = "Cuentanos tu nueva aventura...";
   botonPublicar.textContent = "PUBLICAR";
-  ubicacion.textContent = "UBICACIÓN";
   unselect.textContent = "DIFICULTAD";
   bajo.textContent = "Dificultad-Baja";
   medio.textContent = "Dificultad-Media";
@@ -132,17 +135,9 @@ export const Home = (onNavigate) => {
   publicacionPopUp.appendChild(fotoPublicacion)
   publicacionPopUp.appendChild(botonPublicar)
   
-  /*botonPopUp.addEventListener('click', () => {
-   publicacionPopUp.classList.toggle('active');
-  });*/
-
-  
-
   despliegueMenu.addEventListener('click', () => {
    menuHome.classList.toggle('active');
   });
-
- /*const span = document.getElementsByClassName("close")[0];*/
 
 
   botonPopUp.addEventListener('click', function() {
@@ -175,6 +170,7 @@ export const Home = (onNavigate) => {
 
 botonPublicar.addEventListener("click", () =>{
   crearPost()
+  modalDiv.style.display = "none";
 })
 
   return HomeDiv;
