@@ -789,6 +789,32 @@ body {
   border: 1px solid #888;
   width: 90%;
   height: 400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px 50px 50px 50px 50px;
+  grid-template-areas: 
+  "nombreUsuario nombreUsuario",
+  "ubicacion dificultad",
+  "equipo equipo",
+  "textoPublicacion textoPublicacion",
+  "fotoPublicacion botonPublicar"
+  ;
+}
+
+.nombreUsuario {
+  grid-area: nombreUsuario;
+}
+
+.ubicacion {
+  grid-area: ubicacion;
+}
+
+.dificultad {
+  grid-area: dificultad;
+}
+
+.equipo {
+  grid-area: equipo;
 }
 
 .textoPublicacion {
