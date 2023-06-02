@@ -771,31 +771,30 @@ body {
   color: gray;
 }
 
-.publicacionPopUp {
-  position: relative;
-  width: 205%;
-  height: 200px;
-  top: -150;
-  background-color: #fff;
-  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-  transition: clip-path 0.3s ease-out;
-  z-index: 4;
-  display: grid;
-  grid-template-rows: 170px 30px;
-  grid-template-areas:
-    "textoPublicacion   textoPublicacion"
-    "fotoPublicacion    fotoPublicacion";
+.modalDiv {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 300%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.486);
 }
 
-
-
-div.publicacionPopUp.active {
-  /*esta hace que salga abajo el input de la publicación*/
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+.publicacionPopUp {
+  background-color: #fefefe;
+  margin: 50% auto;
+  border: 1px solid #888;
+  width: 90%;
+  height: 400px;
 }
 
 .textoPublicacion {
   grid-area: textoPublicacion;
+  width: 100%;
+  height: 350px;
   background: #ffffff;
   border-style: solid;
   border-color: black;
@@ -805,6 +804,8 @@ div.publicacionPopUp.active {
 
 .fotoPublicacion {
   grid-area: fotoPublicacion;
+  width: 50%;
+  height: 50px;
   background: #ffffff;
   border-style: solid;
   border-color: black;
@@ -812,6 +813,23 @@ div.publicacionPopUp.active {
   text-align: center;
 }
 
+.botonPublicar {
+  grid-area: botonRegistrate;
+  width: 50%;
+  height: 50px;
+  background: #27ae60;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+}
 /*-------------------------------------------------------------- FOOTER ----------------------------------------------------------*/
 
 footer {

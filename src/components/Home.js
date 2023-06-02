@@ -28,9 +28,12 @@ export const Home = (onNavigate) => {
   const mensajePost = document.createElement('p')
   const botonPopUp = document.createElement('button')
   const botonPopUpText = document.createElement('span');
+  const modalDiv = document.createElement('div')
   const publicacionPopUp = document.createElement('div')
+  const close = document.createElement('span');
   const textoPublicacion = document.createElement('input')
   const fotoPublicacion = document.createElement('input')
+  const botonPublicar = document.createElement('button')
 
   HomeDiv.classList.add("homeDiv")
   buscadorDiv.classList.add("buscadorDiv")
@@ -40,11 +43,14 @@ export const Home = (onNavigate) => {
   publicacionDiv.classList.add("publicacionDiv")
   botonPopUp.classList.add("botonPopUp")
   botonPopUpText.classList.add("placeholder");
+  modalDiv.classList.add("modalDiv");
   publicacionPopUp.classList.add("publicacionPopUp")//
   publicacionPopUp.classList.add("active")//
   mensajePost.classList.add("mensajePost")
   textoPublicacion.classList.add('textoPublicacion')
   fotoPublicacion.classList.add('fotoPublicacion')
+  close.classList.add('close')
+  botonPublicar.classList.add('botonPublicar')
   
   buscadorHome.setAttribute("type", "text");
   buscadorHome.setAttribute("placeholder", "Busca por pais")
@@ -59,6 +65,7 @@ export const Home = (onNavigate) => {
   navCerrarSesion.textContent = 'CERRAR SESION';
   mensajePost.textContent = 'Crear publicacion'
   botonPopUpText.textContent = "Cuentanos tu nueva aventura...";
+  botonPublicar.textContent = "PUBLICAR";
 
 
   HomeDiv.appendChild(header2);
@@ -78,17 +85,42 @@ export const Home = (onNavigate) => {
   publicacionDiv.appendChild(mensajePost)
   publicacionDiv.appendChild(botonPopUp)
   botonPopUp.appendChild(botonPopUpText);
-  HomeDiv.appendChild(publicacionPopUp)
+  HomeDiv.appendChild(modalDiv)
+  modalDiv.appendChild(publicacionPopUp)
   publicacionPopUp.appendChild(textoPublicacion)
   publicacionPopUp.appendChild(fotoPublicacion)
-
-  botonPopUp.addEventListener('click', () => {
+  publicacionPopUp.appendChild(botonPublicar)
+  
+  /*botonPopUp.addEventListener('click', () => {
    publicacionPopUp.classList.toggle('active');
-  });
+  });*/
+
+  
 
   despliegueMenu.addEventListener('click', () => {
    menuHome.classList.toggle('active');
   });
+
+ /*const span = document.getElementsByClassName("close")[0];*/
+
+
+  botonPopUp.addEventListener('click', function() {
+    modalDiv.style.display = "block";
+    console.log("holi");
+  });
+
+  close.addEventListener("click", function() {
+    modalDiv.style.display = "none";
+  });
+
+  window.addEventListener("click", function(event) {
+    if (event.target == modalDiv) {
+      modalDiv.style.display = "none";
+    }
+  });
+
+
+
 
   return HomeDiv;
 };
