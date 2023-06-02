@@ -1,7 +1,7 @@
 import { provider } from '../app/firebase.js';
 import { getAuth, onAuthStateChanged, signInWithPopup } from "firebase/auth";
 
-let usuarioActual ;
+export let usuarioActual ;
 const auth = getAuth();
 
 export function loginGoogle(onNavigate) {
@@ -15,9 +15,7 @@ export function loginGoogle(onNavigate) {
     });
   }
   
-  export function logoutGoogle(){
-    signOut(auth);
-  } 
+
 
 onAuthStateChanged(auth, (usuario) =>{
     //si hay un usuario que aparezca usuario logueado
