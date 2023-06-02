@@ -72,6 +72,18 @@ export const PerfilUsuario = (onNavigate) =>{
     menuHome.classList.toggle('active');
    });
 
+  navHome.addEventListener('click', () => {
+    onNavigate("/Home");
+  })
+
+  navCerrarSesion.addEventListener('click', () => {
+    onNavigate("/");
+  })
+
+  navPerfil.addEventListener('click', () => {
+    onNavigate("/PerfilUsuario");
+  })
+
   return perfilDiv
 
 
