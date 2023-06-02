@@ -1,4 +1,6 @@
 import { PerfilUsuario } from "./PerfilUsuario";
+import {logout, crearPost} from "./utils.js"
+
 
 export const Home = (onNavigate) => {
   /*HEADER HOME*/
@@ -61,6 +63,14 @@ export const Home = (onNavigate) => {
   fotoPublicacion.setAttribute("placeholder", "Copia la URL de la imagen")
   botonBuscador.setAttribute("type", "button")
   botonPopUp.setAttribute("type", "button")
+
+
+
+  textoPublicacion.setAttribute("id", "textoPublicacion")
+  fotoPublicacion.setAttribute("id", "fotoPublicacion")
+
+
+
   
   navHome.textContent = 'HOME';
   navPerfil.textContent = 'PERFIL';
@@ -126,6 +136,7 @@ export const Home = (onNavigate) => {
  })
 
  navCerrarSesion.addEventListener("click",() =>{
+  logout();
   onNavigate("/")
  })
 
@@ -133,6 +144,9 @@ export const Home = (onNavigate) => {
   onNavigate("/Home");
 })
 
+botonPublicar.addEventListener("click", () =>{
+  crearPost()
+})
 
   return HomeDiv;
 };

@@ -1,3 +1,5 @@
+import {logout} from "./utils.js"
+
 export const PerfilUsuario = (onNavigate) =>{
 /*HEADER HOME*/
   const header2 = document.createElement("header");
@@ -77,6 +79,7 @@ export const PerfilUsuario = (onNavigate) =>{
   })
 
   navCerrarSesion.addEventListener('click', () => {
+    logout();
     onNavigate("/");
   })
 
