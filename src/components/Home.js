@@ -1,3 +1,5 @@
+import { PerfilUsuario } from "./PerfilUsuario";
+
 export const Home = (onNavigate) => {
   /*HEADER HOME*/
   const header2 = document.createElement("header");
@@ -119,7 +121,17 @@ export const Home = (onNavigate) => {
     }
   });
 
+ navPerfil.addEventListener("click", ()=> {
+  onNavigate("/PerfilUsuario");
+ })
 
+ navCerrarSesion.addEventListener("click",() =>{
+  onNavigate("/")
+ })
+
+ navHome.addEventListener("click", ()=> {
+  onNavigate("/Home");
+})
 
 
   return HomeDiv;
