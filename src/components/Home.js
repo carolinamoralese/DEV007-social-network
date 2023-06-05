@@ -46,6 +46,11 @@ export const Home = (onNavigate) => {
   const textoPublicacion = document.createElement('input')
   const fotoPublicacion = document.createElement('input')
   const botonPublicar = document.createElement('button')
+  const divPost = document.createElement('div')
+  const listaDesplegable = document.createElement('ul')
+  const postList = document.createElement('li')
+  const prueba = document.createElement('p')
+  
 
   HomeDiv.classList.add("homeDiv")
   buscadorDiv.classList.add("buscadorDiv")
@@ -75,6 +80,7 @@ export const Home = (onNavigate) => {
   fotoPublicacion.setAttribute("placeholder", "Copia la URL de la imagen")
   botonBuscador.setAttribute("type", "button")
   botonPopUp.setAttribute("type", "button")
+  divPost.setAttribute("id", "divPost")
   unselect.value = "";
   unselect.disabled = true;
   unselect.selected = true;
@@ -88,6 +94,8 @@ export const Home = (onNavigate) => {
   ubicacion.setAttribute("id", "ubicacion")
   dificultad.setAttribute("id", "dificultad")
   equipo.setAttribute("id", "equipo")
+  listaDesplegable.setAttribute("id", "listaDesplegable")
+  postList.setAttribute("id", "postlist")
 
 
   
@@ -101,6 +109,7 @@ export const Home = (onNavigate) => {
   bajo.textContent = "Dificultad-Baja";
   medio.textContent = "Dificultad-Media";
   alto.textContent = "Dificultad-Alta";
+  prueba.textContent = "prueba ejeejejejejejejjejeje"
   
 
 
@@ -134,6 +143,10 @@ export const Home = (onNavigate) => {
   publicacionPopUp.appendChild(textoPublicacion)
   publicacionPopUp.appendChild(fotoPublicacion)
   publicacionPopUp.appendChild(botonPublicar)
+  HomeDiv.appendChild(divPost)
+  divPost.appendChild(listaDesplegable)
+  listaDesplegable.appendChild(postList)
+  postList.appendChild(prueba)
   
   despliegueMenu.addEventListener('click', () => {
    menuHome.classList.toggle('active');
