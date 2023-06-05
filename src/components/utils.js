@@ -1,7 +1,7 @@
 /*------------------------------------FUNCIONES INICIO SESIÓN -------------------------------------------*/
 
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, onSnapshot } from "firebase/firestore";
 
 
 export const validarDatos = (onNavigate) => {
@@ -90,13 +90,9 @@ import { eq } from "semver";
 export const crearPost = () =>{
   const mensaje = document.getElementById("textoPublicacion").value
   const imagen = document.getElementById("fotoPublicacion").value
-<<<<<<< HEAD
-  
-=======
   const ubicacion = document.getElementById("ubicacion").value
   const dificultad = document.getElementById("dificultad").value
   const equipo = document.getElementById("equipo").value
->>>>>>> 66896816d3991da5559db1574e011b16e656364b
   if(usuarioActual){
     addDoc(collection(db, "posts"), {
       email_user: usuarioActual.email,
@@ -109,3 +105,33 @@ export const crearPost = () =>{
   }
 
 }
+
+const divPost = document.querySelector("divPost")
+const postList = document.querySelector("postList")
+
+const post = data => {
+ if(data.length){
+  let html = "";
+  data.forEach(element => {
+    const li = postList;
+    html += li;
+    
+  });
+ }
+}
+
+
+export const mostrarPost = () => {
+  auth.onAuthStateChanged(usuarioActual =>{
+    if(usuarioActual){
+      fs.collection('posts')
+        .get()
+        .then((snapshot) =>{
+          console.log(snapshot.docs)
+        })
+    }else{
+      console.log(signOut)
+    }
+  })
+}
+
