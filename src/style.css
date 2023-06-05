@@ -573,14 +573,16 @@ body {
   position: relative;
   display: flex;
   align-content: space-between;
-  width: 80px;
-  height: 110px;
+  width: 150px;
+  height: 150px;
   top: 0px;
-  background-color: rgba(0, 0, 0, 0.836);
+  background-color: rgba(9, 31, 71, 0.932);
   clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   transition: clip-path 0.3s ease-out;
   z-index: 2;
   border-style: none;
+  border-radius: 20px;
+  margin-left: 5px;
 }
 
 .menuHome.active {
@@ -592,9 +594,13 @@ body {
 .opcionSection {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
+  width: 100%;
+  gap: 25px;
+  margin-top: 15px;
   color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .logo2 {
@@ -692,14 +698,14 @@ body {
   grid-area: buscadorHome;
   position: relative;
   width: 80%;
-  margin: 0 auto;
+  
   z-index: 1;
 }
 
 .buscadorHome {
   position: relative;
   margin: 0 auto;
-  width: 100%;
+  width: 109%;
   height: 50px;
   padding: 18px 15px;
   font-size: 10pt;
@@ -724,6 +730,7 @@ body {
   border-width: 1px;
   border-radius: 5px;
   z-index: 2;
+  margin-right: -70PX;
 }
 
 .imagenLupa {
@@ -778,7 +785,7 @@ body {
   left: 0;
   top: 0;
   width: 100%;
-  height: 300%;
+  height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.486);
 }
@@ -788,49 +795,70 @@ body {
   margin: 50% auto;
   border: 1px solid #888;
   width: 90%;
-  height: 400px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 50px 50px 50px 50px 50px;
-  grid-template-areas: 
-  "nombreUsuario nombreUsuario",
-  "ubicacion dificultad",
-  "equipo equipo",
-  "textoPublicacion textoPublicacion",
-  "fotoPublicacion botonPublicar"
-  ;
+  grid-template-rows: 30px 30px 30px 200px 50px;
+  grid-template-areas:
+  "nombreUsuario nombreUsuario"
+  "ubicacion dificultad"
+  "equipo equipo"
+  "textoPublicacion textoPublicacion"
+  "fotoPublicacion botonPublicar";
 }
 
+
+
 .nombreUsuario {
+  display: grid;
   grid-area: nombreUsuario;
+  width: 100%;
+  height: 30px;
+  color: black;
 }
 
 .ubicacion {
+  display: grid;
   grid-area: ubicacion;
+  width: 100%;
+  height: 30px;
+  color: black;
+  text-align: center;
 }
 
 .dificultad {
+  display: grid;
   grid-area: dificultad;
+  width: 100%;
+  height: 30px;
+  text-align: center;
 }
 
 .equipo {
+  display: grid;
   grid-area: equipo;
+  width: 100%;
+  height: 30px;
+  color: black;
+  text-align: center;
 }
 
 .textoPublicacion {
+  display: grid;
   grid-area: textoPublicacion;
   width: 100%;
-  height: 350px;
+  height: 200px;
   background: #ffffff;
   border-style: solid;
   border-color: black;
   border-width: 2px;
   text-align: center;
+  color: black;
 }
 
 .fotoPublicacion {
+  display: grid;
   grid-area: fotoPublicacion;
-  width: 50%;
+  width: 100%;
   height: 50px;
   background: #ffffff;
   border-style: solid;
@@ -840,8 +868,9 @@ body {
 }
 
 .botonPublicar {
-  grid-area: botonRegistrate;
-  width: 50%;
+  display: grid;
+  grid-area: botonPublicar;
+  width: 100%;
   height: 50px;
   background: #27ae60;
   font-weight: bold;
