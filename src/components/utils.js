@@ -87,13 +87,10 @@ import { db } from "../app/firebase";
 import { usuarioActual } from "./registroGoogle";
 
 export const crearPost = () =>{
-  console.log("oklu")
   const mensaje = document.getElementById("textoPublicacion").value
   const imagen = document.getElementById("fotoPublicacion").value
-  console.log(mensaje)
-  console.log(imagen)
+  
   if(usuarioActual){
-    console.log(usuarioActual)
     addDoc(collection(db, "posts"), {
       email_user: usuarioActual.email,
       imagen: imagen,
