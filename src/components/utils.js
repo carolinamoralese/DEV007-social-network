@@ -1,7 +1,7 @@
 /*------------------------------------FUNCIONES INICIO SESIÓN -------------------------------------------*/
 
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { collection, addDoc, onSnapshot } from "firebase/firestore";
+import { collection, addDoc, onSnapshot, query } from "firebase/firestore";
 
 
 export const validarDatos = (onNavigate) => {
@@ -85,7 +85,7 @@ import { db } from "../app/firebase";
 
   /*------------------------------------FUNCIONES REGISTRO CORREO -------------------------------------------*/
 import { usuarioActual } from "./registroGoogle";
-import { eq } from "semver";
+//import { eq } from "semver";
 
 export const crearPost = () =>{
   const mensaje = document.getElementById("textoPublicacion").value
@@ -106,32 +106,43 @@ export const crearPost = () =>{
 
 }
 
-const divPost = document.querySelector("divPost")
-const postList = document.querySelector("postList")
+//const divPost = document.querySelector("divPosts")
+//const postList = document.querySelector("postList")
 
-const post = data => {
- if(data.length){
-  let html = "";
-  data.forEach(element => {
-    const li = postList;
-    html += li;
+//const post = data => {
+ //if(data.length){
+  //let html = "";
+  //data.forEach(element => {
+  //  const li = postList;
+   // html += li;
     
-  });
- }
-}
+ // });
+ //}
+//}
 
 
-export const mostrarPost = () => {
-  auth.onAuthStateChanged(usuarioActual =>{
-    if(usuarioActual){
-      fs.collection('posts')
-        .get()
-        .then((snapshot) =>{
-          console.log(snapshot.docs)
-        })
-    }else{
-      console.log(signOut)
-    }
+export const obtenerPosts = () => {
+
+  return new Promise((resolve, reject) => {
+
+    let posts = [];
+
+    const q = query(collection(db, "posts"));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+   
+        //*** posts.push(change.doc.data())
+
+        resolve(change.doc.data()) // ***
+      }
+      
+      );
+    });
+
+    //*** resolve(posts)
+  
+    
   })
+  
+  
 }
-

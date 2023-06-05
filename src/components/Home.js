@@ -1,5 +1,5 @@
 import { PerfilUsuario } from "./PerfilUsuario";
-import {logout, crearPost} from "./utils.js"
+import {logout, crearPost, obtenerPosts} from "./utils.js"
 
 
 export const Home = (onNavigate) => {
@@ -46,10 +46,10 @@ export const Home = (onNavigate) => {
   const textoPublicacion = document.createElement('input')
   const fotoPublicacion = document.createElement('input')
   const botonPublicar = document.createElement('button')
-  const divPost = document.createElement('div')
-  const listaDesplegable = document.createElement('ul')
-  const postList = document.createElement('li')
-  const prueba = document.createElement('p')
+  const divPosts = document.createElement('div')
+  //const listaDesplegable = document.createElement('ul')
+  //const postList = document.createElement('li')
+  //const prueba = document.createElement('p')
   
 
   HomeDiv.classList.add("homeDiv")
@@ -80,7 +80,7 @@ export const Home = (onNavigate) => {
   fotoPublicacion.setAttribute("placeholder", "Copia la URL de la imagen")
   botonBuscador.setAttribute("type", "button")
   botonPopUp.setAttribute("type", "button")
-  divPost.setAttribute("id", "divPost")
+  divPosts.setAttribute("id", "divPosts")
   unselect.value = "";
   unselect.disabled = true;
   unselect.selected = true;
@@ -94,8 +94,8 @@ export const Home = (onNavigate) => {
   ubicacion.setAttribute("id", "ubicacion")
   dificultad.setAttribute("id", "dificultad")
   equipo.setAttribute("id", "equipo")
-  listaDesplegable.setAttribute("id", "listaDesplegable")
-  postList.setAttribute("id", "postlist")
+ // listaDesplegable.setAttribute("id", "listaDesplegable")
+  //postList.setAttribute("id", "postlist")
 
 
   
@@ -109,7 +109,7 @@ export const Home = (onNavigate) => {
   bajo.textContent = "Dificultad-Baja";
   medio.textContent = "Dificultad-Media";
   alto.textContent = "Dificultad-Alta";
-  prueba.textContent = "prueba ejeejejejejejejjejeje"
+  //prueba.textContent = "prueba ejeejejejejejejjejeje"
   
 
 
@@ -143,10 +143,10 @@ export const Home = (onNavigate) => {
   publicacionPopUp.appendChild(textoPublicacion)
   publicacionPopUp.appendChild(fotoPublicacion)
   publicacionPopUp.appendChild(botonPublicar)
-  HomeDiv.appendChild(divPost)
-  divPost.appendChild(listaDesplegable)
-  listaDesplegable.appendChild(postList)
-  postList.appendChild(prueba)
+  HomeDiv.appendChild(divPosts)
+  //divPosts.appendChild(listaDesplegable)
+  //listaDesplegable.appendChild(postList)
+  //postList.appendChild(prueba)
   
   despliegueMenu.addEventListener('click', () => {
    menuHome.classList.toggle('active');
@@ -185,6 +185,63 @@ botonPublicar.addEventListener("click", () =>{
   crearPost()
   modalDiv.style.display = "none";
 })
+
+  obtenerPosts()
+  .then((posts) => {
+    
+    console.log(posts)
+    console.log(typeof posts)
+
+
+    //*** posts.forEach((post) => {
+   
+      const divPost = `
+      <div>
+      ${posts.mensaje}
+      </div>
+      `
+      divPosts.innerHTML += divPost;
+      
+    // *** });
+    
+    
+  })
+  .catch((err) => console.log(err.message))
+
+
+
+
+/*
+  function mosrarPosts(posts){
+    console.log(posts)
+    console.log(typeof posts)
+    
+    return new Promise((resolve, reject) => {
+
+      const divPosts = document.getElementById("divPosts")
+      console.log(divPosts)
+
+      
+      posts.forEach((post) => {
+        console.log(post)
+        const divPost = `
+        <div>
+        ${post.email_user}
+        </div>
+        `
+        divPosts.innerHTML += divPost;
+
+      });
+  
+      console.log(divPosts)
+  
+      resolve()
+    
+      
+    })
+  }
+  */
+
 
   return HomeDiv;
 };
