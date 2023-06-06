@@ -125,24 +125,14 @@ export const obtenerPosts = () => {
 
   return new Promise((resolve, reject) => {
 
-    let posts = [];
-
     const q = query(collection(db, "posts"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
+      let posts = [];
       snapshot.docChanges().forEach((change) => {
-   
-        posts.push(change.doc.data())
-
-        ///resolve(change.doc.data()) // ***
-      }
-      
-      );
+        posts.push((change.doc.data()))
+      });
+      resolve(posts)
     });
-
-     resolve(posts)
-  
-    
   })
-  
   
 }

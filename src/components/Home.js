@@ -187,26 +187,19 @@ botonPublicar.addEventListener("click", () =>{
 })
 
 
-
-
   obtenerPosts()
   .then((posts) => {
     
     console.log(posts)
-   
 
-
-    //*** posts.forEach((post) => {
-   
+    posts.forEach((post) => {
       const divPost = `
       <div>
-      ${posts.mensaje}
+      ${post.mensaje}
       </div>
       `
       divPosts.innerHTML += divPost;
-      
-    // *** });
-    
+    });
     
   })
   .catch((err) => console.log(err.message))
