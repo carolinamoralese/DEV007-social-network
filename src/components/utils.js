@@ -131,15 +131,15 @@ export const obtenerPosts = () => {
     const unsubscribe = onSnapshot(q, (snapshot) => {
       snapshot.docChanges().forEach((change) => {
    
-        //*** posts.push(change.doc.data())
+        posts.push(change.doc.data())
 
-        resolve(change.doc.data()) // ***
+        ///resolve(change.doc.data()) // ***
       }
       
       );
     });
 
-    //*** resolve(posts)
+     resolve(posts)
   
     
   })

@@ -186,11 +186,14 @@ botonPublicar.addEventListener("click", () =>{
   modalDiv.style.display = "none";
 })
 
+
+
+
   obtenerPosts()
   .then((posts) => {
     
     console.log(posts)
-    console.log(typeof posts)
+   
 
 
     //*** posts.forEach((post) => {
