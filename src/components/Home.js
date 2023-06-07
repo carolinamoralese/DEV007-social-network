@@ -1,6 +1,7 @@
+import { db } from "../app/firebase";
 import { PerfilUsuario } from "./PerfilUsuario";
 import {logout, crearPost, obtenerPosts, validarpost, obtenerUsers,} from "./utils.js"
-
+import {onSnapshot, getDoc, deleteDoc, collection} from 'firebase/firestore';
 
 
 export const Home = (onNavigate) => {
@@ -196,7 +197,7 @@ botonPublicar.addEventListener("click", () =>{
   modalDiv.style.display = "none";
 })
 
-
+/*
   obtenerPosts()
   .then((posts) => {
     
@@ -222,9 +223,26 @@ botonPublicar.addEventListener("click", () =>{
     
   })
   .catch((err) => console.log(err.message))
+  */
 
-
-
+onSnapshot(collection(db, "posts"), (querySnapshot) => {
+  divPosts.innerHTML = ''
+  querySnapshot.forEach((doc) => {
+    //if()
+ 
+    const divPost = `
+    <div class="publicacionPost">
+    <p class="usuario">Usuario: ${doc.data().nombre}</p>
+    <p class="ubicacion2">Ubicación: ${doc.data().ubicacion}</p>
+    <p class="dificultad2">Nivel: ${doc.data().dificultad}</p>
+    <p class="equipo2">Equipo: ${doc.data().equipo}</p>
+    <img class="imagenPost" src="${doc.data().imagen}"></img>
+    <p class="descripcionPost">${doc.data().mensaje}</p>
+    </div>
+    `
+    divPosts.innerHTML += divPost;
+  })
+})
 
 /*
   function mosrarPosts(posts){
