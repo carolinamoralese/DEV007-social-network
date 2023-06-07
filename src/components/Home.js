@@ -1,7 +1,7 @@
 import { db } from "../app/firebase";
 import { PerfilUsuario } from "./PerfilUsuario";
 import {logout, crearPost, obtenerPosts, validarpost, obtenerUsers,} from "./utils.js"
-import {onSnapshot, getDoc, deleteDoc, collection} from 'firebase/firestore';
+import {onSnapshot, getDoc, deleteDoc, collection, query, orderBy} from 'firebase/firestore';
 
 
 export const Home = (onNavigate) => {
@@ -197,38 +197,11 @@ botonPublicar.addEventListener("click", () =>{
   modalDiv.style.display = "none";
 })
 
-/*
-  obtenerPosts()
-  .then((posts) => {
-    
-    console.log(posts)
+const q = query(collection(db, "posts"),orderBy("fecha", "desc"));
 
-     posts.forEach((post) => {
-      //if()
-   
-      const divPost = `
-      <div class="publicacionPost">
-      <p class="usuario">Usuario: ${post.nombre}</p>
-      <p class="ubicacion2">Ubicación: ${post.ubicacion}</p>
-      <p class="dificultad2">Nivel: ${post.dificultad}</p>
-      <p class="equipo2">Equipo: ${post.equipo}</p>
-      <img class="imagenPost" src="${post.imagen}"></img>
-      <p class="descripcionPost">${post.mensaje}</p>
-      </div>
-      `
-      divPosts.innerHTML += divPost;
-      
-    });
-    
-    
-  })
-  .catch((err) => console.log(err.message))
-  */
-
-onSnapshot(collection(db, "posts"), (querySnapshot) => {
+onSnapshot(q, (querySnapshot) => {
   divPosts.innerHTML = ''
   querySnapshot.forEach((doc) => {
-    //if()
  
     const divPost = `
     <div class="publicacionPost">
@@ -243,38 +216,6 @@ onSnapshot(collection(db, "posts"), (querySnapshot) => {
     divPosts.innerHTML += divPost;
   })
 })
-
-/*
-  function mosrarPosts(posts){
-    console.log(posts)
-    console.log(typeof posts)
-    
-    return new Promise((resolve, reject) => {
-
-      const divPosts = document.getElementById("divPosts")
-      console.log(divPosts)
-
-      
-      posts.forEach((post) => {
-        console.log(post)
-        const divPost = `
-        <div>
-        ${post.email_user}
-        </div>
-        `
-        divPosts.innerHTML += divPost;
-
-      });
-  
-      console.log(divPosts)
-  
-      resolve()
-    
-      
-    })
-  }
-  */
-
 
   return HomeDiv;
 };

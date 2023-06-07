@@ -1,7 +1,7 @@
 /*------------------------------------FUNCIONES INICIO SESIÓN -------------------------------------------*/
 
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { collection, addDoc, onSnapshot, query } from "firebase/firestore";
+import { collection, addDoc, onSnapshot, query, serverTimestamp, orderBy } from "firebase/firestore";
 
 
 export const validarDatos = (onNavigate) => {
@@ -86,7 +86,6 @@ import { db } from "../app/firebase";
 
   /*------------------------------------FUNCIONES REGISTRO CORREO -------------------------------------------*/
 import { usuarioActual } from "./registroGoogle";
-//import { eq } from "semver";
 
 export const crearPost = () =>{
   const mensaje = document.getElementById("textoPublicacion").value
@@ -94,6 +93,9 @@ export const crearPost = () =>{
   const ubicacion = document.getElementById("ubicacion").value
   const dificultad = document.getElementById("dificultad").value
   const equipo = document.getElementById("equipo").value
+  
+  const fecha = serverTimestamp()
+ 
   console.log(usuarioActual)
   if(usuarioActual){
     addDoc(collection(db, "posts"), {
@@ -104,41 +106,25 @@ export const crearPost = () =>{
       equipo: equipo,
       imagen: imagen,
       mensaje: mensaje,
+      fecha: fecha,
     })
     
   }
 }
 
+
 export const obtenerUsers  = () => getDocs(collection(db, "user"))
-
-//const divPost = document.querySelector("divPosts")
-//const postList = document.querySelector("postList")
-
-//const post = data => {
- //if(data.length){
-  //let html = "";
-  //data.forEach(element => {
-  //  const li = postList;
-   // html += li;
-    
- // });
- //}
-//}
 
 
 export const obtenerPosts = () => {
 
   return new Promise((resolve, reject) => {
 
-   
-
-    const q = query(collection(db, "posts"));
+    const q = query(collection(db, "posts"))
     const unsubscribe = onSnapshot(q, (snapshot) => {
       let posts = [];
       snapshot.docChanges().forEach((change) => {
         posts.push((change.doc.data()))
-
-        ///resolve(change.doc.data()) // ***
       });
       resolve(posts)
     });
@@ -148,7 +134,7 @@ export const obtenerPosts = () => {
   
 }
 
-
+/*------------------------------------------------ FUNCIONES HOME -------------------------------------------*/
 
 export const validarpost = () =>{
 const dificultad = document.getElementById("dificultad")
