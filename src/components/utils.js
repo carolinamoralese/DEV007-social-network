@@ -59,21 +59,22 @@ import { db } from "../app/firebase";
  
 
  const registroMail = (email, password, onNavigate, nameNewUser) =>{
- const auth = getAuth(); 
- createUserWithEmailAndPassword(auth, email, password)
-   .then((result) => { console.log(email, password)
-    addDoc(collection(db, "user"), {
-      name: nameNewUser,
-      mail: email,
-      password: password,
+  const auth = getAuth(); 
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((result) => { 
+      console.log(email, password)
+      addDoc(collection(db, "user"), {
+        name: nameNewUser,
+        mail: email,
+        password: password,
+      })
+      //console.log(result) adddoc aqui va la logica para traer datos
+      // Signed in
+      onNavigate('/FotoPerfil')
     })
-     //console.log(result) adddoc aqui va la logica para traer datos
-     // Signed in
-     onNavigate('/FotoPerfil')
-   })
-   .catch((error) => {
-     console.log(error);
-   });
+    .catch((error) => {
+      console.log(error);
+    });
  };
 
  export function logout(){
@@ -93,17 +94,18 @@ export const crearPost = () =>{
   const ubicacion = document.getElementById("ubicacion").value
   const dificultad = document.getElementById("dificultad").value
   const equipo = document.getElementById("equipo").value
+  console.log(usuarioActual)
   if(usuarioActual){
     addDoc(collection(db, "posts"), {
       email_user: usuarioActual.email,
-      nombre: usuarioActual.name,
+      nombre: usuarioActual.displayName,
       ubicacion: ubicacion,
       dificultad: dificultad,
       equipo: equipo,
       imagen: imagen,
       mensaje: mensaje,
     })
-    console.log(posts.nombre)
+    
   }
 }
 
