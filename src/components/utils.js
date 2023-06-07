@@ -96,15 +96,18 @@ export const crearPost = () =>{
   if(usuarioActual){
     addDoc(collection(db, "posts"), {
       email_user: usuarioActual.email,
+      nombre: usuarioActual.name,
       ubicacion: ubicacion,
       dificultad: dificultad,
       equipo: equipo,
       imagen: imagen,
       mensaje: mensaje,
     })
+    console.log(posts.nombre)
   }
-
 }
+
+export const obtenerUsers  = () => getDocs(collection(db, "user"))
 
 //const divPost = document.querySelector("divPosts")
 //const postList = document.querySelector("postList")
@@ -125,24 +128,35 @@ export const obtenerPosts = () => {
 
   return new Promise((resolve, reject) => {
 
-    let posts = [];
+   
 
     const q = query(collection(db, "posts"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
+      let posts = [];
       snapshot.docChanges().forEach((change) => {
-   
-        posts.push(change.doc.data())
+        posts.push((change.doc.data()))
 
         ///resolve(change.doc.data()) // ***
-      }
-      
-      );
+      });
+      resolve(posts)
     });
-
-     resolve(posts)
-  
-    
+ 
   })
   
   
+}
+
+
+
+export const validarpost = () =>{
+const dificultad = document.getElementById("dificultad")
+const equipo = document.getElementById("equipo")
+const textoPublicacion = document.getElementById("textoPublicacion")
+const ubicacion = document.getElementById("ubicacion")
+const fotoPublicacion = document.getElementById("fotoPublicacion")
+
+
+if (dificultad.value === "" || equipo.value === "" || textoPublicacion.value === "" || ubicacion.value === "" || fotoPublicacion.value === ""){ 
+  alert("Debes de llenar todos los campos")
+ }
 }

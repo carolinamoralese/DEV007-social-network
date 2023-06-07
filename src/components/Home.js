@@ -1,5 +1,6 @@
 import { PerfilUsuario } from "./PerfilUsuario";
-import {logout, crearPost, obtenerPosts} from "./utils.js"
+import {logout, crearPost, obtenerPosts, validarpost, obtenerUsers,} from "./utils.js"
+
 
 
 export const Home = (onNavigate) => {
@@ -72,6 +73,8 @@ export const Home = (onNavigate) => {
   ubicacion.classList.add('ubicacion')
   dificultad.classList.add('dificultad')
   equipo.classList.add('equipo')
+  divPosts.classList.add('divPosts')
+  
   
   buscadorHome.setAttribute("type", "text");
   buscadorHome.setAttribute("placeholder", "Busca por pais")
@@ -94,6 +97,12 @@ export const Home = (onNavigate) => {
   ubicacion.setAttribute("id", "ubicacion")
   dificultad.setAttribute("id", "dificultad")
   equipo.setAttribute("id", "equipo")
+  textoPublicacion.setAttribute.required
+  fotoPublicacion.setAttribute.required
+  ubicacion.setAttribute.required
+  equipo.setAttribute.required
+  ubicacion.setAttribute.required
+  dificultad.setAttribute.required
  // listaDesplegable.setAttribute("id", "listaDesplegable")
   //postList.setAttribute("id", "postlist")
 
@@ -182,6 +191,7 @@ export const Home = (onNavigate) => {
 })
 
 botonPublicar.addEventListener("click", () =>{
+  validarpost()
   crearPost()
   modalDiv.style.display = "none";
 })
@@ -196,16 +206,22 @@ botonPublicar.addEventListener("click", () =>{
    
 
 
-    //*** posts.forEach((post) => {
+     posts.forEach((post) => {
+      //if()
    
       const divPost = `
-      <div>
-      ${posts.mensaje}
+      <div class="publicacionPost">
+      <p class="usuario">Usuario: ${post.nombre}</p>
+      <p class="ubicacion2">Ubicación: ${post.ubicacion}</p>
+      <p class="dificultad2">Nivel: ${post.dificultad}</p>
+      <p class="equipo2">Equipo: ${post.equipo}</p>
+      <img class="imagenPost" src="${post.imagen}"></img>
+      <p class="descripcionPost">${post.mensaje}</p>
       </div>
       `
       divPosts.innerHTML += divPost;
       
-    // *** });
+    });
     
     
   })

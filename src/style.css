@@ -885,6 +885,62 @@ body {
   border-color: black;
   border-width: 2px;
 }
+
+/*-------------------------------------------------------------- POST ----------------------------------------------------------*/
+
+.publicacionPost {
+  background-color: #fefefe;
+  margin: 5% auto;
+  border: 1px solid #888;
+  width: 100%;
+}
+
+.divPosts {
+  width: 205%;
+}
+
+.usuario {
+  width: 90%;
+  height: 30px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.ubicacion2 {
+  width: 90%;
+  height: 30px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.dificultad2 {
+  width: 90%;
+  height: 30px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.equipo2 {
+  width: 90%;
+  height: 30px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.imagenPost {
+  position: relative;
+  width: 90%;
+  height: 200px;
+  margin: 5px 0 5px 6%;
+}
+
+.descripcionPost{
+  width: 90%;
+  height: 30px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
 /*-------------------------------------------------------------- FOOTER ----------------------------------------------------------*/
 
 footer {
@@ -899,3 +955,5 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
+
