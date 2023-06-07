@@ -197,14 +197,10 @@ botonPublicar.addEventListener("click", () =>{
 })
 
 
-
-
   obtenerPosts()
   .then((posts) => {
     
     console.log(posts)
-   
-
 
      posts.forEach((post) => {
       //if()
