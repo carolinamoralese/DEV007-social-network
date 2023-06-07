@@ -1,6 +1,6 @@
 import { db } from "../app/firebase";
 import { PerfilUsuario } from "./PerfilUsuario";
-import {logout, crearPost, obtenerPosts, validarpost, obtenerUsers,} from "./utils.js"
+import {logout, crearPost, obtenerPosts, validarpost, obtenerUsers, usuarioCorreo} from "./utils.js"
 import {onSnapshot, getDoc, deleteDoc, collection, query, orderBy} from 'firebase/firestore';
 
 
@@ -199,8 +199,17 @@ botonPublicar.addEventListener("click", () =>{
 
 const q = query(collection(db, "posts"),orderBy("fecha", "desc"));
 
+usuarioCorreo.forEach((doc) => {
+  const username = doc.data().name;
+  console.log(username);
+
+  return username
+});
+
+
 onSnapshot(q, (querySnapshot) => {
   divPosts.innerHTML = ''
+  
   querySnapshot.forEach((doc) => {
  
     const divPost = `

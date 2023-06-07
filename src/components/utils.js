@@ -1,7 +1,7 @@
 /*------------------------------------FUNCIONES INICIO SESIÓN -------------------------------------------*/
 
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { collection, addDoc, onSnapshot, query, serverTimestamp, orderBy } from "firebase/firestore";
+import { collection, addDoc, onSnapshot, query, serverTimestamp, orderBy, getDocs } from "firebase/firestore";
 
 
 export const validarDatos = (onNavigate) => {
@@ -148,3 +148,8 @@ if (dificultad.value === "" || equipo.value === "" || textoPublicacion.value ===
   alert("Debes de llenar todos los campos")
  }
 }
+
+
+const usuario = collection(db, 'user');
+export const usuarioCorreo = await getDocs(usuario);
+
