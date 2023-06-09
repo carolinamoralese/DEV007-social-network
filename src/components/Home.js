@@ -1,7 +1,5 @@
-import { async } from "regenerator-runtime";
 import { db } from "../app/firebase";
-import { PerfilUsuario } from "./PerfilUsuario";
-import {logout, crearPost, /*obtenerPosts,*/ validarpost, obtenerUsers, usuarioCorreo, getUsername,} from "./utils.js"
+import {logout, crearPost, validarpost, obtenerUsers, usuarioCorreo, getUsername,} from "./utils.js"
 import {onSnapshot, getDoc, deleteDoc, collection, query, orderBy} from 'firebase/firestore';
 
 
@@ -50,9 +48,6 @@ export const Home = (onNavigate) => {
   const fotoPublicacion = document.createElement('input')
   const botonPublicar = document.createElement('button')
   const divPosts = document.createElement('div')
-  //const listaDesplegable = document.createElement('ul')
-  //const postList = document.createElement('li')
-  //const prueba = document.createElement('p')
   
 
   HomeDiv.classList.add("homeDiv")
@@ -105,9 +100,6 @@ export const Home = (onNavigate) => {
   equipo.setAttribute.required
   ubicacion.setAttribute.required
   dificultad.setAttribute.required
- // listaDesplegable.setAttribute("id", "listaDesplegable")
-  //postList.setAttribute("id", "postlist")
-
 
   
   navHome.textContent = 'HOME';
@@ -120,8 +112,6 @@ export const Home = (onNavigate) => {
   bajo.textContent = "Dificultad-Baja";
   medio.textContent = "Dificultad-Media";
   alto.textContent = "Dificultad-Alta";
-  //prueba.textContent = "prueba ejeejejejejejejjejeje"
-  
 
 
   HomeDiv.appendChild(header2);
@@ -155,9 +145,7 @@ export const Home = (onNavigate) => {
   publicacionPopUp.appendChild(fotoPublicacion)
   publicacionPopUp.appendChild(botonPublicar)
   HomeDiv.appendChild(divPosts)
-  //divPosts.appendChild(listaDesplegable)
-  //listaDesplegable.appendChild(postList)
-  //postList.appendChild(prueba)
+
   
   despliegueMenu.addEventListener('click', () => {
    menuHome.classList.toggle('active');
@@ -200,12 +188,7 @@ botonPublicar.addEventListener("click", () =>{
 
 const q = query(collection(db, "posts",),orderBy("fecha", "desc"));
 
-usuarioCorreo.forEach((doc) => {
-  const username = doc.data().name;
-  console.log(username);
 
-  return username
-});
 
 
 onSnapshot(q, (querySnapshot) => {
@@ -237,10 +220,6 @@ onSnapshot(q, (querySnapshot) => {
     </div>
     `
     divPosts.innerHTML += divPost;
-    /*const editar = document.getElementById("editar")
-    editar.addEventListener("click", () => {
-    modalDiv.style.display = "block";
-  })*/
   
   const btnsEditar = divPosts.querySelectorAll(".editar")
   btnsEditar.forEach(btn =>{

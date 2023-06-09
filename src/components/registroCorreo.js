@@ -78,7 +78,7 @@ export const registroCorreo = (onNavigate) => {
     "click",
     () => {
       registro(onNavigate);
-    } //aqui es donde va los del adddoc
+    } 
   );
 
   return registroCorreoDiv;

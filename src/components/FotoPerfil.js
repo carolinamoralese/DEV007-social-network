@@ -1,5 +1,3 @@
-import { Home } from "./Home";
-
 export const FotoPerfil = (onNavigate) => {
   /*HEADER PRINCIPAL*/
   const header1 = document.createElement("header");

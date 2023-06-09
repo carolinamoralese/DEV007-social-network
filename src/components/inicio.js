@@ -29,13 +29,11 @@ export const inicio = (onNavigate) => {
   botonInicio.addEventListener("click", () => {
     eslogan.style.display = "none";
     onNavigate("/InicioSesion");
-    /*fondo2()*/
   });
 
   botonRegistro.addEventListener("click", () => {
     eslogan.style.display = "none";
     onNavigate("/Registro");
-    //fondo2()
   });
 
   botonGoogle.addEventListener("click", () => {
