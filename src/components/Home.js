@@ -1,5 +1,5 @@
 import { db } from "../app/firebase";
-import {logout, crearPost, validarpost, obtenerUsers, usuarioCorreo, getUsername,} from "./utils.js"
+import {logout, crearPost, validarpost, obtenerUsers, usuarioCorreo, getUsername, traerPost} from "./utils.js"
 import {onSnapshot, getDoc, deleteDoc, collection, query, orderBy} from 'firebase/firestore';
 
 
@@ -86,7 +86,7 @@ export const Home = (onNavigate) => {
   unselect.selected = true;
 
 
-
+  publicacionPopUp.setAttribute("id", "publicacionPopUp")
   textoPublicacion.setAttribute("id", "textoPublicacion")
   fotoPublicacion.setAttribute("id", "fotoPublicacion")
   ubicacion.setAttribute("placeholder", "UBICACIÓN")
@@ -211,7 +211,7 @@ onSnapshot(q, (querySnapshot) => {
       <button id="like">Like</button>
     </div>
     <div class="editarPublicacion">
-      <button class="editar">Editar</button>
+      <button class="editar" data-id="${doc.id}">Editar</button>
     </div>
     <div class="eliminarPublicacion">
       <button id="eliminar">Eliminar</button>
@@ -223,9 +223,17 @@ onSnapshot(q, (querySnapshot) => {
   
   const btnsEditar = divPosts.querySelectorAll(".editar")
   btnsEditar.forEach(btn =>{
-    btn.addEventListener("click", e => {
-      console.log("hellos")
+    btn.addEventListener("click", async (e) => {
+      console.log(e.target.dataset.id)
       modalDiv.style.display = "block";
+      const postEditar = await traerPost(e.target.dataset.id)
+      const post = postEditar.data()
+      console.log(post)
+
+      const ubicacion = document.getElementById('ubicacion')
+      const publicacionPopUp = document.getElementById('publicacionPopUp')
+
+      publicacionPopUp['ubicacion'].value = post.ubicacion
 })
 })
   })

@@ -11,6 +11,8 @@ import {
   getDocs,
   documentId,
   where,
+  getDoc,
+  doc,
 } from "firebase/firestore";
 
 export const validarDatos = (onNavigate) => {
@@ -147,7 +149,7 @@ export const validarpost = () => {
 const usuario = collection(db, "user");
 export const usuarioCorreo = await getDocs(usuario);
 
-/*------------------------------------------------ FUNCIONES HOME -------------------------------------------*/
+/*------------------------------------------------ FUNCION MOSTRAR NOMBRES USUARIO -------------------------------------------*/
 
 export const getUsername = async (email) => {
   const userquery = query(collection(db, "user"), where("mail", "==", email));
@@ -158,3 +160,7 @@ export const getUsername = async (email) => {
   }
   return "google";
 };
+
+/*------------------------------------------------ FUNCION EDITAR POSTS -------------------------------------------*/
+
+export const traerPost = (id) => getDoc(doc(db, "posts", id));
