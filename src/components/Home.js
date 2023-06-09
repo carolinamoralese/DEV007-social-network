@@ -230,10 +230,14 @@ onSnapshot(q, (querySnapshot) => {
       const post = postEditar.data()
       console.log(post)
 
-      const ubicacion = document.getElementById('ubicacion')
-      const publicacionPopUp = document.getElementById('publicacionPopUp')
 
-      publicacionPopUp['ubicacion'].value = post.ubicacion
+
+      ubicacion.value = post.ubicacion
+      dificultad.value =  post.dificultad
+      equipo.value = post.equipo
+      textoPublicacion.value = post.textoPublicacion
+      fotoPublicacion.value = post.fotoPublicacion
+
 })
 })
   })
