@@ -13,6 +13,7 @@ import {
   where,
   getDoc,
   doc,
+  updateDoc,
 } from "firebase/firestore";
 
 export const validarDatos = (onNavigate) => {
@@ -163,4 +164,7 @@ export const getUsername = async (email) => {
 
 /*------------------------------------------------ FUNCION EDITAR POSTS -------------------------------------------*/
 
-export const traerPost = (id) => getDoc(doc(db, "posts", id));
+export const traerPost = (id) => getDoc(doc(db, "posts", id));  //SIRVE PARA TRAER LOS DATOS
+
+export const editarPost = (id, camposEditados) => updateDoc(doc(db, 'posts', id), camposEditados);
+ 
