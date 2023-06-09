@@ -235,8 +235,8 @@ onSnapshot(q, (querySnapshot) => {
       ubicacion.value = post.ubicacion
       dificultad.value =  post.dificultad
       equipo.value = post.equipo
-      textoPublicacion.value = post.textoPublicacion
-      fotoPublicacion.value = post.fotoPublicacion
+      textoPublicacion.value = post.mensaje
+      fotoPublicacion.value = post.imagen
 
 })
 })
