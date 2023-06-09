@@ -1,6 +1,7 @@
+import { async } from "regenerator-runtime";
 import { db } from "../app/firebase";
 import { PerfilUsuario } from "./PerfilUsuario";
-import {logout, crearPost, obtenerPosts, validarpost, obtenerUsers, usuarioCorreo} from "./utils.js"
+import {logout, crearPost, /*obtenerPosts,*/ validarpost, obtenerUsers, usuarioCorreo, getUsername,} from "./utils.js"
 import {onSnapshot, getDoc, deleteDoc, collection, query, orderBy} from 'firebase/firestore';
 
 
@@ -197,7 +198,7 @@ botonPublicar.addEventListener("click", () =>{
   modalDiv.style.display = "none";
 })
 
-const q = query(collection(db, "posts"),orderBy("fecha", "desc"));
+const q = query(collection(db, "posts",),orderBy("fecha", "desc"));
 
 usuarioCorreo.forEach((doc) => {
   const username = doc.data().name;
@@ -210,21 +211,45 @@ usuarioCorreo.forEach((doc) => {
 onSnapshot(q, (querySnapshot) => {
   divPosts.innerHTML = ''
   
-  querySnapshot.forEach((doc) => {
+  querySnapshot.forEach(async (doc) => {
  
+  const username =  await getUsername(doc.data().email_user);
+  const usernametoshow = username === 'google'? doc.data().nombre : username;
+
     const divPost = `
     <div class="publicacionPost">
-    <p class="usuario">Usuario: ${doc.data().nombre}</p>
+    <p class="usuario">Usuario: ${usernametoshow}</p>
     <p class="ubicacion2">Ubicación: ${doc.data().ubicacion}</p>
     <p class="dificultad2">Nivel: ${doc.data().dificultad}</p>
     <p class="equipo2">Equipo: ${doc.data().equipo}</p>
     <img class="imagenPost" src="${doc.data().imagen}"></img>
     <p class="descripcionPost">${doc.data().mensaje}</p>
+    <div class="like">
+      <button id="like">Like</button>
+    </div>
+    <div class="editarPublicacion">
+      <button class="editar">Editar</button>
+    </div>
+    <div class="eliminarPublicacion">
+      <button id="eliminar">Eliminar</button>
+    </div>
+    </div>
     </div>
     `
     divPosts.innerHTML += divPost;
+    /*const editar = document.getElementById("editar")
+    editar.addEventListener("click", () => {
+    modalDiv.style.display = "block";
+  })*/
+  
+  const btnsEditar = divPosts.querySelectorAll(".editar")
+  btnsEditar.forEach(btn =>{
+    btn.addEventListener("click", e => {
+      console.log("hellos")
+      modalDiv.style.display = "block";
+})
+})
   })
 })
-
   return HomeDiv;
 };

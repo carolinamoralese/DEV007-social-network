@@ -1,7 +1,7 @@
 /*------------------------------------FUNCIONES INICIO SESIÓN -------------------------------------------*/
 
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { collection, addDoc, onSnapshot, query, serverTimestamp, orderBy, getDocs } from "firebase/firestore";
+import { collection, addDoc, onSnapshot, query, serverTimestamp, orderBy, getDocs, documentId, where } from "firebase/firestore";
 
 
 export const validarDatos = (onNavigate) => {
@@ -86,6 +86,7 @@ import { db } from "../app/firebase";
 
   /*------------------------------------FUNCIONES REGISTRO CORREO -------------------------------------------*/
 import { usuarioActual } from "./registroGoogle";
+import { async } from "regenerator-runtime";
 
 export const crearPost = () =>{
   const mensaje = document.getElementById("textoPublicacion").value
@@ -113,10 +114,10 @@ export const crearPost = () =>{
 }
 
 
-export const obtenerUsers  = () => getDocs(collection(db, "user"))
+export const obtenerUsers  = () => getDocs(collection(db, "user", documentId))
+console.log(obtenerUsers)
 
-
-export const obtenerPosts = () => {
+/*export const obtenerPosts = () => {
 
   return new Promise((resolve, reject) => {
 
@@ -132,7 +133,7 @@ export const obtenerPosts = () => {
   })
   
   
-}
+}*/
 
 /*------------------------------------------------ FUNCIONES HOME -------------------------------------------*/
 
@@ -153,3 +154,14 @@ if (dificultad.value === "" || equipo.value === "" || textoPublicacion.value ===
 const usuario = collection(db, 'user');
 export const usuarioCorreo = await getDocs(usuario);
 
+/*------------------------------------------------ FUNCIONES HOME -------------------------------------------*/
+ 
+export const getUsername = async (email) => { 
+  const userquery = query(collection(db,'user'),where('mail','==',email));
+  const usersnapshot = await getDocs(userquery);
+  if(!userquery.empty){
+    const userdoc = usersnapshot.docs[0];
+    return userdoc.data().name;
+  }
+  return 'google';
+}
