@@ -101,8 +101,8 @@ export function logout() {
 import { usuarioActual } from "./registroGoogle";
 
 export const crearPost = () => {
-  const mensaje = document.getElementById("textoPublicacion").value;
-  const imagen = document.getElementById("fotoPublicacion").value;
+  const textoPublicacion = document.getElementById("textoPublicacion").value;
+  const fotoPublicacion = document.getElementById("fotoPublicacion").value;
   const ubicacion = document.getElementById("ubicacion").value;
   const dificultad = document.getElementById("dificultad").value;
   const equipo = document.getElementById("equipo").value;
@@ -117,8 +117,8 @@ export const crearPost = () => {
       ubicacion: ubicacion,
       dificultad: dificultad,
       equipo: equipo,
-      imagen: imagen,
-      mensaje: mensaje,
+      fotoPublicacion: fotoPublicacion,
+      textoPublicacion: textoPublicacion,
       fecha: fecha,
     });
   }

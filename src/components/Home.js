@@ -208,8 +208,8 @@ export const Home = (onNavigate) => {
     <p class="ubicacion2">Ubicación: ${doc.data().ubicacion}</p>
     <p class="dificultad2">Nivel: ${doc.data().dificultad}</p>
     <p class="equipo2">Equipo: ${doc.data().equipo}</p>
-    <img class="imagenPost" src="${doc.data().imagen}"></img>
-    <p class="descripcionPost">${doc.data().mensaje}</p>
+    <img class="imagenPost" src="${doc.data().fotoPublicacion}"></img>
+    <p class="descripcionPost">${doc.data().textoPublicacion}</p>
     <div class="like">
       <button id="like">Like</button>
     </div>
@@ -236,8 +236,8 @@ export const Home = (onNavigate) => {
           ubicacion.value = post.ubicacion;
           dificultad.value = post.dificultad;
           equipo.value = post.equipo;
-          textoPublicacion.value = post.mensaje;
-          fotoPublicacion.value = post.imagen;
+          textoPublicacion.value = post.textoPublicacion;
+          fotoPublicacion.value = post.fotoPublicacion;
 
           postEditado = true;
           id = e.target.dataset.id;
@@ -254,8 +254,8 @@ export const Home = (onNavigate) => {
         ubicacion: ubicacion.value,
         dificultad: dificultad.value,
         equipo: equipo.value,
-        textoPublicacion: mensaje.value,
-        fotoPublicacion: imagen.value,
+        textoPublicacion: textoPublicacion.value,
+        fotoPublicacion: fotoPublicacion.value,
       });
 
       postEditado = false;
