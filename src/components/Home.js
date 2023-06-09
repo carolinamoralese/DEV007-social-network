@@ -8,6 +8,7 @@ import {
   getUsername,
   traerPost,
   editarPost,
+  eliminarPost,
 } from "./utils.js";
 import {
   onSnapshot,
@@ -217,7 +218,7 @@ export const Home = (onNavigate) => {
       <button class="editar" data-id="${doc.id}">Editar</button>
     </div>
     <div class="eliminarPublicacion">
-      <button id="eliminar">Eliminar</button>
+      <button class="eliminar" data-id="${doc.id}">Eliminar</button>
     </div>
     </div>
     </div>
@@ -242,6 +243,15 @@ export const Home = (onNavigate) => {
           postEditado = true;
           id = e.target.dataset.id;
         });
+
+        const btnsEliminar = divPosts.querySelectorAll(".eliminar");
+        btnsEliminar.forEach((btn) => {
+          btn.addEventListener('click', ({target: {dataset}}) => {
+            console.log("borrar")
+            eliminarPost(dataset.id)
+          })
+        })
+
       });
     });
   });

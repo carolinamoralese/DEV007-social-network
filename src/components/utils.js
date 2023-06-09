@@ -14,6 +14,7 @@ import {
   getDoc,
   doc,
   updateDoc,
+  deleteDoc,
 } from "firebase/firestore";
 
 export const validarDatos = (onNavigate) => {
@@ -167,4 +168,7 @@ export const getUsername = async (email) => {
 export const traerPost = (id) => getDoc(doc(db, "posts", id));  //SIRVE PARA TRAER LOS DATOS
 
 export const editarPost = (id, camposEditados) => updateDoc(doc(db, 'posts', id), camposEditados);
- 
+
+/*------------------------------------------------ FUNCION ELIMINAR POSTS -------------------------------------------*/
+
+export const eliminarPost = id => deleteDoc(doc(db, 'posts', id)); 
