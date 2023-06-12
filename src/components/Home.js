@@ -191,6 +191,8 @@ export const Home = (onNavigate) => {
     onNavigate("/Home");
   });
 
+
+
   const q = query(collection(db, "posts"), orderBy("fecha", "desc"));
   let postEditado = false;
   let id = "";
@@ -211,8 +213,8 @@ export const Home = (onNavigate) => {
     <p class="equipo2">Equipo: ${doc.data().equipo}</p>
     <img class="imagenPost" src="${doc.data().fotoPublicacion}"></img>
     <p class="descripcionPost">${doc.data().textoPublicacion}</p>
-    <div class="like">
-      <button id="like">Like</button>
+    <div class="likePublicacion">
+      <button class="like" id="like">Like</button>
     </div>
     <div class="editarPublicacion">
       <button class="editar" data-id="${doc.id}">Editar</button>
@@ -273,6 +275,12 @@ export const Home = (onNavigate) => {
       validarpost();
       crearPost();
     }
+
+    document.getElementById("ubicacion").value = "";
+    document.getElementById("dificultad").value = "";
+    document.getElementById("equipo").value = "";
+    document.getElementById("textoPublicacion").value = "";
+    document.getElementById("fotoPublicacion").value = "";
   });
 
   return HomeDiv;

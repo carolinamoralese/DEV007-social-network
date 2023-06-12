@@ -13,12 +13,12 @@ export const PerfilUsuario = (onNavigate) =>{
   const navCerrarSesion = document.createElement('li');
   logoChico.src = "../Imagenes/Logo MountainMe.png";
   imagenMenu.src = "../Imagenes/menu.png";
-  header2.classList.add("header3");
-  logoChico.classList.add("logo3");
+  header2.classList.add("header2");
+  logoChico.classList.add("logo2");
   imagenMenu.classList.add("tresLineas");
-  menuHome.classList.add("menuHome2");
-  despliegueMenu.classList.add("despliegueMenu2");
-  opcionSection.classList.add("opcionSection2");
+  menuHome.classList.add("menuHome");
+  despliegueMenu.classList.add("despliegueMenu");
+  opcionSection.classList.add("opcionSection");
 
   
 
@@ -52,7 +52,7 @@ export const PerfilUsuario = (onNavigate) =>{
   infoTrackUsuario.textContent = "TRACK RECORD"
   navHome.textContent = 'HOME';
   navPerfil.textContent = 'PERFIL';
-  navCerrarSesion.textContent = 'CERRAR SESION';
+  navCerrarSesion.textContent = 'SALIR';
   
   perfilDiv.appendChild(header2);
   header2.appendChild(logoChico);

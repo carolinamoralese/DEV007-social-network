@@ -21,18 +21,16 @@ export const inicio = (onNavigate) => {
   botonRegistro.classList.add("botonRegistro");
   botonGoogle.classList.add("botonGoogle");
 
-  eslogan.textContent = "No conquistamos a la montaña, sino a nosotros mismos.";
-  botonInicio.textContent = "Inicia Sesion";
-  botonRegistro.textContent = "Registrate";
+  eslogan.innerHTML = "No conquistamos a la montaña, <br> sino a nosotros mismos.";
+  botonInicio.textContent = "INICIA SESIÓN";
+  botonRegistro.textContent = "REGISTRATE";
   botonGoogle.textContent = "Ingresa con Google";
 
   botonInicio.addEventListener("click", () => {
-    eslogan.style.display = "none";
     onNavigate("/InicioSesion");
   });
 
   botonRegistro.addEventListener("click", () => {
-    eslogan.style.display = "none";
     onNavigate("/Registro");
   });
 

@@ -5,8 +5,8 @@ export const inicioSesion = (onNavigate) => {
   const header1 = document.createElement("header");
   const logoGrande = document.createElement("img");
   logoGrande.src = "../Imagenes/Logo MountainMe.png";
-  header1.classList.add("header1");
-  logoGrande.classList.add("logo1");
+  header1.classList.add("headerRegistro");
+  logoGrande.classList.add("logoRegistro");
 
   const inicioSesionDiv = document.createElement("div");
   const formulario =  document.createElement("formulario");

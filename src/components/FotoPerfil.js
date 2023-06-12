@@ -3,8 +3,8 @@ export const FotoPerfil = (onNavigate) => {
   const header1 = document.createElement("header");
   const logoGrande = document.createElement("img");
   logoGrande.src = "../Imagenes/Logo MountainMe.png";
-  header1.classList.add("header1");
-  logoGrande.classList.add("logo1");
+  header1.classList.add("headerRegistro2");
+  logoGrande.classList.add("logoRegistro3");
 
   const contendorDiv = document.createElement("div");
   const formulario = document.createElement("formulario");
