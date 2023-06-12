@@ -1,4 +1,5 @@
 import { db } from "../app/firebase";
+import { getAuth } from "firebase/auth";
 import {
   logout,
   crearPost,
@@ -9,6 +10,9 @@ import {
   traerPost,
   editarPost,
   eliminarPost,
+  updateLike,
+  disLike,
+ 
 } from "./utils.js";
 import {
   onSnapshot,
@@ -211,10 +215,11 @@ export const Home = (onNavigate) => {
     <p class="ubicacion2">Ubicación: ${doc.data().ubicacion}</p>
     <p class="dificultad2">Nivel: ${doc.data().dificultad}</p>
     <p class="equipo2">Equipo: ${doc.data().equipo}</p>
+    <p class="likes">likes: ${doc.data().likes.length}</p>
     <img class="imagenPost" src="${doc.data().fotoPublicacion}"></img>
     <p class="descripcionPost">${doc.data().textoPublicacion}</p>
     <div class="likePublicacion">
-      <button class="like" id="like">Like</button>
+      <button class="like" data-id="${doc.id}">Like</button>
     </div>
     <div class="editarPublicacion">
       <button class="editar" data-id="${doc.id}">Editar</button>
@@ -255,7 +260,23 @@ export const Home = (onNavigate) => {
         })
 
       });
+
+      const botonLike = divPosts.querySelectorAll(".like");
+      botonLike.forEach((boton) => {
+        boton.addEventListener("click", async (e) => {
+          const doc = await traerPost(e.target.dataset.id);
+          const usuarioActual = getAuth().currentUser;
+         
+          if (doc.data().likes.includes(usuarioActual.uid)) {
+            disLike(doc.id, usuarioActual.uid);
+          } else {
+            updateLike(doc.id, usuarioActual.uid);
+          }
+        });
+      });
+ 
     });
+
   });
 
   botonPublicar.addEventListener("click", () => {
@@ -283,5 +304,15 @@ export const Home = (onNavigate) => {
     document.getElementById("fotoPublicacion").value = "";
   });
 
+
+  
   return HomeDiv;
 };
+
+
+
+
+  
+   
+
+
