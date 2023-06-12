@@ -15,6 +15,9 @@ import {
   doc,
   updateDoc,
   deleteDoc,
+  arrayUnion,
+  arrayRemove,
+
 } from "firebase/firestore";
 
 export const validarDatos = (onNavigate) => {
@@ -98,7 +101,7 @@ export function logout() {
   signOut(auth);
 }
 
-/*------------------------------------FUNCIONES REGISTRO CORREO -------------------------------------------*/
+/*------------------------------------FUNCIONES CREAR POSTS -------------------------------------------*/
 import { usuarioActual } from "./registroGoogle";
 
 export const crearPost = () => {
@@ -121,6 +124,7 @@ export const crearPost = () => {
       fotoPublicacion: fotoPublicacion,
       textoPublicacion: textoPublicacion,
       fecha: fecha,
+      likes: [],
     });
   }
 };
@@ -172,3 +176,15 @@ export const editarPost = (id, camposEditados) => updateDoc(doc(db, 'posts', id)
 /*------------------------------------------------ FUNCION ELIMINAR POSTS -------------------------------------------*/
 
 export const eliminarPost = id => deleteDoc(doc(db, 'posts', id)); 
+
+
+/*------------------------------------------------ FUNCION ME GUSTA       -------------------------------------------*/
+
+export const updateLike = (idPost, idUsuario) => {
+  updateDoc(doc(db, "posts", idPost), { likes: arrayUnion(idUsuario) });
+};
+
+export const disLike = (idPost, idUsuario) => {
+  updateDoc(doc(db, "posts", idPost), { likes: arrayRemove(idUsuario) });
+};
+
