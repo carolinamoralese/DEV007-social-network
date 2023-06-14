@@ -11,6 +11,7 @@ export const inicio = (onNavigate) => {
 
   const inicioDiv = document.createElement("div");
   const eslogan = document.createElement("h2");
+  const formDiv = document.createElement("div");
   const botonInicio = document.createElement("button");
   const botonRegistro = document.createElement("button");
   const botonGoogle = document.createElement("button");
@@ -20,6 +21,7 @@ export const inicio = (onNavigate) => {
   botonInicio.classList.add("botonInicio");
   botonRegistro.classList.add("botonRegistro");
   botonGoogle.classList.add("botonGoogle");
+  formDiv.classList.add("formDiv");
 
   eslogan.innerHTML = "No conquistamos a la montaña, <br> sino a nosotros mismos.";
   botonInicio.textContent = "INICIA SESIÓN";
@@ -41,9 +43,10 @@ export const inicio = (onNavigate) => {
   inicioDiv.appendChild(header1);
   header1.appendChild(logoGrande);
   inicioDiv.appendChild(eslogan);
-  inicioDiv.appendChild(botonInicio);
-  inicioDiv.appendChild(botonRegistro);
-  inicioDiv.appendChild(botonGoogle);
+  inicioDiv.appendChild(formDiv);
+  formDiv.appendChild(botonInicio);
+  formDiv.appendChild(botonRegistro);
+  formDiv.appendChild(botonGoogle);
 
   return inicioDiv;
 };

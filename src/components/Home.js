@@ -127,9 +127,9 @@ export const Home = (onNavigate) => {
   botonPopUpText.textContent = "Cuentanos tu nueva aventura...";
   botonPublicar.textContent = "PUBLICAR";
   unselect.textContent = "DIFICULTAD";
-  bajo.textContent = "Dificultad-Baja";
-  medio.textContent = "Dificultad-Media";
-  alto.textContent = "Dificultad-Alta";
+  bajo.textContent = "BAJA";
+  medio.textContent = "MEDIA";
+  alto.textContent = "ALTA";
 
   HomeDiv.appendChild(header2);
   header2.appendChild(logoChico);
@@ -209,17 +209,18 @@ export const Home = (onNavigate) => {
       const usernametoshow =
         username === "google" ? doc.data().nombre : username;
 
+        /*<p class="descripcionPost">${doc.data().textoPublicacion}</p> ESTABA EN LA 221*/
       const divPost = `
     <div class="publicacionPost">
-    <p class="usuario">Usuario: ${usernametoshow}</p>
-    <p class="ubicacion2">Ubicación: ${doc.data().ubicacion}</p>
-    <p class="dificultad2">Nivel: ${doc.data().dificultad}</p>
-    <p class="equipo2">Equipo: ${doc.data().equipo}</p>
-    <p class="likes">likes: ${doc.data().likes.length}</p>
+    <p class="usuario">${usernametoshow} : ${doc.data().textoPublicacion}</p>
+    <p class="ubicacion2">UBICACIÓN: ${doc.data().ubicacion}</p>
+    <p class="dificultad2">DIFICULTAD: ${doc.data().dificultad}</p>
+    <p class="equipo2">EQUIPO: ${doc.data().equipo}</p>
+    <p class="contadorLikes">${doc.data().likes.length} me gusta</p>
     <img class="imagenPost" src="${doc.data().fotoPublicacion}"></img>
-    <p class="descripcionPost">${doc.data().textoPublicacion}</p>
+    
     <div class="likePublicacion">
-      <button class="like" data-id="${doc.id}">Like</button>
+      <button class="like" data-id="${doc.id}">ME GUSTA</button>
     </div>
     <div class="editarPublicacion">
       <button class="editar" data-id="${doc.id}">Editar</button>
@@ -264,6 +265,7 @@ export const Home = (onNavigate) => {
       const botonLike = divPosts.querySelectorAll(".like");
       botonLike.forEach((boton) => {
         boton.addEventListener("click", async (e) => {
+          e.preventDefault();
           const doc = await traerPost(e.target.dataset.id);
           const usuarioActual = getAuth().currentUser;
          

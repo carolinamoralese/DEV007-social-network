@@ -14,6 +14,7 @@ export const inicioSesion = (onNavigate) => {
   const inputPassword = document.createElement("input");
   const botonIngresar = document.createElement("button");
   const textoBienvenida = document.createElement("p");
+  const montañaVector = document.createElement("img");
 
   inputCorreo.type = "email";
   inputCorreo.id = "email";

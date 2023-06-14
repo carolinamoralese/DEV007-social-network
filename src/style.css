@@ -46,65 +46,68 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
-  background-color: #E6F2F4;
-  top: 0px;
+  background-color: #7b9c6d7c;
   position: relative;
   margin: 0 auto;
   width: 100%;
   height: calc(100vh - 2rem);
   display: grid;
   grid-gap: 30px;
-  grid-template-rows: 150px 350px 50px 50px 50px auto;
+  grid-template-rows: 150px 150px auto;
   grid-template-areas:
     "header1"
     "eslogan"
-    "botonInicio"
-    "botonRegistro"
-    "botonGoogle";
+    "formDiv";
 }
 
 .eslogan {
   grid-area: eslogan;
   position: relative;
   text-align: center;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   margin-bottom: 150px;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 21px;
+  font-size: 22px;
   line-height: 1.5;
   color: #000000;
 }
 
-/*-------------------------------------------------------PRUEBA BOTÓN-------------------------------------------------------*/ 
-/*.inicioDiv .botonInicio {
-  grid-area: botonInicio;
-  height: 60px;
-  width: 80%;
-  margin: 0 auto;
-  font-size: 20px;
-  text-decoration: none;
-  background: transparent;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  border-bottom: 3px solid #ffffff;
-  color: #ffffffc9;
-}*/
+.inicioDiv .formDiv {
+    grid-area: formDiv;
+    /*background-color: #f7f7ef4f;*/
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 100px;
+    height: 420px;
+    display: grid;
+    grid-template-rows: 150px 100px 150px;
+    grid-template-areas:
+      "botonInicio"
+      "botonRegistro"
+      "botonGoogle";
+  }
 
-.inicioDiv .botonInicio {
+.formDiv .botonInicio {
   grid-area: botonInicio;
-  height: 50px;
-  width: 80%;
-  margin: 0 auto;
-  background: #ffffff; /* color de fondo */
-  color: #000000c5; /* color de fuente */
-  border: 2px solid #1F2138; /* tamaño y color de borde */
-  border-radius: 2px; /* redondear bordes */
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  font-size: 15px;
+    height: 50px;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 100px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 16px 30px;
+    text-decoration: none;
+    background: linear-gradient(#f2f2f2, #d8d8d8);
+    border-left: 1px solid #f6f6f6;
+    border-right: 1px solid #e4e4e4;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    font-size: 15px;
 }
 
 .botonInicio:hover {
@@ -129,34 +132,25 @@ body {
   transform: scale(1, 1);
 }
 
-/*.inicioDiv .botonRegistro {
+.formDiv .botonRegistro {
   grid-area: botonRegistro;
-  height: 60px;
-  width: 80%;
-  margin: 0 auto;
-  font-size: 20px;
-  text-decoration: none;
-  background: transparent;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  border-bottom: 3px solid #ffffff;
-  color: #ffffffc9;
-}*/
-
-.inicioDiv .botonRegistro {
-  grid-area: botonRegistro;
-  height: 50px;
-  width: 80%;
-  margin: 0 auto;
-  background: #ffffff; /* color de fondo */
-  color: #000000c5; /* color de fuente */
-  border: 2px solid #1F2138; /* tamaño y color de borde */
-  border-radius: 2px; /* redondear bordes */
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  font-size: 15px;
+    height: 50px;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 30px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 16px 30px;
+    text-decoration: none;
+    background: linear-gradient(#f2f2f2, #d8d8d8);
+    border-left: 1px solid #f6f6f6;
+    border-right: 1px solid #e4e4e4;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    font-size: 15px;
 }
 .botonRegistro:hover {
   color: #fff;/* color de fuente hover */
@@ -179,12 +173,11 @@ body {
   transform: scale(1, 1);
 }
 
-/*-------------------------------------------------------PRUEBA BOTÓN-------------------------------------------------------*/ 
-
-.inicioDiv .botonGoogle {
+.formDiv .botonGoogle {
   grid-area: botonGoogle;
   width: 80%;
   margin: 0 auto;
+  margin-top: -80px;
   font-family: Arial;
   font-weight: bold;
   font-size: 15px;
@@ -231,6 +224,9 @@ body {
   margin: auto;
   width: 300px;
   height: 100px;
+}
+.montañaVector {
+  display: none;
 }
 
 .formulario {
@@ -676,9 +672,11 @@ body {
 }
 
 .tresLineas {
+  position: relative;
   margin-top: 10px;
   width: 60px;
   height: 50px;
+  right: 10px;
 }
 
 .menuHome {
@@ -694,7 +692,6 @@ body {
   z-index: 2;
   border-style: none;
   border-radius: 20px;
-  margin-left: 5px;
 }
 
 .menuHome.active {
@@ -717,7 +714,7 @@ body {
 
 .logo2 {
   position: relative;
-  margin-left: 57%;
+  margin-left: 150px;
   margin-right: 5px;
   width: 120px;
   height: 50px;
@@ -729,7 +726,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom center;
-  background-color: #E6F2F4;
+  background-color: #7b9c6d7c;
   padding: 20px 30px;
   min-height: calc(100vh - 2rem);
   display: grid;
@@ -739,7 +736,8 @@ body {
   grid-template-areas:
     "header"
     "buscadorHome"
-    "publicacionDiv";
+    "publicacionDiv"
+    "divPost";
   z-index: 1;
 }
 
@@ -935,7 +933,7 @@ body {
 
 /*-------------------------------------------------------------- POST PUBLICADO---------------------------------------------------*/
 
-.divPosts {
+/*.divPosts {
   width: 100%;
 }
 
@@ -1068,6 +1066,144 @@ body {
  height: 30px;
  width: 70px;
  border-radius: 5px;
+}*/
+
+.divPosts {
+  grid-area: divPost;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.publicacionPost {
+  background-color: #ffffff;
+  border: 1px solid #888;
+  box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.541);
+  width: 100%;
+  margin: 30px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 300px 60px 30px 30px 30px 30px 40px;
+  grid-template-areas: 
+  "imagenPost imagenPost imagenPost"
+  "botonLike contadorLikes contadorLikes"
+  "usuario usuario usuario" 
+  "ubicacion2 ubicacion2 ubicacion2"
+  "dificultad2 dificultad2 dificultad2"
+  "equipo2 equipo2 equipo2"
+  "botonEditar botonEliminar botonEliminar"
+  ;
+}
+
+.imagenPost {
+  grid-area: imagenPost;
+  position: relative;
+  width: 98%;
+  height: 98%;
+  margin: 5px 5px 5px 5px;
+}
+
+.usuario {
+  grid-area: usuario;
+  width: 100%;
+  height: 30px;
+  margin: 5px 10px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 15px;
+}
+
+.ubicacion2 {
+  grid-area: ubicacion2;
+  width: 100%;
+  height: 30px;
+  margin: 10px 10px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 15px;
+}
+
+.dificultad2 {
+  grid-area: dificultad2;
+  width: 100%;
+  height: 30px;
+  margin: 10px 10px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 15px;
+}
+
+.equipo2 {
+  grid-area: equipo2;
+  width: 100%;
+  height: 30px;
+  margin: 10px 10px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 15px;
+}
+
+
+.likePublicacion{
+  grid-area: botonLike;
+  width: 80%;
+  height: 80%;
+}
+
+.like {
+  background-color: #2f6e05;
+  color: white;
+  border: none; 
+  padding: 0 20px;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  margin: 5PX;
+ }
+
+ .contadorLikes {
+  grid-area: contadorLikes;
+  width: 100%;
+  height: 30px;
+  margin: 15px 0px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+ }
+
+
+.editarPublicacion {
+  grid-area: botonEditar;
+  display: flex;
+  width: 80%;
+  height: 70%;
+}
+
+.editar {
+  background-color: #a7a7a7;
+  color: rgb(0, 0, 0); 
+  border: none;  
+  cursor: pointer;
+  height: 20px;
+  width: 70px;
+  margin: 10px 0 0 10px;
+ }
+
+.eliminarPublicacion {
+  grid-area: botonEliminar;
+  display: flex;
+  width: 80%;
+  height: 70%;
+}
+
+.eliminar {
+  position: relative;
+  background-color: #a7a7a7;
+  color: rgb(0, 0, 0); 
+  border: none; 
+  padding: 0 0px; 
+  cursor: pointer;
+  height: 20px;
+  width: 70px;
+  margin: 10px 0 0 0;
+  right: 30px;
 }
 
 /*-------------------------------------------------------------- FOOTER ----------------------------------------------------------*/
@@ -1086,44 +1222,51 @@ footer {
 }
 }
 
-
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------*/
 
 @media screen and (min-width: 1025px) {
   .header1 {
-    width: 50%;
+    grid-area: header1;
+    width: 100%;
     height: 10rem;
     display: flex;
-    margin-left: 126%;
+    justify-content: flex-end;
   }
   
   .logo1 {
     display: flex;
-    margin-top: 50px;
-    width: 300px;
-    height: 100px;
+    margin-top: 20px;
+    width: 350px;
+    height: 150px;
+    margin-right: 250px;
   }
   
   /*-------------------------------------------------------- SECCIÓN INICIO ---------------------------------------------------*/
   .inicioDiv {
-    background-image: url(Imagenes/Fondo1.png);
+    background-image: url(Imagenes/fondoNuevoGrande.png);
     background-repeat: no-repeat;
-    background-size: 40%;
-    background-position: 10% center;
-    background-color: #E6F2F4;
+    background-size: 18cm;
+    background-position: bottom left;
+    background-color: #6e9978;
     position: relative;
     margin: 0 auto;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 2rem);
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 200px 100px 70px 70px 70px auto;
+    grid-template-rows: 160px auto;
     grid-template-areas:
       "header1 header1"
-      "eslogan eslogan"
-      "botonInicio botonInicio"
-      "botonRegistro botonRegistro"
-      "botonGoogle botonGoogle";
+      "eslogan formDiv";
   }
   
   .eslogan {
@@ -1131,18 +1274,37 @@ footer {
     grid-area: eslogan;
     position: relative;
     text-align: center;
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
-    margin-bottom: 10px;
-    margin-left: 53%;
+    top: -80px;
+    margin-left: 50px;
+    font-size: 40px;
+    font-family: 'Josefin Sans', sans-serif;
   }
   
-  .inicioDiv .botonInicio {
+  .inicioDiv .formDiv {
+    grid-area: formDiv;
+    background: rgba(255, 255, 255, 0.151);
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    width: 70%;
+    margin-top: 35px;
+    margin-left: 60px;
+    height: 420px;
+    display: grid;
+    grid-template-rows: 150px 100px 150px;
+    grid-template-areas:
+      "botonInicio"
+      "botonRegistro"
+      "botonGoogle";
+  }
+
+  .formDiv .botonInicio {
     grid-area: botonInicio;
-    height: 60px;
-    width: 30%;
-    margin-left: 57%;
-    margin-bottom: 10px;
+    height: 50px;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 100px;
     font-family: Arial;
     font-weight: bold;
     font-size: 15px;
@@ -1152,14 +1314,40 @@ footer {
     border-left: 1px solid #f6f6f6;
     border-right: 1px solid #e4e4e4;
     text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    font-size: 15px;
   }
   
-  .inicioDiv .botonRegistro {
+  .botonInicio:hover {
+    color: #fff;/* color de fuente hover */
+  }
+  
+  .botonInicio::after {
+    content: "";
+    background: #1d4261; /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: scale(0, 0);
+    transition: all 0.3s ease;
+  }
+  .botonInicio:hover::after {
+    transition: all 0.3s ease-out;
+    transform: scale(1, 1);
+  }
+  
+  .formDiv .botonRegistro {
     grid-area: botonRegistro;
-    height: 60px;
-    width: 30%;
-    margin-left: 57%;
-    margin-bottom: 10px;
+    height: 50px;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 30px;
     font-family: Arial;
     font-weight: bold;
     font-size: 15px;
@@ -1169,12 +1357,38 @@ footer {
     border-left: 1px solid #f6f6f6;
     border-right: 1px solid #e4e4e4;
     text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    font-size: 15px;
+  }
+  .botonRegistro:hover {
+    color: #fff;/* color de fuente hover */
+  }
+  .botonRegistro::after {
+    content: "";
+    background: #1d4261; /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: scale(0, 0);
+    transition: all 0.3s ease;
+  }
+  .botonRegistro:hover::after {
+    transition: all 0.3s ease-out;
+    transform: scale(1, 1);
   }
   
-  .inicioDiv .botonGoogle {
+  .formDiv .botonGoogle {
     grid-area: botonGoogle;
-    width: 25%;
-    margin-left: 62%;
+    height: 50px;
+    width: 300px;
+    margin-left: 110px;
+    margin-top: 20px;
     font-family: Arial;
     font-weight: bold;
     font-size: 15px;
@@ -1183,7 +1397,7 @@ footer {
     border-style: none;
     background-color: transparent;
     background-image: url("./Imagenes/logoGoogle.png");
-    background-position: 50px center;
+    background-position: 20px center;
     background-size: 40px 40px;
     background-repeat: no-repeat;
   }
@@ -1192,15 +1406,15 @@ footer {
   
   .inicioSesionDiv {
     position: relative;
-    background-image: url(Imagenes/Fondo2.jpg);
+    background-image: url(Imagenes/fondoVerde.jpg);
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom center;
-    background-color: #E6F2F4;
-    height: 100vh;
+    background-size: 85% 100%;
+    background-position: center center;
+    background-color: #6e9978;
+    height: calc(100vh - 2rem);
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 200px;
     grid-template-rows: 160px 500px;
     grid-template-areas:
       "headerRegistro headerRegistro headerRegistro"
@@ -1217,8 +1431,8 @@ footer {
 
   .logoRegistro {
     display: flex;
-    margin-top: 2%;
-    margin-left: 12%;
+    margin-top: 20px;
+    margin-left: 620px;
     width: 300px;
     height: 100px;
   }
@@ -1229,7 +1443,7 @@ footer {
     background: white;
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
     padding: 20px 30px;
-    margin-left: 100px;
+    margin-left: 520px;
     width: 30%;
     height: auto;
     top: -80px;
@@ -1297,16 +1511,16 @@ footer {
   
   .registroCorreoDiv {
     position: relative;
-    background-image: url(Imagenes/Fondo2.jpg);
+    background-image: url(Imagenes/fondoVerde.jpg);
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom center;
-    background-color: #E6F2F4;
+    background-size: 85% 100%;
+    background-position: center center;
+    background-color: #6e9978;
     height: calc(100vh - 2rem);
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 160px 500px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 130px 500px;
     grid-template-areas:
       "headerRegistro2"
       "formulario2";
@@ -1321,10 +1535,10 @@ footer {
 
   .logoRegistro2 {
     display: flex;
-    margin-top: 5%;
-    margin-left: 31%;
-    width: 300px;
-    height: 100px;
+    margin-top: 20px;
+    margin-left: 650px;
+    width: 200px;
+    height: 80px;
   }
   
   .formulario2 {
@@ -1334,8 +1548,8 @@ footer {
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
     padding: 10px 30px;
     position: relative;
-    margin-left: 70px;
-    width: 90%;
+    margin-left: 430px;
+    width: 40%;
     height:fit-content;
     display: grid;
     grid-gap: 5px;
@@ -1456,28 +1670,35 @@ footer {
   
   .contenedorDiv {
     position: relative;
-    background-image: url(Imagenes/Fondo2.jpg);
+    background-image: url(Imagenes/fondoVerde.jpg);
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom center;
-    background-color: #E6F2F4;
+    background-size: 85% 100%;
+    background-position: center center;
+    background-color: #6e9978;
     height: calc(100vh - 2rem);
     top: 0px;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 160px 500px;
     grid-template-areas:
       "headerRegistro2"
       "formulario3";
   }
 
+  .headerRegistro2 {
+    grid-area: headerRegistro2;
+    width: 100%;
+    height: 10rem;
+    display: flex;
+  }
+
   .logoRegistro3 {
     display: flex;
-    margin-top: 5%;
-    margin-left: 170px;
-    width: 300px;
-    height: 100px;
+    margin-top: 20px;
+    margin-left: 650px;
+    width: 200px;
+    height: 80px;
   }
   
   .formulario3 {
@@ -1487,9 +1708,9 @@ footer {
     padding: 20px 30px;
     position: relative;
     justify-content: center;
-    margin-left: 80px;
-    width: 90%;
-    top: -10px;
+    margin-left: 500px;
+    width: 30%;
+    top: -20px;
     display: grid;
     grid-gap: 20px;
     grid-template-areas:
@@ -1524,6 +1745,7 @@ footer {
     width: 300px;
     height: 200px;
     margin-left: 10px;
+    border-radius: 50px;
   }
   
   .contenedorDiv .botonExaminar {
@@ -1732,37 +1954,39 @@ footer {
   
   /*-------------------------------------------------------------- SECCIÓN HOME  ------------------------------------------------*/
   .homeDiv {
-    background-image: url(Imagenes/Fondo2.jpg);
+    /*background-image: url(Imagenes/Fondo2.jpg);
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: bottom center;
-    background-color: #E6F2F4;
+    background-position: bottom center;*/
+    background-color: #7b9c6d7c;
     padding: 20px 30px;
     width: 100%;
     min-height: calc(100vh - 2rem);
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 350px auto 350px;
     grid-template-rows: 100px 60px 200px;
     grid-template-areas:
-      "header          header"
-      "buscadorHome    buscadorHome"
-      "publicacionDiv  publicacionDiv";
+      "header  header         header"
+      "menu    buscadorHome   eventos"
+      "menu    publicacionDiv eventos"
+      "menu    divPost        eventos";
     z-index: 1;
   }
   
   .buscadorDiv {
     grid-area: buscadorHome;
     position: relative;
-    width: 100%;
+    width: 90%;
     z-index: 1;
+    margin: 0 auto;
   }
   
   .buscadorHome {
     display: flex;
     position: relative;
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
     height: 50px;
     padding: 18px 15px;
     font-size: 10pt;
@@ -1787,7 +2011,7 @@ footer {
     border-width: 1px;
     border-radius: 5px;
     z-index: 2;
-    margin-right: 10%;
+    margin-right: 0px;
   }
   
   .imagenLupa {
@@ -1798,7 +2022,7 @@ footer {
   .publicacionDiv {
     grid-area: publicacionDiv;
     display: grid;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     grid-template-rows: 30px 170px;
     grid-template-areas:
@@ -1867,8 +2091,6 @@ footer {
     "textoPublicacion textoPublicacion"
     "fotoPublicacion botonPublicar";
   }
-  
-  
   
   .nombreUsuario {
     display: grid;
@@ -1944,135 +2166,153 @@ footer {
     font-size: 14px;
   }
   
-  /*-------------------------------------------------------------- POST PUBLICADO---------------------------------------------------*/
+  /*-------------------------------------------------------------- POST PUBLICADO--------------------------------------------------*/
   
   .divPosts {
+    grid-area: divPost;
     display: flex;
-    width: 200%;
-    flex-wrap: wrap;
-    justify-content:center;
+    width: 90%;
+    flex-direction: column;
+    margin: 0 auto;
   }
 
   .publicacionPost {
-    background-color: #a3d66870;
+    background-color: #ffffff;
     border: 1px solid #888;
-    border-radius: 25px;
-    width: 38%;
-    margin: 30px 25px;
-    padding: 20px 0px;
+    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.541);
+    width: 100%;
+    margin: 30px 0px;
     display: grid;
-    grid-template-rows: 30px 30px 30px 30px 400px 30px 70px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 400px 80px 30px 30px 30px 30px 30px 30px;
     grid-template-areas: 
-    "usuario usuario usuario"
+    "imagenPost imagenPost imagenPost"
+    "botonLike contadorLikes contadorLikes"
+    "usuario usuario usuario" 
     "ubicacion2 ubicacion2 ubicacion2"
     "dificultad2 dificultad2 dificultad2"
     "equipo2 equipo2 equipo2"
-    "imagenPost imagenPost imagenPost"
-    "descripcionPost descripcionPost descripcionPost"
-    "botonEditar botonEliminar botonLike"
+    "botonEditar botonEliminar botonEliminar"
     ;
-  }
-  
-  .usuario {
-    grid-area: usuario;
-    width: 90%;
-    height: 30px;
-    margin: 0 auto;
-  }
-  
-  .ubicacion2 {
-    grid-area: ubicacion2;
-    width: 90%;
-    height: 30px;
-    margin: 0 auto;
-  }
-  
-  .dificultad2 {
-    grid-area: dificultad2;
-    width: 90%;
-    height: 30px;
-    margin: 0 auto;
-  }
-  
-  .equipo2 {
-    grid-area: equipo2;
-    width: 90%;
-    height: 30px;
-    margin: 0 auto;
   }
   
   .imagenPost {
     grid-area: imagenPost;
     position: relative;
-    width: 91%;
+    width: 98%;
     height: 98%;
-    margin: 5px 0 5px 30px;
+    margin: 5px 5px 5px 5px;
   }
-  
+
+  .usuario {
+    grid-area: usuario;
+    width: 100%;
+    height: 30px;
+    margin: 5px 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+  }
+
   .descripcionPost{
     grid-area: descripcionPost;
-    width: 90%;
+    width: 100%;
     height: 30px;
-    margin: 10px auto;
-    padding: 5px;
+    margin: 10px 0px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
   }
+  
+  .ubicacion2 {
+    grid-area: ubicacion2;
+    width: 100%;
+    height: 30px;
+    margin: 10px 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
+  }
+  
+  .dificultad2 {
+    grid-area: dificultad2;
+    width: 100%;
+    height: 30px;
+    margin: 10px 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
+  }
+  
+  .equipo2 {
+    grid-area: equipo2;
+    width: 100%;
+    height: 30px;
+    margin: 10px 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
+  }
+  
 
   .likePublicacion{
     grid-area: botonLike;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+    width: 80%;
+    height: 70%;
   }
+
+  .like {
+    background-color: #2f6e05;
+    color: white;
+    border: none; 
+    padding: 0 20px;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    margin: 5PX;
+   }
+
+   .contadorLikes {
+    grid-area: contadorLikes;
+    width: 100%;
+    height: 30px;
+    margin: 15px 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 25px;
+   }
+
 
   .editarPublicacion {
     grid-area: botonEditar;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+    width: 80%;
+    height: 70%;
   }
+
+  .editar {
+    background-color: #a7a7a7;
+    color: rgb(0, 0, 0); 
+    border: none;  
+    cursor: pointer;
+    height: 30px;
+    width: 90px;
+    margin: 10px 0 0 10px;
+   }
   
   .eliminarPublicacion {
     grid-area: botonEliminar;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+    width: 80%;
+    height: 70%;
   }
 
-  .like {
-   background-color: #2f6e05;
-   color: white;
-   border: none; 
-   padding: 0 20px;
-   cursor: pointer;
-   height: 50px;
-   width: 90px;
-   border-radius: 5px;
-  }
-
-  .editar {
-    background-color: #2f6e05;
-   color: white; 
-   border: none; 
-   padding: 0 0px; 
-   cursor: pointer;
-   height: 50px;
-   width: 90px;
-   border-radius: 5px;
-  }
-  
   .eliminar {
+    position: relative;
+    background-color: #a7a7a7;
+    color: rgb(0, 0, 0); 
+    border: none; 
+    padding: 0 0px; 
+    cursor: pointer;
     height: 30px;
-    background-color: #2f6e05;
-   color: white; 
-   border: none; 
-   padding: 0 0px; 
-   cursor: pointer;
-   height: 50px;
-   width: 90px;
-   border-radius: 5px;
+    width: 90px;
+    margin: 10px 0 0 0;
+    right: 100px;
   }
   
   
@@ -2087,8 +2327,9 @@ footer {
     padding: 10px;
     position: fixed;
     left: 0;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
+    z-index: 0;
   }
 
 }
