@@ -67,6 +67,8 @@ export const Home = (onNavigate) => {
   const fotoPublicacion = document.createElement("input");
   const botonPublicar = document.createElement("button");
   const divPosts = document.createElement("div");
+  //const botonicon = document.createElement("button");//
+  //const icon = document.createElement("i");//
 
   HomeDiv.classList.add("homeDiv");
   buscadorDiv.classList.add("buscadorDiv");
@@ -89,6 +91,8 @@ export const Home = (onNavigate) => {
   dificultad.classList.add("dificultad");
   equipo.classList.add("equipo");
   divPosts.classList.add("divPosts");
+  //botonicon.classList.add("botonicon");
+  //icon.classList.add("fa-solid fa-trash-can");
 
   buscadorHome.setAttribute("type", "text");
   buscadorHome.setAttribute("placeholder", "Busca por pais");
@@ -119,6 +123,8 @@ export const Home = (onNavigate) => {
   equipo.setAttribute.required;
   ubicacion.setAttribute.required;
   dificultad.setAttribute.required;
+  //icon.setAttribute('aria-hidden', 'true');
+  
 
   navHome.textContent = "HOME";
   navPerfil.textContent = "PERFIL";
@@ -162,6 +168,8 @@ export const Home = (onNavigate) => {
   publicacionPopUp.appendChild(fotoPublicacion);
   publicacionPopUp.appendChild(botonPublicar);
   HomeDiv.appendChild(divPosts);
+  //divPosts.appendChild(botonicon);
+  //botonicon.appendChild(icon);
 
   despliegueMenu.addEventListener("click", () => {
     menuHome.classList.toggle("active");
@@ -222,11 +230,11 @@ export const Home = (onNavigate) => {
 
     if(doc.data().likes.includes(usuarioActual.uid)){
       divPost += `<div class="likePublicacion">
-      <button class="like" data-id="${doc.id}">DISLIKE</button>
+      <button class="like" data-id="${doc.id}"><img class="montana" id="montana" src="./imagenes/montaña.png"></img>DISLIKE</button>
     </div>`
     }else{
       divPost += `<div class="likePublicacion">
-      <button class="like" data-id="${doc.id}">ME GUSTA</button>
+      <button class="like" data-id="${doc.id}"><img class="montana" id="montana" src="./imagenes/montaña.png"></img>ME GUSTA</button>
     </div>`
     }
 
