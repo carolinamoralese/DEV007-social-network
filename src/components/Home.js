@@ -203,6 +203,7 @@ export const Home = (onNavigate) => {
 
   onSnapshot(q, (querySnapshot) => {
     divPosts.innerHTML = "";
+    const usuarioActual = getAuth().currentUser;
 
     querySnapshot.forEach(async (doc) => {
       const username = await getUsername(doc.data().email_user);
@@ -210,28 +211,37 @@ export const Home = (onNavigate) => {
         username === "google" ? doc.data().nombre : username;
 
         /*<p class="descripcionPost">${doc.data().textoPublicacion}</p> ESTABA EN LA 221*/
-      const divPost = `
+      let divPost = `
     <div class="publicacionPost">
     <p class="usuario">${usernametoshow} : ${doc.data().textoPublicacion}</p>
     <p class="ubicacion2">UBICACIÓN: ${doc.data().ubicacion}</p>
     <p class="dificultad2">DIFICULTAD: ${doc.data().dificultad}</p>
     <p class="equipo2">EQUIPO: ${doc.data().equipo}</p>
     <p class="contadorLikes">${doc.data().likes.length} me gusta</p>
-    <img class="imagenPost" src="${doc.data().fotoPublicacion}"></img>
-    
-    <div class="likePublicacion">
+    <img class="imagenPost" src="${doc.data().fotoPublicacion}"></img>`
+
+    if(doc.data().likes.includes(usuarioActual.uid)){
+      divPost += `<div class="likePublicacion">
+      <button class="like" data-id="${doc.id}">DISLIKE</button>
+    </div>`
+    }else{
+      divPost += `<div class="likePublicacion">
       <button class="like" data-id="${doc.id}">ME GUSTA</button>
-    </div>
-    <div class="editarPublicacion">
-      <button class="editar" data-id="${doc.id}">Editar</button>
-    </div>
-    <div class="eliminarPublicacion">
-      <button class="eliminar" data-id="${doc.id}">Eliminar</button>
-    </div>
-    </div>
-    </div>
-    `;
-      divPosts.innerHTML += divPost;
+    </div>`
+    }
+
+    if(usuarioActual.email === doc.data().email_user){
+      divPost += `<div class="editarPublicacion">
+          <button class="editar" data-id="${doc.id}">Editar</button>
+      </div>
+      <div class="eliminarPublicacion">
+          <button class="eliminar" data-id="${doc.id}">Eliminar</button>
+      </div>`
+    }
+    divPost += `</div>
+    </div>`;
+
+    divPosts.innerHTML += divPost;
 
       const btnsEditar = divPosts.querySelectorAll(".editar");
       btnsEditar.forEach((btn) => {
