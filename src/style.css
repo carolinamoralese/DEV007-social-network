@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
 
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,15 +8,18 @@
   transition: all 0.25s;
 }
 
+
 html {
   min-height: 100vh;
 }
+
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+
 
 /*--------------------------------------------------------CONTENEDOR DE TODAS LAS RUTAS----------------------------------------*/
 .rutaDiv {
@@ -26,6 +30,7 @@ body {
   align-items: center;
 }
 
+
 @media screen and (max-width: 1024px) {
 /*------------------------------------------------------------HEADER PRINCIPAL -----------------------------------------------*/
 .header1 {
@@ -34,11 +39,13 @@ body {
   display: flex;
 }
 
+
 .logo1 {
   margin: auto;
   width: 200px;
   height: 80px;
 }
+
 
 /*-------------------------------------------------------- SECCIÓN INICIO ---------------------------------------------------*/
 .inicioDiv {
@@ -60,6 +67,7 @@ body {
     "formDiv";
 }
 
+
 .eslogan {
   grid-area: eslogan;
   position: relative;
@@ -72,6 +80,7 @@ body {
   line-height: 1.5;
   color: #000000;
 }
+
 
 .inicioDiv .formDiv {
     grid-area: formDiv;
@@ -88,6 +97,7 @@ body {
       "botonRegistro"
       "botonGoogle";
   }
+
 
 .formDiv .botonInicio {
   grid-area: botonInicio;
@@ -110,9 +120,11 @@ body {
     font-size: 15px;
 }
 
+
 .botonInicio:hover {
   color: #fff;/* color de fuente hover */
 }
+
 
 .botonInicio::after {
   content: "";
@@ -131,6 +143,7 @@ body {
   transition: all 0.3s ease-out;
   transform: scale(1, 1);
 }
+
 
 .formDiv .botonRegistro {
   grid-area: botonRegistro;
@@ -173,6 +186,7 @@ body {
   transform: scale(1, 1);
 }
 
+
 .formDiv .botonGoogle {
   grid-area: botonGoogle;
   width: 80%;
@@ -195,7 +209,9 @@ body {
   color: #000000;
 }
 
+
 /*--------------------------------------------------- SECCIÓN INICIAR SESIÓN ---------------------------------------------------*/
+
 
 .inicioSesionDiv {
   position: relative;
@@ -213,12 +229,14 @@ body {
     "formulario";
 }
 
+
 .headerRegistro {
   width: 100%;
   height: 10rem;
   display: flex;
   margin-bottom: 10px;
 }
+
 
 .logoRegistro {
   margin: auto;
@@ -228,6 +246,7 @@ body {
 .montañaVector {
   display: none;
 }
+
 
 .formulario {
   position: relative;
@@ -247,6 +266,7 @@ body {
     "botonIngresar";
 }
 
+
 .inicioSesionDiv .textoBienvenida {
   grid-area: textoBienvenida;
   font-size: 23px;
@@ -256,6 +276,7 @@ body {
   margin-bottom: 20px;
   font-weight: bold;
 }
+
 
 .inicioSesionDiv .inputCorreo {
   padding: 15px;
@@ -269,6 +290,7 @@ body {
   font-size: 13px;
 }
 
+
 .inicioSesionDiv .inputPassword {
   padding: 15px;
   border: 1px solid #ccc;
@@ -280,6 +302,7 @@ body {
   color: #2c3e50;
   font-size: 13px;
 }
+
 
 .inicioSesionDiv .botonIngresar {
   width: 100px;
@@ -296,7 +319,9 @@ body {
   margin: 0 auto;
 }
 
+
 /*--------------------------------------------------- SECCIÓN REGISTRAR CORREO ---------------------------------------------------*/
+
 
 .registroCorreoDiv {
   position: relative;
@@ -314,6 +339,7 @@ body {
     "formulario2";
 }
 
+
 .headerRegistro2 {
   width: 100%;
   height: 10rem;
@@ -321,11 +347,13 @@ body {
   margin-bottom: 10px;
 }
 
+
 .logoRegistro2 {
   margin: auto;
   width: 300px;
   height: 100px;
 }
+
 
 .formulario2 {
   background: white;
@@ -350,6 +378,7 @@ body {
     "textoPrivacidad";
 }
 
+
 .registroCorreoDiv .bienvenido {
   grid-area: bienvenido;
   font-weight: bold;
@@ -361,6 +390,7 @@ body {
   font-weight: bold;
 }
 
+
 .registroCorreoDiv .textoRegistro {
   grid-area: textoRegistro;
   font-weight: bold;
@@ -371,6 +401,7 @@ body {
   margin-bottom: 10px;
   font-weight: bold;
 }
+
 
 .registroCorreoDiv .nameNewUser {
   grid-area: nameNewUser;
@@ -386,6 +417,7 @@ body {
   font-size: 13px;
 }
 
+
 .registroCorreoDiv .mailNewUser {
   grid-area: mailNewUser;
   text-align: center;
@@ -399,6 +431,7 @@ body {
   color: #13191f;
   font-size: 13px;
 }
+
 
 .registroCorreoDiv .passNewUser {
   grid-area: passNewUser;
@@ -414,6 +447,7 @@ body {
   font-size: 13px;
 }
 
+
 .registroCorreoDiv .confirPass {
   grid-area: confirPass;
   text-align: center;
@@ -427,6 +461,7 @@ body {
   color: #13191f;
   font-size: 13px;
 }
+
 
 .registroCorreoDiv .botonRegistrate {
   grid-area: botonRegistrate;
@@ -444,6 +479,7 @@ body {
   margin: 0 auto;
 }
 
+
 .registroCorreoDiv .textoPrivacidad {
   grid-area: textoPrivacidad;
   font-size: x-small;
@@ -452,7 +488,9 @@ body {
   margin-bottom: 10px;
 }
 
+
 /*--------------------------------------------------- SECCIÓN FOTO PERFIL ---------------------------------------------------*/
+
 
 .contenedorDiv {
   position: relative;
@@ -470,11 +508,13 @@ body {
     "formulario3";
 }
 
+
 .logoRegistro3 {
   margin: auto;
   width: 300px;
   height: 100px;
 }
+
 
 .formulario3 {
   background: white;
@@ -495,6 +535,7 @@ body {
     "botonFinalizar";
 }
 
+
 .contenedorDiv .mensajeRegistro {
   grid-area: mensajeRegistro;
   font-weight: bold;
@@ -506,6 +547,7 @@ body {
   font-weight: bold;
 }
 
+
 .contenedorDiv .mensajeFotoPerfil {
   grid-area: mensajeFotoPerfil;
   font-size: large;
@@ -514,12 +556,14 @@ body {
   color: rgb(0, 0, 0);
 }
 
+
 .contenedorDiv .divFotoPerfil {
   grid-area: divFotoPerfil;
   width: 300px;
   height: 200px;
   margin-left: 10px;
 }
+
 
 .contenedorDiv .botonExaminar {
   grid-area: botonExaminar;
@@ -535,6 +579,7 @@ body {
   width: 80%;
   margin: 0 auto;
 }
+
 
 .contenedorDiv .botonFinalizar {
   grid-area: botonFinalizar;
@@ -575,6 +620,7 @@ body {
     z-index: 1;
 }
 
+
 .containerPerfil{
   background-image: url(./Imagenes/FondoPerfil.png);
   background-repeat: no-repeat;
@@ -584,6 +630,7 @@ body {
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
   padding: 20px 30px;
   position: relative;
+
 
   margin: 0 auto;
   width: 100%;
@@ -600,6 +647,7 @@ body {
   "infoTrackUsuario"
 }
 
+
 .containerPerfil .nombreUsuario{
   display: grid;
   grid-area: nombreUsuario;
@@ -607,6 +655,7 @@ body {
   text-align: center;
   margin-top: 50px;
 }
+
 
 .containerPerfil .fotoPerfil{
   display: grid;
@@ -619,6 +668,7 @@ body {
   margin-top: 30px;
 }
 
+
 .containerPerfil .paisUsuario{
   display: grid;
   grid-area: paisUsuario;
@@ -629,6 +679,7 @@ body {
   text-align: center;
 }
 
+
 .containerPerfil .nivelTrackUsuario{
   display: grid;
   grid-area: nivelTrackUsuario;
@@ -638,6 +689,7 @@ body {
   width: 100%;
   text-align: center;
 }
+
 
 .containerPerfil .infoTrackUsuario{
   display: grid;
@@ -663,6 +715,7 @@ body {
   z-index: 3;
 }
 
+
 .despliegueMenu {
   background-color: transparent;
   z-index: 1;
@@ -671,6 +724,7 @@ body {
   border-style: none;
 }
 
+
 .tresLineas {
   position: relative;
   margin-top: 10px;
@@ -678,6 +732,7 @@ body {
   height: 50px;
   right: 10px;
 }
+
 
 .menuHome {
   position: relative;
@@ -694,11 +749,13 @@ body {
   border-radius: 20px;
 }
 
+
 .menuHome.active {
   /*esta hace que salga abajo el input de la publicación*/
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   z-index: 2;
 }
+
 
 .opcionSection {
   display: flex;
@@ -712,6 +769,7 @@ body {
   text-align: center;
 }
 
+
 .logo2 {
   position: relative;
   margin-left: 150px;
@@ -719,6 +777,7 @@ body {
   width: 120px;
   height: 50px;
 }
+
 
 /*-------------------------------------------------------------- SECCIÓN HOME  --------------------------------------------------*/
 .homeDiv {
@@ -741,12 +800,14 @@ body {
   z-index: 1;
 }
 
+
 .buscadorDiv {
   grid-area: buscadorHome;
   position: relative;
   width: 100%;
   z-index: 1;
 }
+
 
 .buscadorHome {
   position: relative;
@@ -764,6 +825,7 @@ body {
   z-index: 0;
 }
 
+
 .botonBuscarHome {
   position: absolute;
   top: 0;
@@ -778,10 +840,12 @@ body {
   z-index: 2;
 }
 
+
 .imagenLupa {
   width: 30px;
   height: 30px;
 }
+
 
 .publicacionDiv {
   grid-area: publicacionDiv;
@@ -791,6 +855,7 @@ body {
     "mensajePost   mensajePost"
     "botonPopUp    botonPopUp";
 }
+
 
 .mensajePost {
   grid-area: mensajePost;
@@ -803,6 +868,7 @@ body {
   border-color: black;
   border-width: 2px;
 }
+
 
 .botonPopUp {
   position: relative;
@@ -819,9 +885,11 @@ body {
   z-index: 1;
 }
 
+
 .placeholder {
   color: gray;
 }
+
 
 .modalDiv {
   display: none;
@@ -834,6 +902,7 @@ body {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.486);
 }
+
 
 .publicacionPopUp {
   background-color: #fefefe;
@@ -861,6 +930,7 @@ body {
   color: black;
 }
 
+
 .ubicacion {
   display: grid;
   grid-area: ubicacion;
@@ -870,6 +940,7 @@ body {
   text-align: center;
 }
 
+
 .dificultad {
   display: grid;
   grid-area: dificultad;
@@ -877,6 +948,7 @@ body {
   height: 30px;
   text-align: center;
 }
+
 
 .equipo {
   display: grid;
@@ -886,6 +958,7 @@ body {
   color: black;
   text-align: center;
 }
+
 
 .textoPublicacion {
   display: grid;
@@ -900,6 +973,7 @@ body {
   color: black;
 }
 
+
 .fotoPublicacion {
   display: grid;
   grid-area: fotoPublicacion;
@@ -911,6 +985,7 @@ body {
   border-width: 2px;
   text-align: center;
 }
+
 
 .botonPublicar {
   display: grid;
@@ -931,11 +1006,14 @@ body {
   border-width: 2px;
 }
 
+
 /*-------------------------------------------------------------- POST PUBLICADO---------------------------------------------------*/
+
 
 /*.divPosts {
   width: 100%;
 }
+
 
 .publicacionPost {
   background-color: #fefefe;
@@ -967,6 +1045,7 @@ body {
   padding: 5px;
 }
 
+
 .ubicacion2 {
   grid-area: ubicacion2;
   width: 90%;
@@ -974,6 +1053,7 @@ body {
   margin: 0 auto;
   padding: 5px;
 }
+
 
 .dificultad2 {
   grid-area: dificultad2;
@@ -983,6 +1063,7 @@ body {
   padding: 5px;
 }
 
+
 .equipo2 {
   grid-area: equipo2;
   width: 90%;
@@ -990,6 +1071,7 @@ body {
   margin: 0 auto;
   padding: 5px;
 }
+
 
 .imagenPost {
   grid-area: imagenPost;
@@ -999,6 +1081,7 @@ body {
   margin: 5px 0 5px 6%;
 }
 
+
 .descripcionPost{
   grid-area: descripcionPost;
   width: 90%;
@@ -1006,6 +1089,7 @@ body {
   margin: 0 auto;
   padding: 15px 5px;
 }
+
 
 .likePublicacion{
   grid-area: botonLike;
@@ -1016,6 +1100,7 @@ body {
   padding: 30px 0px;
 }
 
+
 .editarPublicacion {
   grid-area: botonEditar;
   display: flex;
@@ -1025,6 +1110,7 @@ body {
   padding: 30px 0px;
 }
 
+
 .eliminarPublicacion {
   grid-area: botonEliminar;
   display: flex;
@@ -1033,6 +1119,7 @@ body {
   margin-top: 2px;
   padding: 30px 0px;
 }
+
 
 .like {
  background-color: #2f6e05;
@@ -1045,6 +1132,7 @@ body {
  border-radius: 5px;
 }
 
+
 .editar {
   background-color: #2f6e05;
  color: white; 
@@ -1055,6 +1143,7 @@ body {
  width: 70px;
  border-radius: 5px;
 }
+
 
 .eliminar {
   height: 30px;
@@ -1068,6 +1157,7 @@ body {
  border-radius: 5px;
 }*/
 
+
 .divPosts {
   grid-area: divPost;
   display: flex;
@@ -1075,6 +1165,7 @@ body {
   flex-direction: column;
   margin: 0 auto;
 }
+
 
 .publicacionPost {
   background-color: #ffffff;
@@ -1096,6 +1187,7 @@ body {
   ;
 }
 
+
 .imagenPost {
   grid-area: imagenPost;
   position: relative;
@@ -1103,6 +1195,7 @@ body {
   height: 98%;
   margin: 5px 5px 5px 5px;
 }
+
 
 .usuario {
   grid-area: usuario;
@@ -1113,6 +1206,7 @@ body {
   font-size: 15px;
 }
 
+
 .ubicacion2 {
   grid-area: ubicacion2;
   width: 100%;
@@ -1122,6 +1216,7 @@ body {
   font-size: 15px;
 }
 
+
 .dificultad2 {
   grid-area: dificultad2;
   width: 100%;
@@ -1130,6 +1225,7 @@ body {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 15px;
 }
+
 
 .equipo2 {
   grid-area: equipo2;
@@ -1147,8 +1243,9 @@ body {
   height: 80%;
 }
 
+
 .like {
-  background-color: transparent;
+  /*background-color: #2f6e05;*/
   color: white;
   border: none; 
   padding: 0 20px;
@@ -1157,11 +1254,18 @@ body {
   height: 100%;
   border-radius: 5px;
   margin: 5PX;
+  background-color: transparent;
  }
 
  .montana {
   height: 38px;
   width: 41px;
+  right: 10px;
+}
+
+ .montana {
+  height: 20px;
+  width: 20px;
   right: 10px;
 }
 
@@ -1183,6 +1287,7 @@ body {
   height: 70%;
 }
 
+
 .editar {
   background-color: #a7a7a7;
   color: rgb(0, 0, 0); 
@@ -1193,12 +1298,14 @@ body {
   margin: 10px 0 0 10px;
  }
 
+
 .eliminarPublicacion {
   grid-area: botonEliminar;
   display: flex;
   width: 80%;
   height: 70%;
 }
+
 
 .eliminar {
   position: relative;
@@ -1214,9 +1321,8 @@ body {
 }
 
 
-
-
 /*-------------------------------------------------------------- FOOTER ----------------------------------------------------------*/
+
 
 footer {
   height: 2rem;
@@ -1232,6 +1338,7 @@ footer {
 }
 }
 
+
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------*/
@@ -1241,6 +1348,7 @@ footer {
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------*/
+
 
 @media screen and (min-width: 1025px) {
   .header1 {
@@ -1308,6 +1416,7 @@ footer {
       "botonRegistro"
       "botonGoogle";
   }
+
 
   .formDiv .botonInicio {
     grid-area: botonInicio;
@@ -1439,6 +1548,7 @@ footer {
     margin-bottom: 10px;
   }
 
+
   .logoRegistro {
     display: flex;
     margin-top: 20px;
@@ -1446,6 +1556,7 @@ footer {
     width: 300px;
     height: 100px;
   }
+
 
   .formulario {
     grid-area: formulario;
@@ -1536,12 +1647,14 @@ footer {
       "formulario2";
   }
 
+
   .headerRegistro2 {
     grid-area: headerRegistro2;
     width: 100%;
     height: 10rem;
     display: flex;
   }
+
 
   .logoRegistro2 {
     display: flex;
@@ -1696,12 +1809,14 @@ footer {
       "formulario3";
   }
 
+
   .headerRegistro2 {
     grid-area: headerRegistro2;
     width: 100%;
     height: 10rem;
     display: flex;
   }
+
 
   .logoRegistro3 {
     display: flex;
@@ -2175,6 +2290,13 @@ footer {
     text-decoration: none;
     font-size: 14px;
   }
+
+
+  .montana {
+    height: 20px;
+    width: 20px;
+    right: 10px;
+  }
   
   /*-------------------------------------------------------------- POST PUBLICADO--------------------------------------------------*/
   
@@ -2185,6 +2307,7 @@ footer {
     flex-direction: column;
     margin: 0 auto;
   }
+
 
   .publicacionPost {
     background-color: #ffffff;
@@ -2214,6 +2337,7 @@ footer {
     margin: 5px 5px 5px 5px;
   }
 
+
   .usuario {
     grid-area: usuario;
     width: 100%;
@@ -2222,6 +2346,7 @@ footer {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
   }
+
 
   .descripcionPost{
     grid-area: descripcionPost;
@@ -2260,11 +2385,13 @@ footer {
   }
   
 
+
   .likePublicacion{
     grid-area: botonLike;
     width: 80%;
     height: 70%;
   }
+
 
   .like {
     background-color: #2f6e05;
@@ -2277,6 +2404,7 @@ footer {
     border-radius: 5px;
     margin: 5PX;
    }
+
 
    .contadorLikes {
     grid-area: contadorLikes;
@@ -2295,6 +2423,7 @@ footer {
     height: 70%;
   }
 
+
   .editar {
     background-color: #a7a7a7;
     color: rgb(0, 0, 0); 
@@ -2312,6 +2441,7 @@ footer {
     height: 70%;
   }
 
+
   .eliminar {
     position: relative;
     background-color: #a7a7a7;
@@ -2324,8 +2454,6 @@ footer {
     margin: 10px 0 0 0;
     right: 100px;
   }
-
-  
   
   /*-------------------------------------------------------------- FOOTER ----------------------------------------------------------*/
   
@@ -2343,4 +2471,7 @@ footer {
     z-index: 0;
   }
 
+
 }
+
+
