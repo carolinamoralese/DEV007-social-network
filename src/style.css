@@ -1148,7 +1148,7 @@ body {
 }
 
 .like {
-  background-color: #2f6e05;
+  background-color: transparent;
   color: white;
   border: none; 
   padding: 0 20px;
@@ -1158,6 +1158,13 @@ body {
   border-radius: 5px;
   margin: 5PX;
  }
+
+ .montana {
+  height: 38px;
+  width: 41px;
+  right: 10px;
+}
+
 
  .contadorLikes {
   grid-area: contadorLikes;
@@ -2315,11 +2322,6 @@ footer {
     right: 100px;
   }
 
-  .likePublicacion .montana {
-    height: 5px;
-    width: 5px;
-    right: 10px;
-  }
   
   
   /*-------------------------------------------------------------- FOOTER ----------------------------------------------------------*/
