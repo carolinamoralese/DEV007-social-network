@@ -16,7 +16,8 @@ export default defineConfig(({ command }) => {
       // https://vitejs.dev/guide/static-deploy.html#github-pages
       // ejemplo base: '/social-network/',
       build: {
-        minify: false,
+        minify: 'esbuild',
+        target: 'esnext',
         rollupOptions: {
           output: {
             dir: './dist',
