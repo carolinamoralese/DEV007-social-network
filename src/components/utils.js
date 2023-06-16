@@ -188,3 +188,28 @@ export const disLike = (idPost, idUsuario) => {
   updateDoc(doc(db, "posts", idPost), { likes: arrayRemove(idUsuario) });
 };
 
+/*------------------------------------------------ VALIDAR CORREO   -------------------------------------------
+
+export const validarCorreo = (mailNewUser) => {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(mailNewUser)){
+   alert("La dirección de email " + mailNewUser + " es correcta.");
+  } else {
+   alert("La dirección de email es incorrecta.");
+   return;
+  }
+}*/
+
+export function validarCorreo(){
+
+  // Define our regular expression.
+  var validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
+  // Using test we can check if the text match the pattern
+  if( validEmail.test(mailNewUser.value) ){
+      console.log('Email is valid, continue with form submission');
+  }else{
+      alert('Email is invalid, skip form submission');
+      return false;
+  }
+}
+

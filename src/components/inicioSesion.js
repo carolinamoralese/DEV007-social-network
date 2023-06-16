@@ -1,10 +1,11 @@
 import { validarDatos } from "./utils.js";
+import logoMountainMe from '../Imagenes/logo MountainMe.png';
 
 export const inicioSesion = (onNavigate) => {
 /*HEADER PRINCIPAL*/
   const header1 = document.createElement("header");
   const logoGrande = document.createElement("img");
-  logoGrande.src = "../Imagenes/Logo MountainMe.png";
+  logoGrande.src = logoMountainMe
   header1.classList.add("headerRegistro");
   logoGrande.classList.add("logoRegistro");
 

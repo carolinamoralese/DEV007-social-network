@@ -1,5 +1,8 @@
 import { db } from "../app/firebase";
 import { getAuth } from "firebase/auth";
+import logoMountainMe from '../Imagenes/logo MountainMe.png';
+import menu from '../Imagenes/menu.png';
+import lupa from '../Imagenes/lupa.png';
 import {
   logout,
   crearPost,
@@ -34,8 +37,8 @@ export const Home = (onNavigate) => {
   const navHome = document.createElement("li");
   const navPerfil = document.createElement("li");
   const navCerrarSesion = document.createElement("li");
-  logoChico.src = "../Imagenes/Logo MountainMe.png";
-  imagenMenu.src = "../Imagenes/menu.png";
+  logoChico.src = logoMountainMe
+  imagenMenu.src = menu
   header2.classList.add("header2");
   logoChico.classList.add("logo2");
   imagenMenu.classList.add("tresLineas");
@@ -96,7 +99,7 @@ export const Home = (onNavigate) => {
 
   buscadorHome.setAttribute("type", "text");
   buscadorHome.setAttribute("placeholder", "Busca por pais");
-  imagenLupa.src = "../Imagenes/lupa.png";
+  imagenLupa.src = lupa
   textoPublicacion.setAttribute(
     "placeholder",
     "Cuentanos tu nueva aventura..."

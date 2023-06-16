@@ -1,10 +1,11 @@
-import { registro } from "./utils.js";
+import { registro, validarCorreo } from "./utils.js";
+import logoMountainMe from '../Imagenes/logo MountainMe.png';
 
 export const registroCorreo = (onNavigate) => {
  /*HEADER PRINCIPAL*/
   const header1 = document.createElement("header");
   const logoGrande = document.createElement("img");
-  logoGrande.src = "../Imagenes/Logo MountainMe.png";
+  logoGrande.src = logoMountainMe
   header1.classList.add("headerRegistro2");
   logoGrande.classList.add("logoRegistro2");
 
@@ -74,10 +75,18 @@ export const registroCorreo = (onNavigate) => {
   formulario.appendChild(botonRegistrate);
   formulario.appendChild(textoPrivacidad);
 
-  botonRegistrate.addEventListener(
-    "click",
-    () => {
-      registro(onNavigate);
+  botonRegistrate.addEventListener("click", () => {
+    validarCorreo();
+    registro(onNavigate);
+    /*if (validarCorreo() == true){
+        registro(onNavigate);
+
+      } else {
+        return console.log("Correo no valido")
+      }*/
+
+      
+      
     } 
   );
 

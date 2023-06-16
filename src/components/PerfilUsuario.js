@@ -1,4 +1,7 @@
 import {logout} from "./utils.js"
+import logoMountainMe from '../Imagenes/logo MountainMe.png';
+import menu from '../Imagenes/menu.png';
+
 
 export const PerfilUsuario = (onNavigate) =>{
 /*HEADER HOME*/
@@ -11,8 +14,8 @@ export const PerfilUsuario = (onNavigate) =>{
   const navHome = document.createElement('li');
   const navPerfil = document.createElement('li');
   const navCerrarSesion = document.createElement('li');
-  logoChico.src = "../Imagenes/Logo MountainMe.png";
-  imagenMenu.src = "../Imagenes/menu.png";
+  logoChico.src = logoMountainMe
+  imagenMenu.src = menu
   header2.classList.add("header2");
   logoChico.classList.add("logo2");
   imagenMenu.classList.add("tresLineas");

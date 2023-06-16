@@ -1,10 +1,11 @@
 import { registroGoogle } from "./registroGoogle.js";
+import logoMountainMe from '../Imagenes/logo MountainMe.png';
 
 export const inicio = (onNavigate) => {
   /*HEADER PRINCIPAL*/
   const header1 = document.createElement("header");
   const logoGrande = document.createElement("img");
-  logoGrande.src = "../Imagenes/Logo MountainMe.png";
+  logoGrande.src = logoMountainMe
   header1.classList.add("header1");
   logoGrande.classList.add("logo1");
   
