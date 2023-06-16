@@ -1,5 +1,5 @@
 import { registro, validarCorreo } from "./utils.js";
-import logoMountainMe from '../Imagenes/logo MountainMe.png';
+import logoMountainMe from '../Imagenes/Logo MountainMe.png';
 
 export const registroCorreo = (onNavigate) => {
  /*HEADER PRINCIPAL*/

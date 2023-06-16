@@ -1,5 +1,5 @@
 import { registroGoogle } from "./registroGoogle.js";
-import logoMountainMe from '../Imagenes/logo MountainMe.png';
+import logoMountainMe from '../Imagenes/Logo MountainMe.png';
 
 export const inicio = (onNavigate) => {
   /*HEADER PRINCIPAL*/

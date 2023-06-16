@@ -1,6 +1,6 @@
 import { db } from "../app/firebase";
 import { getAuth } from "firebase/auth";
-import logoMountainMe from '../Imagenes/logo MountainMe.png';
+import logoMountainMe from '../Imagenes/Logo MountainMe.png';
 import menu from '../Imagenes/menu.png';
 import lupa from '../Imagenes/lupa.png';
 import {
