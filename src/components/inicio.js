@@ -1,6 +1,7 @@
 import { registroGoogle } from "./registroGoogle.js";
 import logoMountainMe from '../Imagenes/Logo MountainMe.png';
 
+
 export const inicio = (onNavigate) => {
   /*HEADER PRINCIPAL*/
   const header1 = document.createElement("header");

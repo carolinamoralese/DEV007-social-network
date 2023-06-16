@@ -3,6 +3,7 @@ import { getAuth } from "firebase/auth";
 import logoMountainMe from '../Imagenes/Logo MountainMe.png';
 import menu from '../Imagenes/menu.png';
 import lupa from '../Imagenes/lupa.png';
+import montanaLike from '../Imagenes/montaña.png';
 import {
   logout,
   crearPost,
@@ -233,11 +234,11 @@ export const Home = (onNavigate) => {
 
     if(doc.data().likes.includes(usuarioActual.uid)){
       divPost += `<div class="likePublicacion">
-      <button class="like" data-id="${doc.id}"><img class="montana" id="montana" src="./imagenes/montaña.png"></img>DISLIKE</button>
+      <button class="like" data-id="${doc.id}"><img class="montana" id="montana" src=${montanaLike}></img>DISLIKE</button>
     </div>`
     }else{
       divPost += `<div class="likePublicacion">
-      <button class="like" data-id="${doc.id}"><img class="montana" id="montana" src="./imagenes/montaña.png"></img>ME GUSTA</button>
+      <button class="like" data-id="${doc.id}"><img class="montana" id="montana" src=${montanaLike}></img>ME GUSTA</button>
     </div>`
     }
 
