@@ -1258,6 +1258,11 @@ body {
   background-color: transparent;
  }
 
+ .montana {
+  height: 38px;
+  width: 41px;
+  right: 10px;
+}
 
  .montana {
   height: 20px;
@@ -2450,7 +2455,6 @@ footer {
     margin: 10px 0 0 0;
     right: 100px;
   }
-  
   
   /*-------------------------------------------------------------- FOOTER ----------------------------------------------------------*/
   
