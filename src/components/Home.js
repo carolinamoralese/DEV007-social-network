@@ -322,6 +322,7 @@ export const Home = (onNavigate) => {
     <p class="dificultad2">DIFICULTAD: ${doc.data().dificultad}</p>
     <p class="equipo2">EQUIPO: ${doc.data().equipo}</p>
     <p class="contadorLikes">${doc.data().likes.length} me gusta</p>
+    
     <img class="imagenPost" src="${doc.data().fotoPublicacion}"></img>`;
 
 
