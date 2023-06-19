@@ -9,9 +9,7 @@ import iconoPerfil from "../Imagenes/iconoPerfil.png";
 import iconoSalir from "../Imagenes/iconoSalir.png";
 import {
   logout,
-  crearPost,
-  validarpost,
-  obtenerUsers,
+  //obtenerUsers,
   usuarioCorreo,
   getUsername,
   traerPost,
@@ -20,6 +18,7 @@ import {
   updateLike,
   disLike,
 } from "./utils.js";
+import { crearPost, validarpost } from "./domUtils";
 import {
   onSnapshot,
   getDoc,

@@ -1,4 +1,4 @@
-import { validarDatos } from "./utils.js";
+import { validarDatos } from "./domUtils.js";
 import logoMountainMe from '../Imagenes/logo MountainMe.png';
 
 export const inicioSesion = (onNavigate) => {

@@ -1,8 +1,7 @@
-import { registro, validarCorreo } from "./utils.js";
+import { registro } from "./domUtils.js";
 import logoMountainMe from '../Imagenes/logo MountainMe.png';
 
 export const registroCorreo = (onNavigate) => {
- /*HEADER PRINCIPAL*/
   const header1 = document.createElement("header");
   const logoGrande = document.createElement("img");
   logoGrande.src = logoMountainMe
@@ -76,19 +75,8 @@ export const registroCorreo = (onNavigate) => {
   formulario.appendChild(textoPrivacidad);
 
   botonRegistrate.addEventListener("click", () => {
-    validarCorreo();
     registro(onNavigate);
-    if (validarCorreo() == true){
-        registro(onNavigate);
-
-      } else {
-        return console.log("Correo no valido")
-      }
-
-      
-      
-    } 
-  );
+  });
 
   return registroCorreoDiv;
 };
