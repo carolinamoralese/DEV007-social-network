@@ -111,7 +111,7 @@ export const Home = (onNavigate) => {
   const bajo = document.createElement("option");
   const medio = document.createElement("option");
   const alto = document.createElement("option");
-  const equipo = document.createElement("input");
+  const equipo = document.createElement("input")
   const textoPublicacion = document.createElement("input");
   const fotoPublicacion = document.createElement("input");
   const botonPublicar = document.createElement("button");
