@@ -1,4 +1,4 @@
-import logoMountainMe from '../Imagenes/Logo MountainMe.png';
+import logoMountainMe from '../Imagenes/logo MountainMe.png';
 
 export const FotoPerfil = (onNavigate) => {
   /*HEADER PRINCIPAL*/

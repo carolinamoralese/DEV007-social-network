@@ -111,7 +111,7 @@ export const Home = (onNavigate) => {
   const bajo = document.createElement("option");
   const medio = document.createElement("option");
   const alto = document.createElement("option");
-  const equipo = document.createElement("input");
+  const equipo = document.createElement("input")
   const textoPublicacion = document.createElement("input");
   const fotoPublicacion = document.createElement("input");
   const botonPublicar = document.createElement("button");
@@ -322,7 +322,6 @@ export const Home = (onNavigate) => {
     <p class="dificultad2">DIFICULTAD: ${doc.data().dificultad}</p>
     <p class="equipo2">EQUIPO: ${doc.data().equipo}</p>
     <p class="contadorLikes">${doc.data().likes.length} me gusta</p>
-    
     <img class="imagenPost" src="${doc.data().fotoPublicacion}"></img>`;
 
 
