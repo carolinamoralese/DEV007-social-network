@@ -211,7 +211,7 @@ export const disLike = async (idPost, idUsuario) => {
   const postsQuerySnapshot = await getDocs(collection(db, 'posts'));
   const postDoc = postsQuerySnapshot.docs.find(doc => doc.id === idPost);
   updateDoc(postDoc.ref, { likes: arrayRemove(idUsuario) });
-};
+}
 
 /*------------------------------------------------ VALIDAR CORREO   -------------------------------------------
 
