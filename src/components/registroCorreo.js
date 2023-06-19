@@ -1,10 +1,10 @@
 import { registro } from "./domUtils.js";
-import logoMountainMe from '../Imagenes/logo MountainMe.png';
+import logoMountainMe from "../Imagenes/logo MountainMe.png";
 
 export const registroCorreo = (onNavigate) => {
   const header1 = document.createElement("header");
   const logoGrande = document.createElement("img");
-  logoGrande.src = logoMountainMe
+  logoGrande.src = logoMountainMe;
   header1.classList.add("headerRegistro2");
   logoGrande.classList.add("logoRegistro2");
 

@@ -1,14 +1,13 @@
 import { registroGoogle } from "./registroGoogle.js";
-import logoMountainMe from '../Imagenes/logo MountainMe.png';
+import logoMountainMe from "../Imagenes/logo MountainMe.png";
 
 export const inicio = (onNavigate) => {
   /*HEADER PRINCIPAL*/
   const header1 = document.createElement("header");
   const logoGrande = document.createElement("img");
-  logoGrande.src = logoMountainMe
+  logoGrande.src = logoMountainMe;
   header1.classList.add("header1");
   logoGrande.classList.add("logo1");
-  
 
   const inicioDiv = document.createElement("div");
   const eslogan = document.createElement("h2");
@@ -24,7 +23,8 @@ export const inicio = (onNavigate) => {
   botonGoogle.classList.add("botonGoogle");
   formDiv.classList.add("formDiv");
 
-  eslogan.innerHTML = "No conquistamos a la montaña, <br> sino a nosotros mismos.";
+  eslogan.innerHTML =
+    "No conquistamos a la montaña, <br> sino a nosotros mismos.";
   botonInicio.textContent = "INICIA SESIÓN";
   botonRegistro.textContent = "REGISTRATE";
   botonGoogle.textContent = "Ingresa con Google";

@@ -1,4 +1,10 @@
-import { getAuth, signInWithEmailAndPassword, signOut, sendEmailVerification, createUserWithEmailAndPassword  } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signOut,
+  sendEmailVerification,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 import {
   collection,
   addDoc,
@@ -26,16 +32,14 @@ export function loginEmail(email, password, onNavigate) {
       // Signed in
 
       //valida que el correo esta verificado
-     if(auth.currentUser.emailVerified){
-      onNavigate("/Home");
-     }else{
-      alert("verifica tu correo")
-     }
-      
+      if (auth.currentUser.emailVerified) {
+        onNavigate("/Home");
+      } else {
+        alert("verifica tu correo");
+      }
     })
     .catch((error) => {
       alert(error.message);
-      
     });
 }
 
@@ -52,18 +56,18 @@ export const registroMail = (email, password, onNavigate, nameNewUser) => {
       });
       auth.signOut();
       sendEmailVerification(auth.currentUser).then(() => {
-        alert("se ha enviado correo de verificacion")
-      })
+        alert("se ha enviado correo de verificacion");
+      });
       onNavigate("/");
     })
     .catch((error) => {
       console.log(error);
       const errorCode = error.code;
-      
-      if(errorCode == 'auth/email-already-in-use'){
-        alert("el correo ya esta en uso")
-      }else if(errorCode == 'auth/invalid-email'){
-        SubtleCrypto("el correo no es valido")
+
+      if (errorCode == "auth/email-already-in-use") {
+        alert("el correo ya esta en uso");
+      } else if (errorCode == "auth/invalid-email") {
+        SubtleCrypto("el correo no es valido");
       }
     });
 };
@@ -71,8 +75,6 @@ export const registroMail = (email, password, onNavigate, nameNewUser) => {
 export function logout() {
   signOut(auth);
 }
-
-
 
 /*------------------------------------FUNCIONES CREAR POSTS -------------------------------------------*/
 
@@ -97,28 +99,25 @@ export const getUsername = async (email) => {
 
 /*------------------------------------------------ FUNCION EDITAR POSTS -------------------------------------------*/
 
-export const traerPost = (id) => getDoc(doc(db, "posts", id)); 
+export const traerPost = (id) => getDoc(doc(db, "posts", id));
 
-export const editarPost = (id, camposEditados) => updateDoc(doc(db, 'posts', id), camposEditados);
+export const editarPost = (id, camposEditados) =>
+  updateDoc(doc(db, "posts", id), camposEditados);
 
 /*------------------------------------------------ FUNCION ELIMINAR POSTS -------------------------------------------*/
 
-export const eliminarPost = id => deleteDoc(doc(db, 'posts', id)); 
-
+export const eliminarPost = (id) => deleteDoc(doc(db, "posts", id));
 
 /*------------------------------------------------ FUNCION ME GUSTA       -------------------------------------------*/
 
 export const updateLike = async (idPost, idUsuario) => {
-  const postsQuerySnapshot = await getDocs(collection(db, 'posts'))
-  const postDoc = postsQuerySnapshot.docs.find(doc => doc.id === idPost);
+  const postsQuerySnapshot = await getDocs(collection(db, "posts"));
+  const postDoc = postsQuerySnapshot.docs.find((doc) => doc.id === idPost);
   updateDoc(postDoc.ref, { likes: arrayUnion(idUsuario) });
 };
 
 export const disLike = async (idPost, idUsuario) => {
-  const postsQuerySnapshot = await getDocs(collection(db, 'posts'));
-  const postDoc = postsQuerySnapshot.docs.find(doc => doc.id === idPost);
+  const postsQuerySnapshot = await getDocs(collection(db, "posts"));
+  const postDoc = postsQuerySnapshot.docs.find((doc) => doc.id === idPost);
   updateDoc(postDoc.ref, { likes: arrayRemove(idUsuario) });
-}
-
-
-
+};

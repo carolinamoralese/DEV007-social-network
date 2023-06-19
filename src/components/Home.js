@@ -28,7 +28,6 @@ import {
   orderBy,
 } from "firebase/firestore";
 
-
 export const Home = (onNavigate) => {
   /*HEADER HOME*/
   const header2 = document.createElement("header");
@@ -48,7 +47,6 @@ export const Home = (onNavigate) => {
   menuHome.classList.add("menuHome");
   despliegueMenu.classList.add("despliegueMenu");
   opcionSection.classList.add("opcionSection");
-
 
   /*NUEVO*/
   const menuGrande = document.createElement("div");
@@ -77,19 +75,18 @@ export const Home = (onNavigate) => {
   navHome2.textContent = "HOME";
   navPerfil2.textContent = "PERFIL";
   navCerrarSesion2.textContent = "SALIR";
-  const eventosDiv1 = document.createElement("div")
-  eventosDiv1.classList.add("eventosDiv1")
-  const eventosDiv = document.createElement("div")
-  eventosDiv.classList.add("eventosDiv")
-  const tituloEventos = document.createElement("h1")
-  tituloEventos.classList.add("tituloEventos")
-  tituloEventos.textContent = "Conoce los eventos más cercanos"
+  const eventosDiv1 = document.createElement("div");
+  eventosDiv1.classList.add("eventosDiv1");
+  const eventosDiv = document.createElement("div");
+  eventosDiv.classList.add("eventosDiv");
+  const tituloEventos = document.createElement("h1");
+  tituloEventos.classList.add("tituloEventos");
+  tituloEventos.textContent = "Conoce los eventos más cercanos";
   const eventosLista = document.createElement("div");
-  eventosLista.classList.add("eventosLista")
+  eventosLista.classList.add("eventosLista");
   const botonEvento = document.createElement("button");
-  botonEvento.classList.add("botonEvento")
+  botonEvento.classList.add("botonEvento");
   /*NUEVO*/
-
 
   const HomeDiv = document.createElement("div");
   const buscadorDiv = document.createElement("div");
@@ -110,12 +107,11 @@ export const Home = (onNavigate) => {
   const bajo = document.createElement("option");
   const medio = document.createElement("option");
   const alto = document.createElement("option");
-  const equipo = document.createElement("input")
+  const equipo = document.createElement("input");
   const textoPublicacion = document.createElement("input");
   const fotoPublicacion = document.createElement("input");
   const botonPublicar = document.createElement("button");
   const divPosts = document.createElement("div");
-
 
   HomeDiv.classList.add("homeDiv");
   buscadorDiv.classList.add("buscadorDiv");
@@ -139,7 +135,6 @@ export const Home = (onNavigate) => {
   equipo.classList.add("equipo");
   divPosts.classList.add("divPosts");
 
-
   buscadorHome.setAttribute("type", "text");
   buscadorHome.setAttribute("placeholder", "Busca por pais");
   imagenLupa.src = lupa;
@@ -154,7 +149,6 @@ export const Home = (onNavigate) => {
   unselect.value = "";
   unselect.disabled = true;
   unselect.selected = true;
-
 
   publicacionPopUp.setAttribute("id", "publicacionPopUp");
   textoPublicacion.setAttribute("id", "textoPublicacion");
@@ -171,7 +165,6 @@ export const Home = (onNavigate) => {
   ubicacion.setAttribute.required;
   dificultad.setAttribute.required;
 
-
   navHome.textContent = "HOME";
   navPerfil.textContent = "PERFIL";
   navCerrarSesion.textContent = "SALIR";
@@ -183,7 +176,6 @@ export const Home = (onNavigate) => {
   medio.textContent = "MEDIA";
   alto.textContent = "ALTA";
 
-
   HomeDiv.appendChild(header2);
   header2.appendChild(logoChico);
   header2.appendChild(despliegueMenu);
@@ -193,7 +185,6 @@ export const Home = (onNavigate) => {
   opcionSection.appendChild(navHome);
   opcionSection.appendChild(navPerfil);
   opcionSection.appendChild(navCerrarSesion);
-
 
   /*NUEVO*/
   HomeDiv.appendChild(menuGrande);
@@ -207,12 +198,11 @@ export const Home = (onNavigate) => {
   opcionSection2.appendChild(navPerfil2);
   opcionSection2.appendChild(navCerrarSesion2);
   HomeDiv.appendChild(eventosDiv1);
-  eventosDiv1.appendChild(eventosDiv)
-  eventosDiv.appendChild(tituloEventos)
-  eventosDiv.appendChild(botonEvento)
-  eventosDiv.appendChild(eventosLista)
+  eventosDiv1.appendChild(eventosDiv);
+  eventosDiv.appendChild(tituloEventos);
+  eventosDiv.appendChild(botonEvento);
+  eventosDiv.appendChild(eventosLista);
   /*NUEVO*/
-
 
   HomeDiv.appendChild(buscadorDiv);
   buscadorDiv.appendChild(buscadorHome);
@@ -237,22 +227,18 @@ export const Home = (onNavigate) => {
   publicacionPopUp.appendChild(botonPublicar);
   HomeDiv.appendChild(divPosts);
 
-
   despliegueMenu.addEventListener("click", () => {
     menuHome.classList.toggle("active");
   });
-
 
   botonPopUp.addEventListener("click", function () {
     modalDiv.style.display = "block";
     console.log("holi");
   });
 
-
   close.addEventListener("click", function () {
     modalDiv.style.display = "none";
   });
-
 
   window.addEventListener("click", function (event) {
     if (event.target == modalDiv) {
@@ -260,33 +246,27 @@ export const Home = (onNavigate) => {
     }
   });
 
-
   navHome.addEventListener("click", () => {
     onNavigate("/Home");
   });
 
-
   navPerfil.addEventListener("click", () => {
     onNavigate("/PerfilUsuario");
   });
-
 
   navCerrarSesion.addEventListener("click", () => {
     logout();
     onNavigate("/");
   });
 
-
   /*NUEVO*/
   navHome2.addEventListener("click", () => {
     onNavigate("/Home");
   });
 
-
   navPerfil2.addEventListener("click", () => {
     onNavigate("/PerfilUsuario");
   });
-
 
   navCerrarSesion2.addEventListener("click", () => {
     logout();
@@ -294,25 +274,20 @@ export const Home = (onNavigate) => {
   });
   /*NUEVO*/
 
-
   /*--------------------------------------------------------SE EMPIEZAN A MOSTRAR LOS POSTS ----------------------------------------*/
-
 
   const q = query(collection(db, "posts"), orderBy("fecha", "desc"));
   let postEditado = false;
   let id = "";
 
-
   onSnapshot(q, (querySnapshot) => {
     divPosts.innerHTML = "";
     const usuarioActual = getAuth().currentUser;
-
 
     querySnapshot.forEach(async (doc) => {
       const username = await getUsername(doc.data().email_user);
       const usernametoshow =
         username === "google" ? doc.data().nombre : username;
-
 
       let divPost = `
     <div class="publicacionPost">
@@ -323,7 +298,6 @@ export const Home = (onNavigate) => {
     <p class="contadorLikes">${doc.data().likes.length} me gusta</p>
     <img class="imagenPost" src="${doc.data().fotoPublicacion}"></img>`;
 
-
       if (doc.data().likes.includes(usuarioActual.uid)) {
         divPost += `<div class="likePublicacion">
       <button class="like" data-id="${doc.id}"><img class="montana" id="montana" src=${montanaLike}></img></button>
@@ -333,7 +307,6 @@ export const Home = (onNavigate) => {
       <button class="like" data-id="${doc.id}"><img class="montana" id="montana" src=${montanaLike}></img></button>
     </div>`;
       }
-
 
       if (usuarioActual.email === doc.data().email_user) {
         divPost += `<div class="editarPublicacion">
@@ -346,9 +319,7 @@ export const Home = (onNavigate) => {
       divPost += `</div>
     </div>`;
 
-
       divPosts.innerHTML += divPost;
-
 
       const btnsEditar = divPosts.querySelectorAll(".editar");
       btnsEditar.forEach((btn) => {
@@ -359,18 +330,15 @@ export const Home = (onNavigate) => {
           const post = postEditar.data();
           console.log(post);
 
-
           ubicacion.value = post.ubicacion;
           dificultad.value = post.dificultad;
           equipo.value = post.equipo;
           textoPublicacion.value = post.textoPublicacion;
           fotoPublicacion.value = post.fotoPublicacion;
 
-
           postEditado = true;
           id = e.target.dataset.id;
         });
-
 
         const btnsEliminar = divPosts.querySelectorAll(".eliminar");
         btnsEliminar.forEach((btn) => {
@@ -381,14 +349,12 @@ export const Home = (onNavigate) => {
         });
       });
 
-
       const botonLike = divPosts.querySelectorAll(".like");
       botonLike.forEach((boton) => {
         boton.addEventListener("click", async (e) => {
           e.preventDefault();
           const doc = await traerPost(e.target.dataset.id);
           const usuarioActual = getAuth().currentUser;
-
 
           if (doc.data().likes.includes(usuarioActual.uid)) {
             disLike(doc.id, usuarioActual.uid);
@@ -400,10 +366,8 @@ export const Home = (onNavigate) => {
     });
   });
 
-
   botonPublicar.addEventListener("click", () => {
     modalDiv.style.display = "none";
-
 
     if (postEditado == true) {
       editarPost(id, {
@@ -414,13 +378,11 @@ export const Home = (onNavigate) => {
         fotoPublicacion: fotoPublicacion.value,
       });
 
-
       postEditado = false;
     } else {
       validarpost();
       crearPost();
     }
-
 
     document.getElementById("ubicacion").value = "";
     document.getElementById("dificultad").value = "";
@@ -428,7 +390,6 @@ export const Home = (onNavigate) => {
     document.getElementById("textoPublicacion").value = "";
     document.getElementById("fotoPublicacion").value = "";
   });
-
 
   return HomeDiv;
 };

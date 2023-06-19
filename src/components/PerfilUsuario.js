@@ -1,30 +1,28 @@
-import {logout} from "./utils.js"
-import logoMountainMe from '../Imagenes/logo MountainMe.png';
-import menu from '../Imagenes/menu.png';
+import { logout } from "./utils.js";
+import logoMountainMe from "../Imagenes/logo MountainMe.png";
+import menu from "../Imagenes/menu.png";
 import iconoHome from "../Imagenes/iconoHome.png";
 import iconoPerfil from "../Imagenes/iconoPerfil.png";
 import iconoSalir from "../Imagenes/iconoSalir.png";
 
-
-export const PerfilUsuario = (onNavigate) =>{
+export const PerfilUsuario = (onNavigate) => {
   const header2 = document.createElement("header");
   const logoChico = document.createElement("img");
-  const despliegueMenu = document.createElement('button');
-  const imagenMenu = document.createElement('img');
-  const menuHome = document.createElement('div');
-  const opcionSection = document.createElement('ul');
-  const navHome = document.createElement('li');
-  const navPerfil = document.createElement('li');
-  const navCerrarSesion = document.createElement('li');
-  logoChico.src = logoMountainMe
-  imagenMenu.src = menu
+  const despliegueMenu = document.createElement("button");
+  const imagenMenu = document.createElement("img");
+  const menuHome = document.createElement("div");
+  const opcionSection = document.createElement("ul");
+  const navHome = document.createElement("li");
+  const navPerfil = document.createElement("li");
+  const navCerrarSesion = document.createElement("li");
+  logoChico.src = logoMountainMe;
+  imagenMenu.src = menu;
   header2.classList.add("header2");
   logoChico.classList.add("logo2");
   imagenMenu.classList.add("tresLineas");
   menuHome.classList.add("menuHome");
   despliegueMenu.classList.add("despliegueMenu");
   opcionSection.classList.add("opcionSection");
-
 
   /*-----------------------------------*/
   const menuGrande = document.createElement("div");
@@ -53,19 +51,15 @@ export const PerfilUsuario = (onNavigate) =>{
   navHome2.textContent = "HOME";
   navPerfil2.textContent = "PERFIL";
   navCerrarSesion2.textContent = "SALIR";
-/*-----------------------------------*/
+  /*-----------------------------------*/
 
-
-  const perfilDiv = document.createElement('div');
-  const containerPerfil = document.createElement('div');
-  const nombreUsuario =  document.createElement('p');
-  const fotoPerfil = document.createElement('div');
-  const paisUsuario = document.createElement('div');
-  const nivelTrackUsuario = document.createElement('div');
-  const infoTrackUsuario = document.createElement('div');
-
-
-
+  const perfilDiv = document.createElement("div");
+  const containerPerfil = document.createElement("div");
+  const nombreUsuario = document.createElement("p");
+  const fotoPerfil = document.createElement("div");
+  const paisUsuario = document.createElement("div");
+  const nivelTrackUsuario = document.createElement("div");
+  const infoTrackUsuario = document.createElement("div");
 
   perfilDiv.classList.add("perfilDiv");
   containerPerfil.classList.add("containerPerfil");
@@ -80,18 +74,15 @@ export const PerfilUsuario = (onNavigate) =>{
   navPerfil.classList.add("navPerfil");
   navCerrarSesion.classList.add("navCerrarSesion");
 
-
-
-
   //debe ser dinamico
-  nombreUsuario.textContent = "Nombre usuario"
-  paisUsuario.textContent = "PAIS"
-  nivelTrackUsuario.textContent = "NIVEL"
-  infoTrackUsuario.textContent = "TRACK RECORD"
-  navHome.textContent = 'HOME';
-  navPerfil.textContent = 'PERFIL';
-  navCerrarSesion.textContent = 'SALIR';
- 
+  nombreUsuario.textContent = "Nombre usuario";
+  paisUsuario.textContent = "PAIS";
+  nivelTrackUsuario.textContent = "NIVEL";
+  infoTrackUsuario.textContent = "TRACK RECORD";
+  navHome.textContent = "HOME";
+  navPerfil.textContent = "PERFIL";
+  navCerrarSesion.textContent = "SALIR";
+
   perfilDiv.appendChild(header2);
   header2.appendChild(logoChico);
   header2.appendChild(despliegueMenu);
@@ -100,8 +91,7 @@ export const PerfilUsuario = (onNavigate) =>{
   menuHome.appendChild(opcionSection);
   opcionSection.appendChild(navHome);
   opcionSection.appendChild(navPerfil);
-  opcionSection.appendChild(navCerrarSesion)
-
+  opcionSection.appendChild(navCerrarSesion);
 
   perfilDiv.appendChild(menuGrande);
   menuGrande.appendChild(iconosDiv);
@@ -114,58 +104,42 @@ export const PerfilUsuario = (onNavigate) =>{
   opcionSection2.appendChild(navPerfil2);
   opcionSection2.appendChild(navCerrarSesion2);
 
-
-
-
   perfilDiv.appendChild(containerPerfil);
   containerPerfil.appendChild(nombreUsuario);
   containerPerfil.appendChild(fotoPerfil);
   containerPerfil.appendChild(paisUsuario);
   containerPerfil.appendChild(nivelTrackUsuario);
   containerPerfil.appendChild(infoTrackUsuario);
- 
-  despliegueMenu.addEventListener('click', () => {
-    menuHome.classList.toggle('active');
-   });
 
+  despliegueMenu.addEventListener("click", () => {
+    menuHome.classList.toggle("active");
+  });
 
-  navHome.addEventListener('click', () => {
+  navHome.addEventListener("click", () => {
     onNavigate("/Home");
-  })
+  });
 
-
-  navPerfil.addEventListener('click', () => {
+  navPerfil.addEventListener("click", () => {
     onNavigate("/PerfilUsuario");
-  })
+  });
 
-
-  navCerrarSesion.addEventListener('click', () => {
+  navCerrarSesion.addEventListener("click", () => {
     logout();
     onNavigate("/");
-  })
+  });
 
-
-  navHome2.addEventListener('click', () => {
+  navHome2.addEventListener("click", () => {
     onNavigate("/Home");
-  })
+  });
 
-
-  navPerfil2.addEventListener('click', () => {
+  navPerfil2.addEventListener("click", () => {
     onNavigate("/PerfilUsuario");
-  })
- 
-  navCerrarSesion2.addEventListener('click', () => {
+  });
+
+  navCerrarSesion2.addEventListener("click", () => {
     logout();
     onNavigate("/");
-  })
+  });
 
-
- 
-
-
-  return perfilDiv
-
-
-
-
-}
+  return perfilDiv;
+};

@@ -1,7 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+} from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -14,7 +18,7 @@ const firebaseConfig = {
   storageBucket: "mountainme-a55a7.appspot.com",
   messagingSenderId: "854126143691",
   appId: "1:854126143691:web:cccb26de4c85d8151b934e",
-  measurementId: "G-QEFDFP4RZ8" 
+  measurementId: "G-QEFDFP4RZ8",
 };
 
 // Initialize Firebase
@@ -25,10 +29,6 @@ export const provider = new GoogleAuthProvider();
 const auth = getAuth();
 // Initialize Firestore
 export const db = getFirestore(app);
-
-
-
-
 
 ///https://firebase.google.com/docs/auth/web/google-signin?hl=es
 // se hizo el paso 1 y paso 5

@@ -1,16 +1,16 @@
 import { validarDatos } from "./domUtils.js";
-import logoMountainMe from '../Imagenes/logo MountainMe.png';
+import logoMountainMe from "../Imagenes/logo MountainMe.png";
 
 export const inicioSesion = (onNavigate) => {
-/*HEADER PRINCIPAL*/
+  /*HEADER PRINCIPAL*/
   const header1 = document.createElement("header");
   const logoGrande = document.createElement("img");
-  logoGrande.src = logoMountainMe
+  logoGrande.src = logoMountainMe;
   header1.classList.add("headerRegistro");
   logoGrande.classList.add("logoRegistro");
 
   const inicioSesionDiv = document.createElement("div");
-  const formulario =  document.createElement("formulario");
+  const formulario = document.createElement("formulario");
   const inputCorreo = document.createElement("input");
   const inputPassword = document.createElement("input");
   const botonIngresar = document.createElement("button");
