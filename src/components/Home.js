@@ -59,7 +59,7 @@ export const Home = (onNavigate) => {
   const modalDiv = document.createElement("div");
   const publicacionPopUp = document.createElement("div");
   const close = document.createElement("span");
-  const nombreUsuario = document.createElement("input");
+  const nombreUsuario = document.createElement("input")
   const ubicacion = document.createElement("input");
   const dificultad = document.createElement("select");
   const unselect = document.createElement("option");
