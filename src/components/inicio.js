@@ -1,43 +1,42 @@
-import { registroGoogle } from "./registroGoogle.js";
-import logoMountainMe from "../Imagenes/logo MountainMe.png";
+import { registroGoogle } from './registroGoogle.js';
+import logoMountainMe from '../Imagenes/logo MountainMe.png';
 
 export const inicio = (onNavigate) => {
-  /*HEADER PRINCIPAL*/
-  const header1 = document.createElement("header");
-  const logoGrande = document.createElement("img");
+  /* HEADER PRINCIPAL */
+  const header1 = document.createElement('header');
+  const logoGrande = document.createElement('img');
   logoGrande.src = logoMountainMe;
-  header1.classList.add("header1");
-  logoGrande.classList.add("logo1");
+  header1.classList.add('header1');
+  logoGrande.classList.add('logo1');
 
-  const inicioDiv = document.createElement("div");
-  const eslogan = document.createElement("h2");
-  const formDiv = document.createElement("div");
-  const botonInicio = document.createElement("button");
-  const botonRegistro = document.createElement("button");
-  const botonGoogle = document.createElement("button");
+  const inicioDiv = document.createElement('div');
+  const eslogan = document.createElement('h2');
+  const formDiv = document.createElement('div');
+  const botonInicio = document.createElement('button');
+  const botonRegistro = document.createElement('button');
+  const botonGoogle = document.createElement('button');
 
-  inicioDiv.classList.add("inicioDiv");
-  eslogan.classList.add("eslogan");
-  botonInicio.classList.add("botonInicio");
-  botonRegistro.classList.add("botonRegistro");
-  botonGoogle.classList.add("botonGoogle");
-  formDiv.classList.add("formDiv");
+  inicioDiv.classList.add('inicioDiv');
+  eslogan.classList.add('eslogan');
+  botonInicio.classList.add('botonInicio');
+  botonRegistro.classList.add('botonRegistro');
+  botonGoogle.classList.add('botonGoogle');
+  formDiv.classList.add('formDiv');
 
-  eslogan.innerHTML =
-    "No conquistamos a la montaña, <br> sino a nosotros mismos.";
-  botonInicio.textContent = "INICIA SESIÓN";
-  botonRegistro.textContent = "REGISTRATE";
-  botonGoogle.textContent = "Ingresa con Google";
+  eslogan.innerHTML = 'No conquistamos a la montaña, <br> sino a nosotros mismos.';
+  botonInicio.textContent = 'INICIA SESIÓN';
+  botonRegistro.textContent = 'REGISTRATE';
+  botonGoogle.textContent = 'Ingresa con Google';
 
-  botonInicio.addEventListener("click", () => {
-    onNavigate("/InicioSesion");
+  botonInicio.addEventListener('click', () => {
+    onNavigate('/InicioSesion');
   });
 
-  botonRegistro.addEventListener("click", () => {
-    onNavigate("/Registro");
+  botonRegistro.addEventListener('click', () => {
+    onNavigate('/Registro');
   });
 
-  botonGoogle.addEventListener("click", () => {
+  botonGoogle.addEventListener('click', () => {
     registroGoogle(onNavigate);
   });
 

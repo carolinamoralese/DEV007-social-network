@@ -1,180 +1,174 @@
-import { db } from "../app/firebase";
-import { getAuth } from "firebase/auth";
-import logoMountainMe from "../Imagenes/Logo MountainMe.png";
-import menu from "../Imagenes/menu.png";
-import lupa from "../Imagenes/lupa.png";
-import montanaLike from "../Imagenes/montaña.png";
-import iconoHome from "../Imagenes/iconoHome.png";
-import iconoPerfil from "../Imagenes/iconoPerfil.png";
-import iconoSalir from "../Imagenes/iconoSalir.png";
+import { getAuth } from 'firebase/auth';
+import {
+  onSnapshot,
+  // getDoc,
+  // deleteDoc,
+  collection,
+  query,
+  orderBy,
+} from 'firebase/firestore';
+import { db } from '../app/firebase';
+import logoMountainMe from '../Imagenes/Logo MountainMe.png';
+import menu from '../Imagenes/menu.png';
+import lupa from '../Imagenes/lupa.png';
+import montanaLike from '../Imagenes/montaña.png';
+import iconoHome from '../Imagenes/iconoHome.png';
+import iconoPerfil from '../Imagenes/iconoPerfil.png';
+import iconoSalir from '../Imagenes/iconoSalir.png';
 import {
   logout,
-  //obtenerUsers,
-  usuarioCorreo,
+  // obtenerUsers,
+  // usuarioCorreo,
   getUsername,
   traerPost,
   editarPost,
   eliminarPost,
   updateLike,
   disLike,
-} from "./utils.js";
-import { crearPost, validarpost } from "./domUtils";
-import {
-  onSnapshot,
-  getDoc,
-  deleteDoc,
-  collection,
-  query,
-  orderBy,
-} from "firebase/firestore";
+} from './utils.js';
+import { crearPost, validarpost } from './domUtils';
 
 export const Home = (onNavigate) => {
-  /*HEADER HOME*/
-  const header2 = document.createElement("header");
-  const logoChico = document.createElement("img");
-  const despliegueMenu = document.createElement("button");
-  const imagenMenu = document.createElement("img");
-  const menuHome = document.createElement("div");
-  const opcionSection = document.createElement("ul");
-  const navHome = document.createElement("li");
-  const navPerfil = document.createElement("li");
-  const navCerrarSesion = document.createElement("li");
+  /* HEADER HOME */
+  const header2 = document.createElement('header');
+  const logoChico = document.createElement('img');
+  const despliegueMenu = document.createElement('button');
+  const imagenMenu = document.createElement('img');
+  const menuHome = document.createElement('div');
+  const opcionSection = document.createElement('ul');
+  const navHome = document.createElement('li');
+  const navPerfil = document.createElement('li');
+  const navCerrarSesion = document.createElement('li');
   logoChico.src = logoMountainMe;
   imagenMenu.src = menu;
-  header2.classList.add("header2");
-  logoChico.classList.add("logo2");
-  imagenMenu.classList.add("tresLineas");
-  menuHome.classList.add("menuHome");
-  despliegueMenu.classList.add("despliegueMenu");
-  opcionSection.classList.add("opcionSection");
+  header2.classList.add('header2');
+  logoChico.classList.add('logo2');
+  imagenMenu.classList.add('tresLineas');
+  menuHome.classList.add('menuHome');
+  despliegueMenu.classList.add('despliegueMenu');
+  opcionSection.classList.add('opcionSection');
 
-  /*NUEVO*/
-  const menuGrande = document.createElement("div");
-  menuGrande.classList.add("menuGrande");
-  const iconosDiv = document.createElement("div");
-  iconosDiv.classList.add("iconosDiv");
-  const selectDiv = document.createElement("div");
-  selectDiv.classList.add("selectDiv");
-  const imagenHome = document.createElement("img");
-  const imagenPerfil = document.createElement("img");
-  const imagenSalir = document.createElement("img");
-  imagenHome.classList.add("imagenHome");
-  imagenPerfil.classList.add("imagenPerfil");
-  imagenSalir.classList.add("imagenSalir");
+  /* NUEVO */
+  const menuGrande = document.createElement('div');
+  menuGrande.classList.add('menuGrande');
+  const iconosDiv = document.createElement('div');
+  iconosDiv.classList.add('iconosDiv');
+  const selectDiv = document.createElement('div');
+  selectDiv.classList.add('selectDiv');
+  const imagenHome = document.createElement('img');
+  const imagenPerfil = document.createElement('img');
+  const imagenSalir = document.createElement('img');
+  imagenHome.classList.add('imagenHome');
+  imagenPerfil.classList.add('imagenPerfil');
+  imagenSalir.classList.add('imagenSalir');
   imagenHome.src = iconoHome;
   imagenPerfil.src = iconoPerfil;
   imagenSalir.src = iconoSalir;
-  const opcionSection2 = document.createElement("ul");
-  const navHome2 = document.createElement("li");
-  const navPerfil2 = document.createElement("li");
-  const navCerrarSesion2 = document.createElement("li");
-  opcionSection2.classList.add("opcionSection2");
-  navHome2.classList.add("navHome2");
-  navPerfil2.classList.add("navPerfil2");
-  navCerrarSesion2.classList.add("navSalir2");
-  navHome2.textContent = "HOME";
-  navPerfil2.textContent = "PERFIL";
-  navCerrarSesion2.textContent = "SALIR";
-  const eventosDiv1 = document.createElement("div");
-  eventosDiv1.classList.add("eventosDiv1");
-  const eventosDiv = document.createElement("div");
-  eventosDiv.classList.add("eventosDiv");
-  const tituloEventos = document.createElement("h1");
-  tituloEventos.classList.add("tituloEventos");
-  tituloEventos.textContent = "Conoce los eventos más cercanos";
-  const eventosLista = document.createElement("div");
-  eventosLista.classList.add("eventosLista");
-  const botonEvento = document.createElement("button");
-  botonEvento.classList.add("botonEvento");
-  /*NUEVO*/
+  const opcionSection2 = document.createElement('ul');
+  const navHome2 = document.createElement('li');
+  const navPerfil2 = document.createElement('li');
+  const navCerrarSesion2 = document.createElement('li');
+  opcionSection2.classList.add('opcionSection2');
+  navHome2.classList.add('navHome2');
+  navPerfil2.classList.add('navPerfil2');
+  navCerrarSesion2.classList.add('navSalir2');
+  navHome2.textContent = 'HOME';
+  navPerfil2.textContent = 'PERFIL';
+  navCerrarSesion2.textContent = 'SALIR';
+  const eventosDiv1 = document.createElement('div');
+  eventosDiv1.classList.add('eventosDiv1');
+  const eventosDiv = document.createElement('div');
+  eventosDiv.classList.add('eventosDiv');
+  const tituloEventos = document.createElement('h1');
+  tituloEventos.classList.add('tituloEventos');
+  tituloEventos.textContent = 'Conoce los eventos más cercanos';
+  const eventosLista = document.createElement('div');
+  eventosLista.classList.add('eventosLista');
+  const botonEvento = document.createElement('button');
+  botonEvento.classList.add('botonEvento');
+  /* NUEVO */
 
-  const HomeDiv = document.createElement("div");
-  const buscadorDiv = document.createElement("div");
-  const buscadorHome = document.createElement("input");
-  const botonBuscador = document.createElement("button");
-  const imagenLupa = document.createElement("img");
-  const publicacionDiv = document.createElement("div");
-  const mensajePost = document.createElement("p");
-  const botonPopUp = document.createElement("button");
-  const botonPopUpText = document.createElement("span");
-  const modalDiv = document.createElement("div");
-  const publicacionPopUp = document.createElement("div");
-  const close = document.createElement("span");
-  const nombreUsuario = document.createElement("input");
-  const ubicacion = document.createElement("input");
-  const dificultad = document.createElement("select");
-  const unselect = document.createElement("option");
-  const bajo = document.createElement("option");
-  const medio = document.createElement("option");
-  const alto = document.createElement("option");
-  const equipo = document.createElement("input");
-  const textoPublicacion = document.createElement("input");
-  const fotoPublicacion = document.createElement("input");
-  const botonPublicar = document.createElement("button");
-  const divPosts = document.createElement("div");
+  const HomeDiv = document.createElement('div');
+  const buscadorDiv = document.createElement('div');
+  const buscadorHome = document.createElement('input');
+  const botonBuscador = document.createElement('button');
+  const imagenLupa = document.createElement('img');
+  const publicacionDiv = document.createElement('div');
+  const mensajePost = document.createElement('p');
+  const botonPopUp = document.createElement('button');
+  const botonPopUpText = document.createElement('span');
+  const modalDiv = document.createElement('div');
+  const publicacionPopUp = document.createElement('div');
+  const close = document.createElement('span');
+  const nombreUsuario = document.createElement('input');
+  const ubicacion = document.createElement('input');
+  const dificultad = document.createElement('select');
+  const unselect = document.createElement('option');
+  const bajo = document.createElement('option');
+  const medio = document.createElement('option');
+  const alto = document.createElement('option');
+  const equipo = document.createElement('input');
+  const textoPublicacion = document.createElement('input');
+  const fotoPublicacion = document.createElement('input');
+  const botonPublicar = document.createElement('button');
+  const divPosts = document.createElement('div');
 
-  HomeDiv.classList.add("homeDiv");
-  buscadorDiv.classList.add("buscadorDiv");
-  buscadorHome.classList.add("buscadorHome");
-  botonBuscador.classList.add("botonBuscarHome");
-  imagenLupa.classList.add("imagenLupa");
-  publicacionDiv.classList.add("publicacionDiv");
-  botonPopUp.classList.add("botonPopUp");
-  botonPopUpText.classList.add("placeholder");
-  modalDiv.classList.add("modalDiv");
-  publicacionPopUp.classList.add("publicacionPopUp"); //
-  publicacionPopUp.classList.add("active"); //
-  mensajePost.classList.add("mensajePost");
-  textoPublicacion.classList.add("textoPublicacion");
-  fotoPublicacion.classList.add("fotoPublicacion");
-  close.classList.add("close");
-  botonPublicar.classList.add("botonPublicar");
-  nombreUsuario.classList.add("nombreUsuario");
-  ubicacion.classList.add("ubicacion");
-  dificultad.classList.add("dificultad");
-  equipo.classList.add("equipo");
-  divPosts.classList.add("divPosts");
+  HomeDiv.classList.add('homeDiv');
+  buscadorDiv.classList.add('buscadorDiv');
+  buscadorHome.classList.add('buscadorHome');
+  botonBuscador.classList.add('botonBuscarHome');
+  imagenLupa.classList.add('imagenLupa');
+  publicacionDiv.classList.add('publicacionDiv');
+  botonPopUp.classList.add('botonPopUp');
+  botonPopUpText.classList.add('placeholder');
+  modalDiv.classList.add('modalDiv');
+  publicacionPopUp.classList.add('publicacionPopUp'); //
+  publicacionPopUp.classList.add('active'); //
+  mensajePost.classList.add('mensajePost');
+  textoPublicacion.classList.add('textoPublicacion');
+  fotoPublicacion.classList.add('fotoPublicacion');
+  close.classList.add('close');
+  botonPublicar.classList.add('botonPublicar');
+  nombreUsuario.classList.add('nombreUsuario');
+  ubicacion.classList.add('ubicacion');
+  dificultad.classList.add('dificultad');
+  equipo.classList.add('equipo');
+  divPosts.classList.add('divPosts');
 
-  buscadorHome.setAttribute("type", "text");
-  buscadorHome.setAttribute("placeholder", "Busca por pais");
+  buscadorHome.setAttribute('type', 'text');
+  buscadorHome.setAttribute('placeholder', 'Busca por pais');
   imagenLupa.src = lupa;
   textoPublicacion.setAttribute(
-    "placeholder",
-    "Cuentanos tu nueva aventura..."
+    'placeholder',
+    'Cuentanos tu nueva aventura...',
   );
-  fotoPublicacion.setAttribute("placeholder", "Copia la URL de la imagen");
-  botonBuscador.setAttribute("type", "button");
-  botonPopUp.setAttribute("type", "button");
-  divPosts.setAttribute("id", "divPosts");
-  unselect.value = "";
+  fotoPublicacion.setAttribute('placeholder', 'Copia la URL de la imagen');
+  botonBuscador.setAttribute('type', 'button');
+  botonPopUp.setAttribute('type', 'button');
+  divPosts.setAttribute('id', 'divPosts');
+  unselect.value = '';
   unselect.disabled = true;
   unselect.selected = true;
 
-  publicacionPopUp.setAttribute("id", "publicacionPopUp");
-  textoPublicacion.setAttribute("id", "textoPublicacion");
-  fotoPublicacion.setAttribute("id", "fotoPublicacion");
-  ubicacion.setAttribute("placeholder", "UBICACIÓN");
-  equipo.setAttribute("placeholder", "EQUIPO NECESARIO");
-  ubicacion.setAttribute("id", "ubicacion");
-  dificultad.setAttribute("id", "dificultad");
-  equipo.setAttribute("id", "equipo");
-  textoPublicacion.setAttribute.required;
-  fotoPublicacion.setAttribute.required;
-  ubicacion.setAttribute.required;
-  equipo.setAttribute.required;
-  ubicacion.setAttribute.required;
-  dificultad.setAttribute.required;
+  publicacionPopUp.setAttribute('id', 'publicacionPopUp');
+  textoPublicacion.setAttribute('id', 'textoPublicacion');
+  fotoPublicacion.setAttribute('id', 'fotoPublicacion');
+  ubicacion.setAttribute('placeholder', 'UBICACIÓN');
+  equipo.setAttribute('placeholder', 'EQUIPO NECESARIO');
+  ubicacion.setAttribute('id', 'ubicacion');
+  dificultad.setAttribute('id', 'dificultad');
+  equipo.setAttribute('id', 'equipo');
 
-  navHome.textContent = "HOME";
-  navPerfil.textContent = "PERFIL";
-  navCerrarSesion.textContent = "SALIR";
-  mensajePost.textContent = "Crear publicacion";
-  botonPopUpText.textContent = "Cuentanos tu nueva aventura...";
-  botonPublicar.textContent = "PUBLICAR";
-  unselect.textContent = "DIFICULTAD";
-  bajo.textContent = "BAJA";
-  medio.textContent = "MEDIA";
-  alto.textContent = "ALTA";
+  navHome.textContent = 'HOME';
+  navPerfil.textContent = 'PERFIL';
+  navCerrarSesion.textContent = 'SALIR';
+  mensajePost.textContent = 'Crear publicacion';
+  botonPopUpText.textContent = 'Cuentanos tu nueva aventura...';
+  botonPublicar.textContent = 'PUBLICAR';
+  unselect.textContent = 'DIFICULTAD';
+  bajo.textContent = 'BAJA';
+  medio.textContent = 'MEDIA';
+  alto.textContent = 'ALTA';
 
   HomeDiv.appendChild(header2);
   header2.appendChild(logoChico);
@@ -186,7 +180,7 @@ export const Home = (onNavigate) => {
   opcionSection.appendChild(navPerfil);
   opcionSection.appendChild(navCerrarSesion);
 
-  /*NUEVO*/
+  /* NUEVO */
   HomeDiv.appendChild(menuGrande);
   menuGrande.appendChild(iconosDiv);
   iconosDiv.appendChild(imagenHome);
@@ -202,7 +196,7 @@ export const Home = (onNavigate) => {
   eventosDiv.appendChild(tituloEventos);
   eventosDiv.appendChild(botonEvento);
   eventosDiv.appendChild(eventosLista);
-  /*NUEVO*/
+  /* NUEVO */
 
   HomeDiv.appendChild(buscadorDiv);
   buscadorDiv.appendChild(buscadorHome);
@@ -227,93 +221,90 @@ export const Home = (onNavigate) => {
   publicacionPopUp.appendChild(botonPublicar);
   HomeDiv.appendChild(divPosts);
 
-  despliegueMenu.addEventListener("click", () => {
-    menuHome.classList.toggle("active");
+  despliegueMenu.addEventListener('click', () => {
+    menuHome.classList.toggle('active');
   });
 
-  botonPopUp.addEventListener("click", function () {
-    modalDiv.style.display = "block";
-    console.log("holi");
+  botonPopUp.addEventListener('click', () => {
+    modalDiv.style.display = 'block';
+    console.log('holi');
   });
 
-  close.addEventListener("click", function () {
-    modalDiv.style.display = "none";
+  close.addEventListener('click', () => {
+    modalDiv.style.display = 'none';
   });
 
-  window.addEventListener("click", function (event) {
-    if (event.target == modalDiv) {
-      modalDiv.style.display = "none";
+  window.addEventListener('click', (event) => {
+    if (event.target === modalDiv) {
+      modalDiv.style.display = 'none';
     }
   });
 
-  navHome.addEventListener("click", () => {
-    onNavigate("/Home");
+  navHome.addEventListener('click', () => {
+    onNavigate('/Home');
   });
 
-  navPerfil.addEventListener("click", () => {
-    onNavigate("/PerfilUsuario");
+  navPerfil.addEventListener('click', () => {
+    onNavigate('/PerfilUsuario');
   });
 
-  navCerrarSesion.addEventListener("click", () => {
+  navCerrarSesion.addEventListener('click', () => {
     logout();
-    onNavigate("/");
+    onNavigate('/');
   });
 
-  /*NUEVO*/
-  navHome2.addEventListener("click", () => {
-    onNavigate("/Home");
+  /* NUEVO */
+  navHome2.addEventListener('click', () => {
+    onNavigate('/Home');
   });
 
-  navPerfil2.addEventListener("click", () => {
-    onNavigate("/PerfilUsuario");
+  navPerfil2.addEventListener('click', () => {
+    onNavigate('/PerfilUsuario');
   });
 
-  navCerrarSesion2.addEventListener("click", () => {
+  navCerrarSesion2.addEventListener('click', () => {
     logout();
-    onNavigate("/");
+    onNavigate('/');
   });
-  /*NUEVO*/
-
-  /*--------------------------------------------------------SE EMPIEZAN A MOSTRAR LOS POSTS ----------------------------------------*/
-
-  const q = query(collection(db, "posts"), orderBy("fecha", "desc"));
+  /* NUEVO */
+  /* --------------------SE EMPIEZAN A MOSTRAR LOS POSTS ---------------------------------------- */
+  const q = query(collection(db, 'posts'), orderBy('fecha', 'desc'));
   let postEditado = false;
-  let id = "";
+  let id = '';
 
   onSnapshot(q, (querySnapshot) => {
-    divPosts.innerHTML = "";
+    divPosts.innerHTML = '';
     const usuarioActual = getAuth().currentUser;
 
     querySnapshot.forEach(async (doc) => {
       const username = await getUsername(doc.data().email_user);
-      const usernametoshow =
-        username === "google" ? doc.data().nombre : username;
+      const usernametoshow = username === 'google' ? doc.data().nombre : username;
 
       let divPost = `
-    <div class="publicacionPost">
-    <p class="usuario">${usernametoshow} : ${doc.data().textoPublicacion}</p>
-    <p class="ubicacion2">UBICACIÓN: ${doc.data().ubicacion}</p>
-    <p class="dificultad2">DIFICULTAD: ${doc.data().dificultad}</p>
-    <p class="equipo2">EQUIPO: ${doc.data().equipo}</p>
-    <p class="contadorLikes">${doc.data().likes.length} me gusta</p>
-    <img class="imagenPost" src="${doc.data().fotoPublicacion}"></img>`;
+    <div class='publicacionPost'>
+    <p class='usuario'>${usernametoshow} : ${doc.data().textoPublicacion}</p>
+    <p class='ubicacion2'>UBICACIÓN: ${doc.data().ubicacion}</p>
+    <p class='dificultad2'>DIFICULTAD: ${doc.data().dificultad}</p>
+    <p class='equipo2'>EQUIPO: ${doc.data().equipo}</p>
+    <p class='contadorLikes'>${doc.data().likes.length} me gusta</p>
+    <img class='imagenPost' src="${doc.data().fotoPublicacion}"></img>`;
 
       if (doc.data().likes.includes(usuarioActual.uid)) {
-        divPost += `<div class="likePublicacion">
-      <button class="like" data-id="${doc.id}"><img class="montana" id="montana" src=${montanaLike}></img></button>
+        divPost += `<div class='likePublicacion'>
+      <button class='like' data-id="${doc.id}"><img class='montana' id='montana' src=${montanaLike}></img></button>
     </div>`;
       } else {
-        divPost += `<div class="likePublicacion">
-      <button class="like" data-id="${doc.id}"><img class="montana" id="montana" src=${montanaLike}></img></button>
+        divPost += `<div class='likePublicacion'>
+      <button class='like' data-id="${doc.id}"><img class='montana' id='montana' src=${montanaLike}></img></button>
     </div>`;
       }
 
       if (usuarioActual.email === doc.data().email_user) {
-        divPost += `<div class="editarPublicacion">
-          <button class="editar" data-id="${doc.id}">Editar</button>
+        divPost += `<div class='editarPublicacion'>
+          <button class='editar' data-id="${doc.id}">Editar</button>
       </div>
-      <div class="eliminarPublicacion">
-          <button class="eliminar" data-id="${doc.id}">Eliminar</button>
+      <div class='eliminarPublicacion'>
+          <button class='eliminar' data-id="${doc.id}">Eliminar</button>
       </div>`;
       }
       divPost += `</div>
@@ -321,11 +312,11 @@ export const Home = (onNavigate) => {
 
       divPosts.innerHTML += divPost;
 
-      const btnsEditar = divPosts.querySelectorAll(".editar");
+      const btnsEditar = divPosts.querySelectorAll('.editar');
       btnsEditar.forEach((btn) => {
-        btn.addEventListener("click", async (e) => {
+        btn.addEventListener('click', async (e) => {
           console.log(e.target.dataset.id);
-          modalDiv.style.display = "block";
+          modalDiv.style.display = 'block';
           const postEditar = await traerPost(e.target.dataset.id);
           const post = postEditar.data();
           console.log(post);
@@ -340,36 +331,36 @@ export const Home = (onNavigate) => {
           id = e.target.dataset.id;
         });
 
-        const btnsEliminar = divPosts.querySelectorAll(".eliminar");
-        btnsEliminar.forEach((btn) => {
-          btn.addEventListener("click", ({ target: { dataset } }) => {
-            console.log("borrar");
+        const btnsEliminar = divPosts.querySelectorAll('.eliminar');
+        btnsEliminar.forEach((btns2) => {
+          btns2.addEventListener('click', ({ target: { dataset } }) => {
+            console.log('borrar');
             eliminarPost(dataset.id);
           });
         });
       });
 
-      const botonLike = divPosts.querySelectorAll(".like");
+      const botonLike = divPosts.querySelectorAll('.like');
       botonLike.forEach((boton) => {
-        boton.addEventListener("click", async (e) => {
+        boton.addEventListener('click', async (e) => {
           e.preventDefault();
-          const doc = await traerPost(e.target.dataset.id);
-          const usuarioActual = getAuth().currentUser;
+          const doc2 = await traerPost(e.target.dataset.id);
+          const usuarioActual2 = getAuth().currentUser;
 
-          if (doc.data().likes.includes(usuarioActual.uid)) {
-            disLike(doc.id, usuarioActual.uid);
+          if (doc2.data().likes.includes(usuarioActual2.uid)) {
+            disLike(doc2.id, usuarioActual2.uid);
           } else {
-            updateLike(doc.id, usuarioActual.uid);
+            updateLike(doc2.id, usuarioActual2.uid);
           }
         });
       });
     });
   });
 
-  botonPublicar.addEventListener("click", () => {
-    modalDiv.style.display = "none";
+  botonPublicar.addEventListener('click', () => {
+    modalDiv.style.display = 'none';
 
-    if (postEditado == true) {
+    if (postEditado === true) {
       editarPost(id, {
         ubicacion: ubicacion.value,
         dificultad: dificultad.value,
@@ -384,11 +375,11 @@ export const Home = (onNavigate) => {
       crearPost();
     }
 
-    document.getElementById("ubicacion").value = "";
-    document.getElementById("dificultad").value = "";
-    document.getElementById("equipo").value = "";
-    document.getElementById("textoPublicacion").value = "";
-    document.getElementById("fotoPublicacion").value = "";
+    document.getElementById('ubicacion').value = '';
+    document.getElementById('dificultad').value = '';
+    document.getElementById('equipo').value = '';
+    document.getElementById('textoPublicacion').value = '';
+    document.getElementById('fotoPublicacion').value = '';
   });
 
   return HomeDiv;

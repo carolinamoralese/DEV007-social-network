@@ -1,37 +1,37 @@
-import logoMountainMe from "../Imagenes/logo MountainMe.png";
+import logoMountainMe from '../Imagenes/logo MountainMe.png';
 
 export const FotoPerfil = (onNavigate) => {
-  /*HEADER PRINCIPAL*/
-  const header1 = document.createElement("header");
-  const logoGrande = document.createElement("img");
+  /* HEADER PRINCIPAL */
+  const header1 = document.createElement('header');
+  const logoGrande = document.createElement('img');
   logoGrande.src = logoMountainMe;
-  header1.classList.add("headerRegistro2");
-  logoGrande.classList.add("logoRegistro3");
+  header1.classList.add('headerRegistro2');
+  logoGrande.classList.add('logoRegistro3');
 
-  const contendorDiv = document.createElement("div");
-  const formulario = document.createElement("formulario");
-  const contendorBotones = document.createElement("div");
-  const mensajeRegstro = document.createElement("p");
-  const mensajeFotoPerfil = document.createElement("p");
-  const divFotoPerfil = document.createElement("input");
-  const botonExaminar = document.createElement("button");
-  const botonFinalizar = document.createElement("button");
+  const contendorDiv = document.createElement('div');
+  const formulario = document.createElement('formulario');
+  const contendorBotones = document.createElement('div');
+  const mensajeRegstro = document.createElement('p');
+  const mensajeFotoPerfil = document.createElement('p');
+  const divFotoPerfil = document.createElement('input');
+  const botonExaminar = document.createElement('button');
+  const botonFinalizar = document.createElement('button');
 
-  contendorDiv.classList.add("contenedorDiv");
-  formulario.classList.add("formulario3");
-  contendorBotones.classList.add("contenedorBotones");
-  mensajeRegstro.classList.add("mensajeRegistro");
-  mensajeFotoPerfil.classList.add("mensajeFotoPerfil");
-  divFotoPerfil.classList.add("divFotoPerfil");
-  botonExaminar.classList.add("botonExaminar");
-  botonFinalizar.classList.add("botonFinalizar");
+  contendorDiv.classList.add('contenedorDiv');
+  formulario.classList.add('formulario3');
+  contendorBotones.classList.add('contenedorBotones');
+  mensajeRegstro.classList.add('mensajeRegistro');
+  mensajeFotoPerfil.classList.add('mensajeFotoPerfil');
+  divFotoPerfil.classList.add('divFotoPerfil');
+  botonExaminar.classList.add('botonExaminar');
+  botonFinalizar.classList.add('botonFinalizar');
 
-  mensajeRegstro.textContent = "¡Ya has sido registrado!";
-  mensajeFotoPerfil.textContent = "Para comenzar selecciona tu foto de perfil";
-  botonExaminar.textContent = "Examinar";
-  botonFinalizar.textContent = "Continuar";
+  mensajeRegstro.textContent = '¡Ya has sido registrado!';
+  mensajeFotoPerfil.textContent = 'Para comenzar selecciona tu foto de perfil';
+  botonExaminar.textContent = 'Examinar';
+  botonFinalizar.textContent = 'Continuar';
 
-  botonFinalizar.setAttribute("id", "botonFinaliza");
+  botonFinalizar.setAttribute('id', 'botonFinaliza');
 
   contendorDiv.appendChild(header1);
   header1.appendChild(logoGrande);
@@ -43,8 +43,8 @@ export const FotoPerfil = (onNavigate) => {
   formulario.appendChild(contendorBotones);
   formulario.appendChild(botonFinalizar);
 
-  botonFinalizar.addEventListener("click", () => {
-    onNavigate("/Home");
+  botonFinalizar.addEventListener('click', () => {
+    onNavigate('/Home');
   });
 
   return contendorDiv;

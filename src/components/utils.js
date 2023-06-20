@@ -8,11 +8,11 @@ import {
 import {
   collection,
   addDoc,
-  onSnapshot,
+  //onSnapshot,
   query,
-  orderBy,
+  //orderBy,
   getDocs,
-  documentId,
+  //documentId,
   where,
   getDoc,
   doc,
@@ -77,16 +77,13 @@ export function logout() {
 }
 
 /*------------------------------------FUNCIONES CREAR POSTS -------------------------------------------*/
-
 /*export const obtenerUsers = () => getDocs(collection(db, "user", documentId)); NO SABEMOS SI SIRVE PA ALGO*/
 
 /*------------------------------------------------ FUNCIONES HOME -------------------------------------------*/
-
 const usuario = collection(db, "user");
 export const usuarioCorreo = await getDocs(usuario);
 
 /*------------------------------------------------ FUNCION MOSTRAR NOMBRES USUARIO -------------------------------------------*/
-
 export const getUsername = async (email) => {
   const userquery = query(collection(db, "user"), where("mail", "==", email));
   const usersnapshot = await getDocs(userquery);
@@ -97,19 +94,16 @@ export const getUsername = async (email) => {
   return "google";
 };
 
-/*------------------------------------------------ FUNCION EDITAR POSTS -------------------------------------------*/
-
+/*------------------------------------------------ FUNCION EDITAR POSTS ---------------------------------------*/
 export const traerPost = (id) => getDoc(doc(db, "posts", id));
 
 export const editarPost = (id, camposEditados) =>
   updateDoc(doc(db, "posts", id), camposEditados);
 
 /*------------------------------------------------ FUNCION ELIMINAR POSTS -------------------------------------------*/
-
 export const eliminarPost = (id) => deleteDoc(doc(db, "posts", id));
 
 /*------------------------------------------------ FUNCION ME GUSTA       -------------------------------------------*/
-
 export const updateLike = async (idPost, idUsuario) => {
   const postsQuerySnapshot = await getDocs(collection(db, "posts"));
   const postDoc = postsQuerySnapshot.docs.find((doc) => doc.id === idPost);
