@@ -1,5 +1,5 @@
 import { logout } from './utils.js';
-import logoMountainMe from '../Imagenes/logo MountainMe.png';
+import logoMountainMe from '../Imagenes/Logo_MountainMe.png';
 import menu from '../Imagenes/menu.png';
 import iconoHome from '../Imagenes/iconoHome.png';
 import iconoPerfil from '../Imagenes/iconoPerfil.png';

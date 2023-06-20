@@ -8,10 +8,9 @@ import {
   orderBy,
 } from 'firebase/firestore';
 import { db } from '../app/firebase';
-import logoMountainMe from '../Imagenes/Logo MountainMe.png';
+import logoMountainMe from '../Imagenes/Logo_MountainMe.png';
 import menu from '../Imagenes/menu.png';
 import lupa from '../Imagenes/lupa.png';
-import montanaLike from '../Imagenes/montaña.png';
 import iconoHome from '../Imagenes/iconoHome.png';
 import iconoPerfil from '../Imagenes/iconoPerfil.png';
 import iconoSalir from '../Imagenes/iconoSalir.png';
@@ -91,17 +90,17 @@ export const Home = (onNavigate) => {
   /* POPUP CERRAR SESIÓN */
   const salirDiv = document.createElement('div');
   const salirPopUp = document.createElement('div');
-  const salirMensaje = document.createElement('p'); 
+  const salirMensaje = document.createElement('p');
   const btnSalir = document.createElement('button');
-  const btnVolver = document.createElement('button'); 
+  const btnVolver = document.createElement('button');
   salirDiv.classList.add('salirDiv');
   salirPopUp.classList.add('salirPopUp');
   salirMensaje.classList.add('salirMensaje');
   btnSalir.classList.add('btnSalir');
   btnVolver.classList.add('btnVolver');
-  salirMensaje.textContent = '¿Estás seguro de querer salir?'
-  btnSalir.textContent = 'SALIR'
-  btnVolver.textContent = 'VOLVER'
+  salirMensaje.textContent = '¿Estás seguro de querer salir?';
+  btnSalir.textContent = 'SALIR';
+  btnVolver.textContent = 'VOLVER';
   /* POPUP CERRAR SESIÓN */
 
   const HomeDiv = document.createElement('div');
@@ -185,7 +184,7 @@ export const Home = (onNavigate) => {
   bajo.textContent = 'BAJA';
   medio.textContent = 'MEDIA';
   alto.textContent = 'ALTA';
-  botonEvento.textContent = 'COMPARTE TU EVENTO'
+  botonEvento.textContent = 'COMPARTE TU EVENTO';
 
   HomeDiv.appendChild(header2);
   header2.appendChild(logoChico);

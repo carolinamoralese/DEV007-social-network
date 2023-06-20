@@ -19,7 +19,7 @@ export const registro = (onNavigate) => {
   const confirPass = document.getElementById('confirPass');
   const expresionRegular = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-  if (nameNewUser.value === '' || mailNewUser.value === '' || passNewUser.value === '' || confirPass.value === ''){
+  if (nameNewUser.value === '' || mailNewUser.value === '' || passNewUser.value === '' || confirPass.value === '') {
     return alert('Debes de llenar todos los campos');
   }
 
@@ -36,7 +36,7 @@ export const registro = (onNavigate) => {
     );
   } else {
     alert('Tu contraseña debe incluir los siguientes caracteres:\n Aa1@');
-  }
+  } return console.log('hola');
 };
 
 /* ------------------------------------FUNCIÓN CREAR PUBLICACIONES-------------------------------*/
@@ -53,12 +53,12 @@ export const crearPost = () => {
     addDoc(collection(db, 'posts'), {
       email_user: usuarioActual.email,
       nombre: usuarioActual.displayName,
-      ubicacion: ubicacion,
-      dificultad: dificultad,
-      equipo: equipo,
-      fotoPublicacion: fotoPublicacion,
-      textoPublicacion: textoPublicacion,
-      fecha: fecha,
+      ubicacion,
+      dificultad,
+      equipo,
+      fotoPublicacion,
+      textoPublicacion,
+      fecha,
       likes: [],
     });
   }

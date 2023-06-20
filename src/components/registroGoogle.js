@@ -8,6 +8,7 @@ export function loginGoogle(onNavigate) {
   signInWithPopup(auth, provider)
     .then((result) => {
       onNavigate('/FotoPerfil');
+      console.log(result);
     })
     .catch((error) => {
       console.log(error.message);

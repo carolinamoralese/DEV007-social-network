@@ -1,5 +1,5 @@
 import { registro } from './domUtils.js';
-import logoMountainMe from '../Imagenes/logo MountainMe.png';
+import logoMountainMe from '../Imagenes/Logo_MountainMe.png';
 
 export const registroCorreo = (onNavigate) => {
   const header1 = document.createElement('header');

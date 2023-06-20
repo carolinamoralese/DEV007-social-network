@@ -1,5 +1,5 @@
 import { validarDatos } from './domUtils.js';
-import logoMountainMe from '../Imagenes/logo MountainMe.png';
+import logoMountainMe from '../Imagenes/Logo_MountainMe.png';
 
 export const inicioSesion = (onNavigate) => {
   /* HEADER PRINCIPAL */
