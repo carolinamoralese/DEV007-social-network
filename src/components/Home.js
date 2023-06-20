@@ -29,7 +29,7 @@ import {
 import { crearPost, validarpost } from './domUtils';
 
 export const Home = (onNavigate) => {
-  /* HEADER HOME */
+  /* HEADER */
   const header2 = document.createElement('header');
   const logoChico = document.createElement('img');
   const despliegueMenu = document.createElement('button');
@@ -48,7 +48,7 @@ export const Home = (onNavigate) => {
   despliegueMenu.classList.add('despliegueMenu');
   opcionSection.classList.add('opcionSection');
 
-  /* NUEVO */
+  /* MENÚ GRANDE */
   const menuGrande = document.createElement('div');
   menuGrande.classList.add('menuGrande');
   const iconosDiv = document.createElement('div');
@@ -86,7 +86,23 @@ export const Home = (onNavigate) => {
   eventosLista.classList.add('eventosLista');
   const botonEvento = document.createElement('button');
   botonEvento.classList.add('botonEvento');
-  /* NUEVO */
+  /* MENÚ GRANDE */
+
+  /* POPUP CERRAR SESIÓN */
+  const salirDiv = document.createElement('div');
+  const salirPopUp = document.createElement('div');
+  const salirMensaje = document.createElement('p'); 
+  const btnSalir = document.createElement('button');
+  const btnVolver = document.createElement('button'); 
+  salirDiv.classList.add('salirDiv');
+  salirPopUp.classList.add('salirPopUp');
+  salirMensaje.classList.add('salirMensaje');
+  btnSalir.classList.add('btnSalir');
+  btnVolver.classList.add('btnVolver');
+  salirMensaje.textContent = '¿Estás seguro de querer salir?'
+  btnSalir.textContent = 'SALIR'
+  btnVolver.textContent = 'VOLVER'
+  /* POPUP CERRAR SESIÓN */
 
   const HomeDiv = document.createElement('div');
   const buscadorDiv = document.createElement('div');
@@ -169,6 +185,7 @@ export const Home = (onNavigate) => {
   bajo.textContent = 'BAJA';
   medio.textContent = 'MEDIA';
   alto.textContent = 'ALTA';
+  botonEvento.textContent = 'COMPARTE TU EVENTO'
 
   HomeDiv.appendChild(header2);
   header2.appendChild(logoChico);
@@ -180,7 +197,7 @@ export const Home = (onNavigate) => {
   opcionSection.appendChild(navPerfil);
   opcionSection.appendChild(navCerrarSesion);
 
-  /* NUEVO */
+  /* MENÚ GRANDE */
   HomeDiv.appendChild(menuGrande);
   menuGrande.appendChild(iconosDiv);
   iconosDiv.appendChild(imagenHome);
@@ -196,7 +213,15 @@ export const Home = (onNavigate) => {
   eventosDiv.appendChild(tituloEventos);
   eventosDiv.appendChild(botonEvento);
   eventosDiv.appendChild(eventosLista);
-  /* NUEVO */
+  /* MENÚ GRANDE */
+
+  /* POPUP CERRAR SESIÓN */
+  HomeDiv.appendChild(salirDiv);
+  salirDiv.appendChild(salirPopUp);
+  salirPopUp.appendChild(salirMensaje);
+  salirPopUp.appendChild(btnSalir);
+  salirPopUp.appendChild(btnVolver);
+  /* POPUP CERRAR SESIÓN */
 
   HomeDiv.appendChild(buscadorDiv);
   buscadorDiv.appendChild(buscadorHome);
@@ -227,7 +252,6 @@ export const Home = (onNavigate) => {
 
   botonPopUp.addEventListener('click', () => {
     modalDiv.style.display = 'block';
-    console.log('holi');
   });
 
   close.addEventListener('click', () => {
@@ -249,8 +273,7 @@ export const Home = (onNavigate) => {
   });
 
   navCerrarSesion.addEventListener('click', () => {
-    logout();
-    onNavigate('/');
+    salirDiv.style.display = 'block';
   });
 
   /* NUEVO */
@@ -263,8 +286,17 @@ export const Home = (onNavigate) => {
   });
 
   navCerrarSesion2.addEventListener('click', () => {
+    salirDiv.style.display = 'block';
+  });
+
+  btnSalir.addEventListener('click', () => {
     logout();
     onNavigate('/');
+    salirDiv.style.display = 'none';
+  });
+
+  btnVolver.addEventListener('click', () => {
+    salirDiv.style.display = 'none';
   });
   /* NUEVO */
   /* --------------------SE EMPIEZAN A MOSTRAR LOS POSTS ---------------------------------------- */
@@ -291,11 +323,11 @@ export const Home = (onNavigate) => {
 
       if (doc.data().likes.includes(usuarioActual.uid)) {
         divPost += `<div class='likePublicacion'>
-      <button class='like' data-id="${doc.id}"><img class='montana' id='montana' src=${montanaLike}></img></button>
+      <button class='like' data-id="${doc.id}"></button>
     </div>`;
       } else {
         divPost += `<div class='likePublicacion'>
-      <button class='like' data-id="${doc.id}"><img class='montana' id='montana' src=${montanaLike}></img></button>
+      <button class='like' data-id="${doc.id}"></button>
     </div>`;
       }
 
