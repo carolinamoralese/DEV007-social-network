@@ -6,7 +6,7 @@ import { FotoPerfil } from './components/FotoPerfil.js';
 import { PerfilUsuario } from './components/PerfilUsuario';
 
 const rutaDiv = document.getElementById('rutaDiv');
-
+/* eslint-disable */
 const onNavigate = (pathname) => {
   window.history.pushState({}, pathname, window.location.origin + pathname);
 
@@ -17,6 +17,7 @@ const onNavigate = (pathname) => {
   rutaDiv.appendChild(rutas[pathname]);
 };
 
+
 const rutas = {
   '/': inicio(onNavigate),
   '/Home': Home(onNavigate),
@@ -25,7 +26,7 @@ const rutas = {
   '/FotoPerfil': FotoPerfil(onNavigate),
   '/PerfilUsuario': PerfilUsuario(onNavigate),
 };
-
+/* eslint-enable */
 const component = () => rutas[window.location.pathname];
 
 window.onpopstate = () => {

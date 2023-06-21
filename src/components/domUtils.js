@@ -21,7 +21,7 @@ export const registro = (onNavigate) => {
 
   if (nameNewUser.value === '' || mailNewUser.value === '' || passNewUser.value === '' || confirPass.value === '') {
     return alert('Debes de llenar todos los campos');
-  }
+  } 
 
   if (passNewUser.value !== confirPass.value) {
     return alert('Las contraseñas deben coincidir');
@@ -74,5 +74,29 @@ export const validarpost = () => {
 
   if (dificultad.value === '' || equipo.value === '' || textoPublicacion.value === '' || ubicacion.value === '' || fotoPublicacion.value === '') {
     alert('Debes de llenar todos los campos');
+  } else {
+    console.log("todo okei")
+  }
+};
+
+/* ------------------------------------CREAR PERFIL -----------------------------------------------*/
+export const crearPerfil = () => {
+  const fotoPerfil = document.getElementById('fotoPerfil').value;
+  const pais = document.getElementById('pais').value;
+  const nivel = document.getElementById('nivel').value;
+  const record = document.getElementById('record').value;
+  const fecha = serverTimestamp();
+
+  console.log(usuarioActual);
+  if (usuarioActual) {
+    addDoc(collection(db, 'perfil'), {
+      email_user: usuarioActual.email,
+      nombre: usuarioActual.displayName,
+      fotoPerfil,
+      pais,
+      nivel,
+      record,
+      fecha,
+    });
   }
 };

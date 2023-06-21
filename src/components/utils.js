@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -80,8 +81,9 @@ export function logout() {
 /*export const obtenerUsers = () => getDocs(collection(db, "user", documentId)); NO SABEMOS SI SIRVE PA ALGO*/
 
 /*------------------------------------------------ FUNCIONES HOME -------------------------------------------*/
+
 const usuario = collection(db, "user");
-export const usuarioCorreo = await getDocs(usuario);
+export const usuarioCorreo = await getDocs(usuario); 
 
 /*------------------------------------------------ FUNCION MOSTRAR NOMBRES USUARIO -------------------------------------------*/
 export const getUsername = async (email) => {
