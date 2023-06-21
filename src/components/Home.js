@@ -230,7 +230,7 @@ export const Home = (onNavigate) => {
   /* MENÚ GRANDE */
 
   /* POPUP CERRAR SESIÓN */
-  publicacionDiv.appendChild(salirDiv);
+  HomeDiv.appendChild(salirDiv);
   salirDiv.appendChild(salirPopUp);
   salirPopUp.appendChild(salirMensaje);
   salirPopUp.appendChild(btnSalir);
@@ -361,7 +361,7 @@ export const Home = (onNavigate) => {
       </div>
           <div class='borrarDiv'>
           <div class='borrarPopup'>
-          <p class='borrarMensaje'>¿Estás seguro de borrar la post?</p>
+          <p class='borrarMensaje'>¿Estás seguro de borrar la publicación?</p>
           <button class='btnBorrar'>Borrar</button>
           <button class='btnRegresar'>Volver</button>
           </div>
@@ -393,15 +393,26 @@ export const Home = (onNavigate) => {
 
         const btnsEliminar = divPosts.querySelectorAll('.eliminar');
         const borrarDiv = divPosts.querySelector('.borrarDiv');
+        const btnBorrar = divPosts.querySelector('.btnBorrar');
+        const btnRegresar = divPosts.querySelector('.btnRegresar');
         btnsEliminar.forEach((btns2) => {
           btns2.addEventListener('click', () => {
             borrarDiv.style.display = 'block';
+            btnRegresar.addEventListener('click', () => {
+              borrarDiv.style.display = 'none';
+            });
+            btnBorrar.addEventListener('click', ({ target: { dataset } }) => {
+              console.log('borrar');
+              eliminarPost(dataset.id);
+            });
           });
         });
-        /*btns2.addEventListener('click', ({ target: { dataset } }) => {
-          console.log('borrar');
-          eliminarPost(dataset.id);
-        });*/
+
+        /*btnBorrar.addEventListener('click', ({ target: { dataset } }) => {
+                console.log('borrar');
+                eliminarPost(dataset.id);
+              });*/
+        
       });
 
       const botonLike = divPosts.querySelectorAll('.like');
