@@ -1,6 +1,8 @@
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { inicioSesion } from '../src/components/inicioSesion';
+import { loginEmail } from '../src/components/utils';
 
-createUserWithEmailAndPassword.mock('../src/components/utils', () => ({
+signInWithEmailAndPassword.mock('../src/components/utils', () => ({
   mail: jest.fn(),
   password: jest.fn(),
 }));
@@ -23,3 +25,11 @@ describe('inicio sesion con correo no registrado', () => {
     expect(alert('correo no registrado')).toBe('Correo no registrado');
   });
 });
+
+signInWithEmailAndPassword.mock('../src/components/utils', () => ({
+  mail: jest.fn(),
+  password: jest.fn(),
+}));
+describe('inicio sesion con correo registrado', () =>{
+
+})*/
