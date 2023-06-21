@@ -73,9 +73,11 @@ export const validarpost = () => {
   const fotoPublicacion = document.getElementById('fotoPublicacion');
 
   if (dificultad.value === '' || equipo.value === '' || textoPublicacion.value === '' || ubicacion.value === '' || fotoPublicacion.value === '') {
-    alert('Debes de llenar todos los campos');
+    return false
+    //alert('Debes de llenar todos los campos');
   } else {
-    console.log("todo okei")
+    return true
+    //console.log("todo okei")
   }
 };
 

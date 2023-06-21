@@ -418,8 +418,11 @@ export const Home = (onNavigate) => {
 
       postEditado = false;
     } else {
-      validarpost();
-      crearPost();
+      if(validarpost()){
+        crearPost();
+      }else{
+        alert('Debes de llenar todos los campos')
+      }
     }
 
     document.getElementById('ubicacion').value = '';
