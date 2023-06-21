@@ -57,6 +57,7 @@ export const PerfilUsuario = (onNavigate) => {
   const containerPerfil = document.createElement('div');
   const nombreUsuario = document.createElement('p');
   const fotoPerfil = document.createElement('div');
+  const editarPerfil = document.createElement('button');
   const paisUsuario = document.createElement('div');
   const nivelTrackUsuario = document.createElement('div');
   const infoTrackUsuario = document.createElement('div');
@@ -65,6 +66,7 @@ export const PerfilUsuario = (onNavigate) => {
   containerPerfil.classList.add('containerPerfil');
   nombreUsuario.classList.add('nombreUsuario');
   fotoPerfil.classList.add('fotoPerfil');
+  editarPerfil.classList.add('editarPerfil');
   paisUsuario.classList.add('paisUsuario');
   nivelTrackUsuario.classList.add('nivelTrackUsuario');
   infoTrackUsuario.classList.add('infoTrackUsuario');
@@ -75,6 +77,7 @@ export const PerfilUsuario = (onNavigate) => {
   navCerrarSesion.classList.add('navCerrarSesion');
 
   nombreUsuario.textContent = 'Nombre usuario';
+  editarPerfil.textContent = 'EDITAR PERFIL';
   paisUsuario.textContent = 'PAIS';
   nivelTrackUsuario.textContent = 'NIVEL';
   infoTrackUsuario.textContent = 'TRACK RECORD';
@@ -106,6 +109,7 @@ export const PerfilUsuario = (onNavigate) => {
   perfilDiv.appendChild(containerPerfil);
   containerPerfil.appendChild(nombreUsuario);
   containerPerfil.appendChild(fotoPerfil);
+  containerPerfil.appendChild(editarPerfil);
   containerPerfil.appendChild(paisUsuario);
   containerPerfil.appendChild(nivelTrackUsuario);
   containerPerfil.appendChild(infoTrackUsuario);
@@ -140,5 +144,8 @@ export const PerfilUsuario = (onNavigate) => {
     onNavigate('/');
   });
 
+  editarPerfil.addEventListener('click', () => {
+    onNavigate('/FotoPerfil');
+  });
   return perfilDiv;
 };

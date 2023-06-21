@@ -1883,27 +1883,31 @@ body {
     top: 0px;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 160px 500px;
     grid-template-areas:
-      "headerRegistro2"
-      "formulario3";
+      "headerRegistro2 headerRegistro2"
+      "nada formulario3";
   }
+
 
   .headerRegistro2 {
     grid-area: headerRegistro2;
     width: 100%;
     height: 10rem;
     display: flex;
+    justify-content: flex-end;
   }
+
 
   .logoRegistro3 {
     display: flex;
     margin-top: 20px;
-    margin-left: 1050px;
+    margin-right: 250px;
     width: 200px;
     height: 80px;
   }
+
 
   .formulario3 {
     grid-area: formulario3;
@@ -1911,17 +1915,21 @@ body {
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
     position: relative;
     justify-content: center;
-    margin-left: 910px;
-    width: 30%;
+    width: 55%;
     top: -20px;
+    margin-left: 200px;
     display: grid;
+    grid-template-rows: 50px 70px 70px 70px 70px 70px 70px;
     grid-template-areas:
       "mensajeRegistro"
       "mensajeFotoPerfil"
-      "divFotoPerfil"
-      "botonExaminar"
+      "examinar"
+      "pais"
+      "nivel"
+      "record"
       "botonFinalizar";
   }
+
 
   .contenedorDiv .mensajeRegistro {
     grid-area: mensajeRegistro;
@@ -1941,33 +1949,72 @@ body {
     color: rgb(0, 0, 0);
   }
 
-  .contenedorDiv .divFotoPerfil {
-    grid-area: divFotoPerfil;
-    width: 200px;
-    height: 180px;
+  .botonExaminar {
+    grid-area: examinar;
+    text-align: center;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 2px;
     margin: 0 auto;
-    margin-top: 10px;
-    border-radius: 50%;
+    width: 90%;
+    height: 50px;
+    box-sizing: border-box;
+    color: #13191f;
+    font-size: 13px;
   }
 
-  .contenedorDiv .botonExaminar {
-    grid-area: botonExaminar;
-    font-family: Arial;
-    font-weight: bold;
-    font-size: 15px;
-    padding: 16px 30px;
-    background: linear-gradient(#f2f2f2, #d8d8d8);
-    text-decoration: none;
-    border-style: none;
+  .pais {
+    grid-area: pais;
     text-align: center;
-    width: 100%;
-    height: 50px;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 2px;
     margin: 0 auto;
+    width: 90%;
+    height: 50px;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #13191f;
+    font-size: 13px;
+  }
+
+  .nivel {
+    grid-area: nivel;
+    text-align: center;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 2px;
+    margin: 0 auto;
+    width: 90%;
+    height: 50px;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #13191f;
+    font-size: 13px;
+  }
+
+  .record {
+    grid-area: record;
+    text-align: center;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 2px;
+    margin: 0 auto;
+    width: 90%;
+    height: 50px;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #13191f;
+    font-size: 13px;
   }
 
   .contenedorDiv .botonFinalizar {
     grid-area: botonFinalizar;
-    width: 100%;
+    width: 90%;
     height: 50px;
     background: linear-gradient(#aef393, #b5e9af);
     font-weight: bold;
@@ -1985,9 +2032,11 @@ body {
     overflow: hidden;
   }
 
+
   .botonFinalizar:hover {
     color: #fff;
   }
+
 
   .botonFinalizar::after {
     content: "";
@@ -2007,6 +2056,7 @@ body {
     transition: all 0.3s ease-out;
     transform: scale(1, 1);
   }
+
 
   /*------------------------------------------------------------ PERFIL USUARIO ----------------------------------------------------*/
   .perfilDiv {
@@ -2103,6 +2153,8 @@ body {
     margin: auto;
   }
 
+  
+
   /*------------------------------------------------------------ HEADER 2 --------------------------------------------------------*/
   .header2 {
     grid-area: header;
@@ -2151,7 +2203,7 @@ body {
     height: 99.8%;
     grid-area: menu1;
     background-color: #41b11144;
-    z-index: -1;
+    z-index: 1;
   }
   .iconosDiv {
     position: fixed;
