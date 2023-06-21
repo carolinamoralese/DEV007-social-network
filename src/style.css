@@ -2075,6 +2075,20 @@ body {
 
   .containerPerfil {
     grid-area: containerPerfil;
+    background-color: #fc0505;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .fotoUsuario {
+    width: 200px;
+    height: 200px;
+  }
+
+ /* .containerPerfil {
+    grid-area: containerPerfil;
     background-image: url(./Imagenes/FondoPerfil.png);
     background-repeat: no-repeat;
     background-size: contain;
@@ -2097,6 +2111,7 @@ body {
       "fotoPerfil infoTrackUsuario";
   }
 
+  /*
   .containerPerfil .nombreUsuario {
     display: grid;
     grid-area: nombreUsuario;
@@ -2151,7 +2166,7 @@ body {
     text-align: center;
     padding-top: 20px;
     margin: auto;
-  }
+  }*/
 
   
 

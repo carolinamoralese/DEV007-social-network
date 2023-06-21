@@ -1,4 +1,11 @@
-import { logout } from './utils.js';
+import { getAuth } from 'firebase/auth';
+import {
+  onSnapshot,
+  collection,
+  query,
+} from 'firebase/firestore';
+import { db } from '../app/firebase';
+import { logout, getUsername } from './utils.js';
 import logoMountainMe from '../Imagenes/Logo_MountainMe.png';
 import menu from '../Imagenes/menu.png';
 import iconoHome from '../Imagenes/iconoHome.png';
@@ -107,12 +114,13 @@ export const PerfilUsuario = (onNavigate) => {
   opcionSection2.appendChild(navCerrarSesion2);
 
   perfilDiv.appendChild(containerPerfil);
-  containerPerfil.appendChild(nombreUsuario);
+  perfilDiv.appendChild(editarPerfil);
+  /*containerPerfil.appendChild(nombreUsuario);
   containerPerfil.appendChild(fotoPerfil);
-  containerPerfil.appendChild(editarPerfil);
+  
   containerPerfil.appendChild(paisUsuario);
   containerPerfil.appendChild(nivelTrackUsuario);
-  containerPerfil.appendChild(infoTrackUsuario);
+  containerPerfil.appendChild(infoTrackUsuario);*/
 
   despliegueMenu.addEventListener('click', () => {
     menuHome.classList.toggle('active');
@@ -147,5 +155,33 @@ export const PerfilUsuario = (onNavigate) => {
   editarPerfil.addEventListener('click', () => {
     onNavigate('/FotoPerfil');
   });
+
+  /*------------------------------------MUESTRA EL PERFIL------------------------------------*/
+  const q = query(collection(db, 'perfil'));
+  let id = '';
+
+  onSnapshot(q, (querySnapshot) => {
+    const usuarioActual = getAuth().currentUser;
+    if (usuarioActual.email === doc.data().email_user){
+    querySnapshot.forEach(async (doc) => {
+      
+    
+      
+        containerPerfil.innerHTML = '';
+        const username = getUsername(doc.data().email_user);
+      const usernametoshow = username === 'google' ? doc.data().nombre : username;
+      let divPerfil = `
+    <div class='publicacionPerfil'>
+    <p class='usuario'>${usernametoshow}</p>
+    <img class='fotoUsuario' src="${doc.data().fotoPerfil}"></img>
+    <p class='paísDiv'>PAÍS: ${doc.data().pais}</p>
+    <p class='nivelDiv'>NIVEL: ${doc.data().nivel}</p>
+    <p class='recordDiv'>TRACK RECORD: ${doc.data().record}</p>`;
+    containerPerfil.innerHTML += divPerfil;
+      
+    
+    });
+ };
+});
   return perfilDiv;
 };

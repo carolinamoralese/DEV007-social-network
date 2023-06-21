@@ -1,3 +1,4 @@
+import { crearPerfil } from './domUtils.js';
 import logoMountainMe from '../Imagenes/Logo_MountainMe.png';
 
 export const FotoPerfil = (onNavigate) => {
@@ -57,6 +58,7 @@ export const FotoPerfil = (onNavigate) => {
   formulario.appendChild(botonFinalizar);
 
   botonFinalizar.addEventListener('click', () => {
+    crearPerfil();
     onNavigate('/PerfilUsuario');
   });
 
