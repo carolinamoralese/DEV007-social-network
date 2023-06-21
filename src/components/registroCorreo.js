@@ -18,6 +18,7 @@ export const registroCorreo = (onNavigate) => {
   const confirPass = document.createElement('input');
   const botonRegistrate = document.createElement('button');
   const textoPrivacidad = document.createElement('p');
+  const botonRegresar = document.createElement('button');
 
   nameNewUser.setAttribute('type', 'text');
   nameNewUser.setAttribute('name', 'username');
@@ -51,11 +52,13 @@ export const registroCorreo = (onNavigate) => {
   confirPass.classList.add('confirPass');
   botonRegistrate.classList.add('botonRegistrate');
   textoPrivacidad.classList.add('textoPrivacidad');
+  botonRegresar.classList.add('botonRegresar');
 
   bienvenido.textContent = '¡BIENVENIDO!';
   textoRegistro.textContent = 'Para crear una nueva cuenta, por favor llena los siguientes campos';
   textoPrivacidad.textContent = 'Al registrarte aceptas nuestras Condiciones de Uso y Política de Privacidad';
-
+  botonRegresar.textContent = 'REGRESAR';
+ 
   registroCorreoDiv.appendChild(header1);
   header1.appendChild(logoGrande);
   registroCorreoDiv.appendChild(formulario);
@@ -67,7 +70,11 @@ export const registroCorreo = (onNavigate) => {
   formulario.appendChild(confirPass);
   formulario.appendChild(botonRegistrate);
   formulario.appendChild(textoPrivacidad);
+  formulario.appendChild(botonRegresar);
 
+  botonRegresar.addEventListener('click', () => {
+    onNavigate('/');
+  });
   botonRegistrate.addEventListener('click', () => {
     registro(onNavigate);
   });

@@ -234,7 +234,8 @@ body {
       "textoBienvenida"
       "inputCorreo"
       "inputPassword"
-      "botonIngresar";
+      "botonIngresar"
+      "botonRegresar";
   }
 
   .inicioSesionDiv .textoBienvenida {
@@ -310,6 +311,23 @@ body {
     transform: scale(1, 1);
   }
 
+  .inicioSesionDiv .botonRegresar{
+    grid-area: botonRegresar;
+    width: 300px;
+    height: 50px;
+    margin: 0 auto;
+    background: linear-gradient(#AEF393, #B5E9AF);
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
   /*--------------------------------------------------- SECCIÓN REGISTRAR CORREO ---------------------------------------------------*/
 
   .registroCorreoDiv {
@@ -361,7 +379,8 @@ body {
       "passNewUser"
       "confirPass"
       "botonRegistrate"
-      "textoPrivacidad";
+      "textoPrivacidad"
+      "botonRegresar";
   }
 
   .registroCorreoDiv .bienvenido {
@@ -489,6 +508,26 @@ body {
   .botonRegistrate:hover::after {
     transition: all 0.3s ease-out;
     transform: scale(1, 1);
+  }
+
+  .registroCorreoDiv .botonRegresar {
+    grid-area: botonRegresar;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(#AEF393, #B5E9AF);
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    margin: 10px 10px;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 auto;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
   }
 
   /*--------------------------------------------------- SECCIÓN FOTO PERFIL ---------------------------------------------------*/
@@ -1502,7 +1541,8 @@ body {
       "textoBienvenida"
       "inputCorreo"
       "inputPassword"
-      "botonIngresar";
+      "botonIngresar"
+      "botonRegresar";
   }
 
   .inicioSesionDiv .textoBienvenida {
@@ -1581,6 +1621,26 @@ body {
     transform: scale(1, 1);
   }
 
+  .inicioSesionDiv .botonRegresar {
+    grid-area: botonRegresar;
+    width: 300px;
+    height: 50px;
+    background: linear-gradient(#AEF393, #B5E9AF);
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    margin: 10px 10px;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 auto;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+
   /*--------------------------------------------------- SECCIÓN REGISTRAR CORREO ---------------------------------------------------*/
 
   .registroCorreoDiv {
@@ -1628,7 +1688,7 @@ body {
     height: fit-content;
     display: grid;
     grid-gap: 5px;
-    grid-template-rows: 50px 40px 60px 60px 60px 60px 60px 50px;
+    grid-template-rows: 50px 40px 60px 60px 60px 60px 60px 50px 50px;
     grid-template-areas:
       "bienvenido"
       "textoRegistro"
@@ -1637,7 +1697,8 @@ body {
       "passNewUser"
       "confirPass"
       "botonRegistrate"
-      "textoPrivacidad";
+      "textoPrivacidad"
+      "botonRegresar";
   }
 
   .registroCorreoDiv .bienvenido {
@@ -1775,6 +1836,26 @@ body {
     transform: scale(1, 1);
   }
 
+  .registroCorreoDiv .botonRegresar {
+    grid-area: botonRegresar;
+    width: 80%;
+    height: 50px;
+    background: linear-gradient(#AEF393, #B5E9AF);
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    margin: 10px 10px;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 auto;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
   /*--------------------------------------------------- SECCIÓN FOTO PERFIL ---------------------------------------------------*/
 
   .contenedorDiv {
@@ -2538,6 +2619,20 @@ body {
     transition: all 0.3s ease-out;
     transform: scale(1, 1);
   }
+
+ /*------------------------------------------------------------POP UP BORRAR POST------------------------------------------------*/
+
+ .borrarDiv {
+  display: none;
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.486);
+ }
 
   /*------------------------------------------------------------POP UP CERRAR SESIÓN------------------------------------------------*/
   .salirDiv{

@@ -15,6 +15,7 @@ export const inicioSesion = (onNavigate) => {
   const inputPassword = document.createElement('input');
   const botonIngresar = document.createElement('button');
   const textoBienvenida = document.createElement('p');
+  const botonRegresar = document.createElement('button');
   // const montañaVector = document.createElement('img');
 
   inputCorreo.type = 'email';
@@ -31,7 +32,8 @@ export const inicioSesion = (onNavigate) => {
   inputCorreo.classList.add('inputCorreo');
   inputPassword.classList.add('inputPassword');
   botonIngresar.classList.add('botonIngresar');
-
+  botonRegresar.classList.add('botonRegresar');
+  botonRegresar.textContent = 'REGRESAR';
   textoBienvenida.textContent = '¡BIENVENIDO DE VUELTA!';
   botonIngresar.textContent = 'INGRESA';
 
@@ -43,7 +45,11 @@ export const inicioSesion = (onNavigate) => {
   formulario.appendChild(inputCorreo);
   formulario.appendChild(inputPassword);
   formulario.appendChild(botonIngresar);
+  formulario.appendChild(botonRegresar);
 
+  botonRegresar.addEventListener('click', () => {
+    onNavigate('/');
+  })
   botonIngresar.addEventListener('click', () => {
     validarDatos(onNavigate);
   });
