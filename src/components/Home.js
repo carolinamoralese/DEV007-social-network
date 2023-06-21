@@ -103,21 +103,6 @@ export const Home = (onNavigate) => {
   btnVolver.textContent = 'VOLVER';
   /* POPUP CERRAR SESIÓN */
 
-  /* POPUP CERRAR ELIMINAR POST */
-  /*const borrarDiv = document.createElement('div');
-  const borrarPopup = document.createElement('div');
-  const borrarMensaje = document.createElement('p');
-  const btnBorrar = document.createElement('button');
-  borrarDiv.classList.add('borrarDiv');
-  borrarPopup.classList.add('borrarPopup');
-  borrarPopup.classList.add('active');
-  borrarMensaje.classList.add('borrarMensaje');
-  btnBorrar.classList.add('btnBorrar');
-  borrarMensaje.textContent = '¿Estás seguro de borrar la post?';
-  btnBorrar.textContent = 'ELIMINAR';*/
-  /* POPUP CERRAR ELIMINAR POST */
-
-
   const HomeDiv = document.createElement('div');
   const buscadorDiv = document.createElement('div');
   const buscadorHome = document.createElement('input');
@@ -237,13 +222,6 @@ export const Home = (onNavigate) => {
   salirPopUp.appendChild(btnVolver);
   /* POPUP CERRAR SESIÓN */
 
-  /* POPUP CERRAR ELIMINAR POST */
-  /*HomeDiv.appendChild(borrarDiv);
-  borrarDiv.appendChild(borrarPopup);
-  borrarPopup.appendChild(borrarMensaje);
-  borrarPopup.appendChild(btnBorrar);*/
-  /* POPUP CERRAR ELIMINAR POST */
-
   HomeDiv.appendChild(buscadorDiv);
   buscadorDiv.appendChild(buscadorHome);
   buscadorDiv.appendChild(botonBuscador);
@@ -362,7 +340,7 @@ export const Home = (onNavigate) => {
           <div class='borrarDiv'>
           <div class='borrarPopup'>
           <p class='borrarMensaje'>¿Estás seguro de borrar la publicación?</p>
-          <button class='btnBorrar'>Borrar</button>
+          <button class='btnBorrar' data-id="${doc.id}">Borrar</button>
           <button class='btnRegresar'>Volver</button>
           </div>
       </div>`;
@@ -400,19 +378,13 @@ export const Home = (onNavigate) => {
             borrarDiv.style.display = 'block';
             btnRegresar.addEventListener('click', () => {
               borrarDiv.style.display = 'none';
-            });
-            btnBorrar.addEventListener('click', ({ target: { dataset } }) => {
-              console.log('borrar');
-              eliminarPost(dataset.id);
-            });
           });
         });
-
-        /*btnBorrar.addEventListener('click', ({ target: { dataset } }) => {
-                console.log('borrar');
-                eliminarPost(dataset.id);
-              });*/
-        
+        btnBorrar.addEventListener('click', ({ target: { dataset } }) => {
+          console.log('borrar');
+          eliminarPost(dataset.id);
+        });
+      });
       });
 
       const botonLike = divPosts.querySelectorAll('.like');
