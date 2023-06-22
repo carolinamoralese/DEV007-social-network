@@ -2,3 +2,4 @@ build/*.js
 config/*.js
 bower_components/foo/*.js
 src/components/utils.js
+src/style.css

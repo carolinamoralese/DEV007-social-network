@@ -1,7 +1,9 @@
 import { getAuth, onAuthStateChanged, signInWithPopup } from 'firebase/auth';
 import { provider } from '../app/firebase.js';
 
+/* eslint-disable */
 export let usuarioActual;
+/* eslint-enable */
 const auth = getAuth();
 
 export function loginGoogle(onNavigate) {

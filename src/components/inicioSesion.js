@@ -49,7 +49,7 @@ export const inicioSesion = (onNavigate) => {
 
   botonRegresar.addEventListener('click', () => {
     onNavigate('/');
-  })
+  });
   botonIngresar.addEventListener('click', () => {
     validarDatos(onNavigate);
   });

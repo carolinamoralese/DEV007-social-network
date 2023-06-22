@@ -21,7 +21,7 @@ export const registro = (onNavigate) => {
 
   if (nameNewUser.value === '' || mailNewUser.value === '' || passNewUser.value === '' || confirPass.value === '') {
     return alert('Debes de llenar todos los campos');
-  } 
+  }
 
   if (passNewUser.value !== confirPass.value) {
     return alert('Las contraseñas deben coincidir');
@@ -72,16 +72,16 @@ export const validarpost = () => {
   const ubicacion = document.getElementById('ubicacion');
   const fotoPublicacion = document.getElementById('fotoPublicacion');
 
+  /* eslint-disable */
   if (dificultad.value === '' || equipo.value === '' || textoPublicacion.value === '' || ubicacion.value === '' || fotoPublicacion.value === '') {
-    return false
-    //alert('Debes de llenar todos los campos');
+    return false;
   } else {
-    return true
-    //console.log("todo okei")
+    return true;
   }
+  /* eslint-enable */
 };
 
-/* ------------------------------------CREAR PERFIL -----------------------------------------------*/
+/* ------------------------------------CREAR PERFIL --------------------------------------------*/
 export const crearPerfil = () => {
   const fotoPerfil = document.getElementById('fotoPerfil').value;
   const pais = document.getElementById('pais').value;

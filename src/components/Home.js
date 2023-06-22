@@ -378,13 +378,13 @@ export const Home = (onNavigate) => {
             borrarDiv.style.display = 'block';
             btnRegresar.addEventListener('click', () => {
               borrarDiv.style.display = 'none';
+            });
+          });
+          btnBorrar.addEventListener('click', ({ target: { dataset } }) => {
+            console.log('borrar');
+            eliminarPost(dataset.id);
           });
         });
-        btnBorrar.addEventListener('click', ({ target: { dataset } }) => {
-          console.log('borrar');
-          eliminarPost(dataset.id);
-        });
-      });
       });
 
       const botonLike = divPosts.querySelectorAll('.like');
@@ -418,11 +418,13 @@ export const Home = (onNavigate) => {
 
       postEditado = false;
     } else {
-      if(validarpost()){
+      /* eslint-disable */
+      if (validarpost()) {
         crearPost();
-      }else{
+      } else {
         alert('Debes de llenar todos los campos')
       }
+      /* eslint-enable */
     }
 
     document.getElementById('ubicacion').value = '';

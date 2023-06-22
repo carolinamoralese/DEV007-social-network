@@ -118,7 +118,7 @@ export const disLike = async (idPost, idUsuario) => {
   updateDoc(postDoc.ref, { likes: arrayRemove(idUsuario) });
 };
 
-
+/*------------------------------------------------ FUNCION MOSTRAR PERFIL  -------------------------------------------*/
 export const getPerfil = async (email) => {
   let perfilDoc = false
   const perfilQuery = query(collection(db, 'perfil'), where('email_user', '==', email));

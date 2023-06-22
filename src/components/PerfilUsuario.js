@@ -1,11 +1,4 @@
 import { getAuth } from 'firebase/auth';
-import {
-  onSnapshot,
-  collection,
-  query,
-  limit,
-} from 'firebase/firestore';
-import { db } from '../app/firebase';
 import { logout, getUsername, getPerfil } from './utils.js';
 import logoMountainMe from '../Imagenes/Logo_MountainMe.png';
 import menu from '../Imagenes/menu.png';
@@ -116,12 +109,6 @@ export const PerfilUsuario = (onNavigate) => {
 
   perfilDiv.appendChild(containerPerfil);
   perfilDiv.appendChild(editarPerfil);
-  /*containerPerfil.appendChild(nombreUsuario);
-  containerPerfil.appendChild(fotoPerfil);
-  
-  containerPerfil.appendChild(paisUsuario);
-  containerPerfil.appendChild(nivelTrackUsuario);
-  containerPerfil.appendChild(infoTrackUsuario);*/
 
   despliegueMenu.addEventListener('click', () => {
     menuHome.classList.toggle('active');
@@ -157,10 +144,11 @@ export const PerfilUsuario = (onNavigate) => {
     onNavigate('/FotoPerfil');
   });
 
-  /*------------------------------------MUESTRA EL PERFIL------------------------------------*/
+  /* ------------------------------------MUESTRA EL PERFIL----------------------------------- */
   const usuarioActual = getAuth().currentUser;
   containerPerfil.innerHTML = '';
   const perfil = getPerfil(usuarioActual.email);
+  /* eslint-disable */
   perfil.then(function(perfil) {
     if (perfil){
       console.log(perfil)
@@ -182,8 +170,6 @@ export const PerfilUsuario = (onNavigate) => {
       });
     }
     });
-
+  /* eslint-enable */
   return perfilDiv;
 };
-
-

@@ -6,7 +6,7 @@ export const FotoPerfil = (onNavigate) => {
   const header1 = document.createElement('header');
   const logoGrande = document.createElement('img');
   logoGrande.src = logoMountainMe;
-  header1.classList.add('headerRegistro2');
+  header1.classList.add('headerRegistro3');
   logoGrande.classList.add('logoRegistro3');
 
   const contendorDiv = document.createElement('div');

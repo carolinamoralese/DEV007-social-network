@@ -58,7 +58,7 @@ export const registroCorreo = (onNavigate) => {
   textoRegistro.textContent = 'Para crear una nueva cuenta, por favor llena los siguientes campos';
   textoPrivacidad.textContent = 'Al registrarte aceptas nuestras Condiciones de Uso y Política de Privacidad';
   botonRegresar.textContent = 'REGRESAR';
- 
+
   registroCorreoDiv.appendChild(header1);
   header1.appendChild(logoGrande);
   registroCorreoDiv.appendChild(formulario);
