@@ -3,9 +3,10 @@ import {
   onSnapshot,
   collection,
   query,
+  limit,
 } from 'firebase/firestore';
 import { db } from '../app/firebase';
-import { logout, getUsername } from './utils.js';
+import { logout, getUsername, getPerfil } from './utils.js';
 import logoMountainMe from '../Imagenes/Logo_MountainMe.png';
 import menu from '../Imagenes/menu.png';
 import iconoHome from '../Imagenes/iconoHome.png';
@@ -157,31 +158,32 @@ export const PerfilUsuario = (onNavigate) => {
   });
 
   /*------------------------------------MUESTRA EL PERFIL------------------------------------*/
-  const q = query(collection(db, 'perfil'));
-  let id = '';
-
-  onSnapshot(q, (querySnapshot) => {
-    const usuarioActual = getAuth().currentUser;
-    if (usuarioActual.email === doc.data().email_user){
-    querySnapshot.forEach(async (doc) => {
-      
-    
-      
-        containerPerfil.innerHTML = '';
-        const username = getUsername(doc.data().email_user);
-      const usernametoshow = username === 'google' ? doc.data().nombre : username;
-      let divPerfil = `
-    <div class='publicacionPerfil'>
-    <p class='usuario'>${usernametoshow}</p>
-    <img class='fotoUsuario' src="${doc.data().fotoPerfil}"></img>
-    <p class='paísDiv'>PAÍS: ${doc.data().pais}</p>
-    <p class='nivelDiv'>NIVEL: ${doc.data().nivel}</p>
-    <p class='recordDiv'>TRACK RECORD: ${doc.data().record}</p>`;
-    containerPerfil.innerHTML += divPerfil;
-      
-    
+  const usuarioActual = getAuth().currentUser;
+  containerPerfil.innerHTML = '';
+  const perfil = getPerfil(usuarioActual.email);
+  perfil.then(function(perfil) {
+    if (perfil){
+      console.log(perfil)
+      const username = getUsername(perfil.email_user);
+      console.log(username);
+      let usernametoshow;
+      username.then(function(username) {
+        console.log(username);
+        usernametoshow = username === 'google' ? perfil.nombre : username;
+        let divPerfil = `
+      <div class='publicacionPerfil'>
+      <p class='usuario'>${usernametoshow}</p>
+      <img class='fotoUsuario' src=${perfil.fotoPerfil}></img>
+      <p class='paísDiv'>PAÍS: ${perfil.pais}</p>
+      <p class='nivelDiv'>NIVEL: ${perfil.nivel}</p>
+      <p class='recordDiv'>TRACK RECORD: ${perfil.record}</p>`;
+      containerPerfil.innerHTML += divPerfil;
+        
+      });
+    }
     });
- };
-});
+
   return perfilDiv;
 };
+
+

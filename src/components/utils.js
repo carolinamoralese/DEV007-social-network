@@ -117,3 +117,14 @@ export const disLike = async (idPost, idUsuario) => {
   const postDoc = postsQuerySnapshot.docs.find((doc) => doc.id === idPost);
   updateDoc(postDoc.ref, { likes: arrayRemove(idUsuario) });
 };
+
+
+export const getPerfil = async (email) => {
+  let perfilDoc = false
+  const perfilQuery = query(collection(db, 'perfil'), where('email_user', '==', email));
+  const perfilSnapshot = await getDocs(perfilQuery);
+  if (!perfilSnapshot.empty) {
+    perfilDoc = perfilSnapshot.docs[0].data();
+  }
+  return perfilDoc;
+};
