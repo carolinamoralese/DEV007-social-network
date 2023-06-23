@@ -1,4 +1,4 @@
-import { serverTimestamp, addDoc, collection } from 'firebase/firestore';
+import { serverTimestamp, addDoc, collection, getDocs } from 'firebase/firestore';
 import { loginEmail, registroMail } from './utils.js';
 import { usuarioActual } from './registroGoogle';
 import { db } from '../app/firebase';
@@ -102,3 +102,6 @@ export const crearPerfil = () => {
     });
   }
 };
+
+const usuario = collection(db, "user");
+export const usuarioCorreo = await getDocs(usuario);

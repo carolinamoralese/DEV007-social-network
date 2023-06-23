@@ -29,7 +29,7 @@ const auth = getAuth();
 /*------------------------------------FUNCIÓN INICIAR SESIÓN -------------------------------------------*/
 export function loginEmail(email, password, onNavigate) {
   signInWithEmailAndPassword(auth, email, password)
-    .then((result) => {
+    .then(() => {
       // Signed in
 
       //valida que el correo esta verificado
@@ -82,8 +82,8 @@ export function logout() {
 
 /*------------------------------------------------ FUNCIONES HOME -------------------------------------------*/
 
-const usuario = collection(db, "user");
-export const usuarioCorreo = await getDocs(usuario); 
+// const usuario = collection(db, "user");
+// export const usuarioCorreo = await getDocs(usuario);
 
 /*------------------------------------------------ FUNCION MOSTRAR NOMBRES USUARIO -------------------------------------------*/
 export const getUsername = async (email) => {
