@@ -145,15 +145,15 @@ export const PerfilUsuario = (onNavigate) => {
   });
 
   /* ------------------------------------MUESTRA EL PERFIL----------------------------------- */
-  const usuarioActual = getAuth().currentUser;
+  const usuarioActual = getAuth().currentUser || '';
+  console.log('hola', usuarioActual)
   containerPerfil.innerHTML = '';
   const perfil = getPerfil(usuarioActual.email);
   /* eslint-disable */
   perfil.then(function(perfil) {
     if (perfil){
-      console.log(perfil)
       const username = getUsername(perfil.email_user);
-      console.log(username);
+      console.log(username, 156);
       let usernametoshow;
       username.then(function(username) {
         console.log(username);

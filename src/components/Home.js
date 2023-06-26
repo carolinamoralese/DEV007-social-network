@@ -305,7 +305,7 @@ export const Home = (onNavigate) => {
 
   onSnapshot(q, (querySnapshot) => {
     divPosts.innerHTML = '';
-    const usuarioActual = getAuth().currentUser;
+    const usuarioActual = getAuth().currentUser || '';
 
     querySnapshot.forEach(async (doc) => {
       const username = await getUsername(doc.data().email_user);
