@@ -9,7 +9,7 @@ const auth = getAuth();
 export function loginGoogle(onNavigate) {
   signInWithPopup(auth, provider)
     .then((result) => {
-      onNavigate('/FotoPerfil');
+      onNavigate('/Home');
       console.log(result);
     })
     .catch((error) => {

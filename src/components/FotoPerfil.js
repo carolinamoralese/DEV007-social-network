@@ -15,7 +15,11 @@ export const FotoPerfil = (onNavigate) => {
   const mensajeRegstro = document.createElement('p');
   const mensajeFotoPerfil = document.createElement('p');
   const pais = document.createElement('input');
-  const nivel = document.createElement('input');
+  const nivel = document.createElement('select');
+  const optionNivel = document.createElement('option');
+  const navPrincipiante = document.createElement('option');
+  const navIntermedio = document.createElement('option');
+  const navAvanzado = document.createElement('option');
   const record = document.createElement('input');
   const botonExaminar = document.createElement('input');
   const botonFinalizar = document.createElement('button');
@@ -39,11 +43,17 @@ export const FotoPerfil = (onNavigate) => {
   mensajeFotoPerfil.textContent = 'Para comenzar llena los siguientes campos';
   botonExaminar.setAttribute('placeholder', 'Copia la URL de tu foto de perfil');
   pais.setAttribute('placeholder', 'Indica a qué país perteneces');
-  nivel.setAttribute('placeholder', 'Indica cuál es tu nivel');
   record.setAttribute('placeholder', 'Indica tu track record');
   botonExaminar.textContent = 'Examinar';
   botonFinalizar.textContent = 'Continuar';
   botonFinalizar.setAttribute('id', 'botonFinaliza');
+  navPrincipiante.textContent = 'Principinte';
+  navIntermedio.textContent = 'Intermedio';
+  navAvanzado.textContent = 'Avanzado'
+  optionNivel.textContent = 'Selecciona tu nivel'
+  optionNivel.value = '';
+  optionNivel.disabled = true;
+  optionNivel.selected = true;
 
   contendorDiv.appendChild(header1);
   header1.appendChild(logoGrande);
@@ -52,6 +62,10 @@ export const FotoPerfil = (onNavigate) => {
   formulario.appendChild(mensajeFotoPerfil);
   formulario.appendChild(pais);
   formulario.appendChild(nivel);
+  nivel.appendChild(optionNivel);
+  nivel.appendChild(navPrincipiante);
+  nivel.appendChild(navIntermedio);
+  nivel.appendChild(navAvanzado);
   formulario.appendChild(record);
   formulario.appendChild(botonExaminar);
   formulario.appendChild(contendorBotones);
