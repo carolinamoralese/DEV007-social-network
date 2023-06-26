@@ -87,6 +87,7 @@ export function logout() {
 
 /*------------------------------------------------ FUNCION MOSTRAR NOMBRES USUARIO -------------------------------------------*/
 export const getUsername = async (email) => {
+  console.log(email, 90)
   const userquery = query(collection(db, "user"), where("mail", "==", email));
   const usersnapshot = await getDocs(userquery);
   if (!usersnapshot.empty) {
