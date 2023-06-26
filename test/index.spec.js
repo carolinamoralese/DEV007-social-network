@@ -15,7 +15,6 @@ describe('signInWithEmailAndPassword', () => {
     expect(typeof loginEmail).toBe('function');
   });
   it('Debería llamarla', () => {
-    console.log(loginEmail);
     loginEmail.mockImplementationOnce(() => signInWithEmailAndPassword());
     loginEmail('lunapp20@gmail.com', 'Paola1234@', 'Home');
     expect(loginEmail).toHaveBeenCalled();
@@ -24,7 +23,6 @@ describe('signInWithEmailAndPassword', () => {
 
   it('Debería llevarme al /Home si el email está verficiado.', () => {
     const auth = { currentUser: { emailVerified: true } };
-    console.log(auth);
     const onNavigate = jest.fn();
 
     loginEmail.mockImplementationOnce(() => {
@@ -154,9 +152,24 @@ describe('getUsername', () => {
     const resultado = await getUsername(email);
   
     // verifica que la funcion  retorne el resultado esperado
-    expect(resultado).toEqual(usersnapshot.docs[0].data().name);// tambien se ouede poner paola luna
+    expect(resultado).toEqual(usersnapshot.docs[0].data().name);// tambien se puede poner paola luna
   });
 });
 /* eslint-disable */
+
+describe('loginEmail', () => {
+  it('Debería llevarme al / si el email no está verficiado.', () => {
+    const auth = { currentUser: { emailVerified: false } };
+    const onNavigate = jest.fn();
+
+    loginEmail.mockImplementationOnce(() => {
+      if (!auth.currentUser.emailVerified) {
+        onNavigate('/');
+      }
+    });
+    loginEmail('lunapp20@gmail.com', 'Paola1234@', 'Home');
+    expect(onNavigate).toHaveBeenCalledWith('/');
+  });
+});
 
 
