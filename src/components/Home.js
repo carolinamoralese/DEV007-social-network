@@ -85,14 +85,14 @@ export const Home = (onNavigate) => {
   botonEvento.classList.add('botonEvento');
   const evento1 = document.createElement('p');
   const evento2 = document.createElement('p');
-  const imagenEvento1 = document.createElement('img')
-  const imagenEvento2 = document.createElement('img')
+  const imagenEvento1 = document.createElement('img');
+  const imagenEvento2 = document.createElement('img');
   imagenEvento1.src = fotoevento1;
   imagenEvento2.src = fotoevento2;
-  evento1.classList.add('evento1')
-  evento2.classList.add('evento2')
-  imagenEvento1.classList.add('imagenEvento1')
-  imagenEvento2.classList.add('imagenEvento2')
+  evento1.classList.add('evento1');
+  evento2.classList.add('evento2');
+  imagenEvento1.classList.add('imagenEvento1');
+  imagenEvento2.classList.add('imagenEvento2');
   /* MENÚ GRANDE */
 
   /* POPUP CERRAR SESIÓN */

@@ -49,8 +49,8 @@ export const FotoPerfil = (onNavigate) => {
   botonFinalizar.setAttribute('id', 'botonFinaliza');
   navPrincipiante.textContent = 'Principinte';
   navIntermedio.textContent = 'Intermedio';
-  navAvanzado.textContent = 'Avanzado'
-  optionNivel.textContent = 'Selecciona tu nivel'
+  navAvanzado.textContent = 'Avanzado';
+  optionNivel.textContent = 'Selecciona tu nivel';
   optionNivel.value = '';
   optionNivel.disabled = true;
   optionNivel.selected = true;

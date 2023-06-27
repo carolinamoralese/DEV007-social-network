@@ -146,7 +146,7 @@ export const PerfilUsuario = (onNavigate) => {
 
   /* ------------------------------------MUESTRA EL PERFIL----------------------------------- */
   const usuarioActual = getAuth().currentUser || '';
-  console.log('hola', usuarioActual)
+  console.log('hola', usuarioActual);
   containerPerfil.innerHTML = '';
   const perfil = getPerfil(usuarioActual.email);
   /* eslint-disable */
