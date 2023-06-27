@@ -58,6 +58,7 @@ export const PerfilUsuario = (onNavigate) => {
   const containerPerfil = document.createElement('div');
   const nombreUsuario = document.createElement('p');
   const fotoPerfil = document.createElement('div');
+  const editarPerfil = document.createElement('button');
   const paisUsuario = document.createElement('div');
   const nivelTrackUsuario = document.createElement('div');
   const infoTrackUsuario = document.createElement('div');
@@ -66,6 +67,7 @@ export const PerfilUsuario = (onNavigate) => {
   containerPerfil.classList.add('containerPerfil');
   nombreUsuario.classList.add('nombreUsuario');
   fotoPerfil.classList.add('fotoPerfil');
+  editarPerfil.classList.add('btneditarPerfil');
   paisUsuario.classList.add('paisUsuario');
   nivelTrackUsuario.classList.add('nivelTrackUsuario');
   infoTrackUsuario.classList.add('infoTrackUsuario');
@@ -76,6 +78,7 @@ export const PerfilUsuario = (onNavigate) => {
   navCerrarSesion.classList.add('navCerrarSesion');
 
   nombreUsuario.textContent = 'Nombre usuario';
+  editarPerfil.textContent = 'EDITAR PERFIL';
   paisUsuario.textContent = 'PAIS';
   nivelTrackUsuario.textContent = 'NIVEL';
   infoTrackUsuario.textContent = 'TRACK RECORD';
@@ -105,6 +108,7 @@ export const PerfilUsuario = (onNavigate) => {
   opcionSection2.appendChild(navCerrarSesion2);
 
   perfilDiv.appendChild(containerPerfil);
+  perfilDiv.appendChild(editarPerfil);
 
   despliegueMenu.addEventListener('click', () => {
     menuHome.classList.toggle('active');
@@ -136,6 +140,10 @@ export const PerfilUsuario = (onNavigate) => {
     onNavigate('/');
   });
 
+  editarPerfil.addEventListener('click', () => {
+    onNavigate('/FotoPerfil');
+  });
+
   /* ------------------------------------MUESTRA EL PERFIL----------------------------------- */
   const usuarioActual = getAuth().currentUser || '';
   console.log('hola', usuarioActual)
@@ -156,18 +164,9 @@ export const PerfilUsuario = (onNavigate) => {
       <img class='fotoPerfil' src=${perfil.fotoPerfil}></img>
       <p class='paísDiv'>PAÍS: ${perfil.pais}</p>
       <p class='nivelDiv'>NIVEL: ${perfil.nivel}</p>
-      <p class='recordDiv'>TRACK RECORD: ${perfil.record}</p>
-      <button class='editarPerfil'>EDITAR PERFIL</button>`;
+      <p class='recordDiv'>TRACK RECORD: ${perfil.record}</p>`;
       containerPerfil.innerHTML += divPerfil;
-      
-      const botonEditar = containerPerfil.querySelectorAll('.editarPerfil');
-        botonEditar.forEach((button) => {
-        button.addEventListener('click', () => {
-        onNavigate('/FotoPerfil');
-       });
-});
       });
-      
     }
   });
   /* eslint-enable */

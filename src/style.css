@@ -1186,7 +1186,7 @@ body {
 
   .usuario {
     grid-area: usuario;
-    width: 100%;
+    width: 90%;
     height: 30px;
     margin: 5px 10px;
     font-family: "Josefin Sans", sans-serif;
@@ -1213,11 +1213,12 @@ body {
 
   .equipo2 {
     grid-area: equipo2;
-    width: 100%;
-    height: 30px;
+    width: 90%;
+    height: max-content;
     margin: 10px 10px;
     font-family: "Josefin Sans", sans-serif;
     font-size: 15px;
+    word-wrap: break-word;
   }
 
   .likePublicacion {
@@ -2317,8 +2318,8 @@ body {
     background-position: 10px 5px;
   }
 
-  .editarPerfil {
-    width: 300px;
+  .btneditarPerfil {
+    width: 280px;
     height: 25px;
     background-color: #000000;
     font-weight: bold;
@@ -2330,17 +2331,18 @@ body {
     margin: 0 auto;
     text-decoration: none;
     font-size: 14px;
-    margin-top: -30px;
+    margin-top: -90px;
+    margin-left: 500px;
     position: relative;
     z-index: 1;
     overflow: hidden;
   }
 
-  .editarPerfil:hover {
+  .btneditarPerfil:hover {
     color: #fff;
   }
 
-  .editarPerfil::after {
+  .btneditarPerfil::after {
     content: "";
     background: #41b1117c;
     position: absolute;
@@ -2354,10 +2356,10 @@ body {
     transition: all 0.3s ease;
   }
 
-  .editarPerfil:hover::after {
+  .btneditarPerfil:hover::after {
     transition: all 0.3s ease-out;
     transform: scale(1, 1);
-  }
+  }*/
 
   /*------------------------------------------------------------ HEADER 2 --------------------------------------------------------*/
   .header2 {
@@ -2387,7 +2389,7 @@ body {
     background-color: #41b1117c;
     padding: 20px 30px;
     width: 100%;
-    height: 100vh;
+    min-height: calc(100vh - 2rem);
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 350px auto 350px;
@@ -2450,7 +2452,7 @@ body {
     list-style-type: none;
     color: #000000;
     gap: 70px;
-    padding-top: 30px;
+    padding-top: 35px;
     font-size: 30px;
     margin-top: 83px;
     left: 160px;
@@ -2779,10 +2781,10 @@ body {
     grid-area: contadorLikes;
     width: 100%;
     height: 30px;
+    margin: 25px 0px;
     font-family: "Josefin Sans", sans-serif;
-    font-size: 25px;
-    right: 0;
-    top: 35px;
+    font-size: 30px;
+    right: 120px;
   }
 
   .editarPublicacion {
@@ -2891,6 +2893,20 @@ body {
     transform: scale(1, 1);
   }
 
+  .eventosLista {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 10px;
+    padding-top: 20px;
+  }
+
+  .imagenEvento1, .imagenEvento2 {
+    width: 230px;
+    height: 230px;
+  }
  /*------------------------------------------------------------POP UP BORRAR POST------------------------------------------------*/
 
  .borrarDiv {

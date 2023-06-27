@@ -1,8 +1,6 @@
 import { getAuth } from 'firebase/auth';
 import {
   onSnapshot,
-  // getDoc,
-  // deleteDoc,
   collection,
   query,
   orderBy,
@@ -14,10 +12,10 @@ import lupa from '../Imagenes/lupa.png';
 import iconoHome from '../Imagenes/iconoHome.png';
 import iconoPerfil from '../Imagenes/iconoPerfil.png';
 import iconoSalir from '../Imagenes/iconoSalir.png';
+import fotoevento1 from '../Imagenes/evento1.jpeg';
+import fotoevento2 from '../Imagenes/evento2.jpeg';
 import {
   logout,
-  // obtenerUsers,
-  // usuarioCorreo,
   getUsername,
   traerPost,
   editarPost,
@@ -85,6 +83,16 @@ export const Home = (onNavigate) => {
   eventosLista.classList.add('eventosLista');
   const botonEvento = document.createElement('button');
   botonEvento.classList.add('botonEvento');
+  const evento1 = document.createElement('p');
+  const evento2 = document.createElement('p');
+  const imagenEvento1 = document.createElement('img')
+  const imagenEvento2 = document.createElement('img')
+  imagenEvento1.src = fotoevento1;
+  imagenEvento2.src = fotoevento2;
+  evento1.classList.add('evento1')
+  evento2.classList.add('evento2')
+  imagenEvento1.classList.add('imagenEvento1')
+  imagenEvento2.classList.add('imagenEvento2')
   /* MENÚ GRANDE */
 
   /* POPUP CERRAR SESIÓN */
@@ -210,8 +218,12 @@ export const Home = (onNavigate) => {
   HomeDiv.appendChild(eventosDiv1);
   eventosDiv1.appendChild(eventosDiv);
   eventosDiv.appendChild(tituloEventos);
-  eventosDiv.appendChild(botonEvento);
+  // eventosDiv.appendChild(botonEvento);
   eventosDiv.appendChild(eventosLista);
+  eventosLista.appendChild(imagenEvento1);
+  eventosLista.appendChild(evento1);
+  eventosLista.appendChild(imagenEvento2);
+  eventosLista.appendChild(evento2);
   /* MENÚ GRANDE */
 
   /* POPUP CERRAR SESIÓN */
