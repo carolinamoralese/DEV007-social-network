@@ -1295,19 +1295,114 @@ body {
     right: 30px;
   }
 
-  /*------------------------------------------------------------POP UP BORRAR POST------------------------------------------------*/
-
+ /* ------------------------------------------------------------POP UP BORRAR POST------------------------------------------------*/
  .borrarDiv {
   display: none;
   position: fixed;
-  z-index: -1;
+  z-index: 4;
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.486);
  }
+ .borrarPopup {
+  background-color: #FEFEFE;
+  margin: 15% auto;
+  border: 1px solid #888;
+  z-index: 4;
+  width: 90%;
+  height: 200px;
+  border-width: 2px;
+  border-color: #000000;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 100px;
+  grid-template-areas:
+    "mensaje mensaje"
+    "salir volver";
+ }
+ .borrarMensaje {
+  grid-area: mensaje;
+  margin: 40px auto;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+}
+.btnBorrar {
+  grid-area: salir;
+  width: 70%;
+  height: 50px;
+  margin: 10px auto;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  background: linear-gradient(#AEF393, #B5E9AF);
+  color: rgb(0, 0, 0);
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.btnBorrar:hover {
+  color: #fff;
+}
+.btnBorrar::after {
+  content: "";
+  background: #1D4261;
+  position: absolute;
+  z-index: -1;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: scale(0, 0);
+  transition: all 0.3s ease;
+}
+.btnBorrar:hover::after {
+  transition: all 0.3s ease-out;
+  transform: scale(1, 1);
+}
+.btnRegresar {
+  grid-area: volver;
+  width: 70%;
+  height: 50px;
+  margin: 10px auto;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  background: linear-gradient(#AEF393, #B5E9AF);
+  color: rgb(0, 0, 0);
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.btnRegresar:hover {
+  color: #fff;
+}
+.btnRegresar::after {
+  content: "";
+  background: #1D4261;
+  position: absolute;
+  z-index: -1;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: scale(0, 0);
+  transition: all 0.3s ease;
+}
+.btnRegresar:hover::after {
+  transition: all 0.3s ease-out;
+  transform: scale(1, 1);
+}
 
   /*------------------------------------------------------------POP UP CERRAR SESIÓN------------------------------------------------*/
   .salirDiv{
@@ -2750,7 +2845,7 @@ body {
     height: 100%;
     background-color: transparent;
     background-image: url(./Imagenes/montaña.png);
-    background-size: 30%;
+    background-size: 25%;
     background-repeat: no-repeat;
     background-position: 10% center;
   }
@@ -2760,10 +2855,10 @@ body {
     grid-area: contadorLikes;
     width: 100%;
     height: 30px;
-    margin: 25px 0px;
+    margin: 40px 0px;
     font-family: "Josefin Sans", sans-serif;
-    font-size: 30px;
-    right: 120px;
+    font-size: 25px;
+    right: 140px;
   }
 
   .editarPublicacion {
